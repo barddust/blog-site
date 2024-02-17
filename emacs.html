@@ -23,8 +23,8 @@
 </div>
 </div>
 <div id="content" class="content">
-<h1 class="title">Emacs 配置</h1>
 <div class="post">
+<h1 class="title">Emacs 配置</h1>
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
@@ -179,18 +179,10 @@
 </ul>
 </div>
 </div>
-<p>
-Philosophies from Meow
-</p>
-<ol class="org-ol">
-<li>distinguish word and symbol</li>
-<li>select THINGS: paren, squared, etc.</li>
-<li>Redesign my key mapping.</li>
-</ol>
 
 <div id="outline-container-前言" class="outline-2">
 <h2 id="前言"><a href="#前言">前言</a></h2>
-<div class="outline-text-2" id="text-orgd730395">
+<div class="outline-text-2" id="text-org5a73425">
 <p>
 Emacs 配置分享，下载路径在 GitHub 上：<a target="_blank" href="https://github.com/fingerknight/.emacs.d">https://github.com/fingerknight/.emacs.d</a>.
 </p>
@@ -199,12 +191,12 @@ Emacs 配置分享，下载路径在 GitHub 上：<a target="_blank" href="https
 
 <div id="outline-container-前配置 early-init" class="outline-2">
 <h2 id="前配置 early-init"><a href="#前配置 early-init">前配置 early-init</a></h2>
-<div class="outline-text-2" id="text-org418d941">
+<div class="outline-text-2" id="text-orga714fc4">
 </div>
 
 <div id="outline-container-定义基本变量" class="outline-3">
 <h3 id="定义基本变量"><a href="#定义基本变量">定义基本变量</a></h3>
-<div class="outline-text-3" id="text-org9e7c88e">
+<div class="outline-text-3" id="text-org9cb1853">
 <p>
 定义家目录以及四个目录分类：
 </p>
@@ -247,7 +239,7 @@ Emacs 配置分享，下载路径在 GitHub 上：<a target="_blank" href="https
 
 <div id="outline-container-启动加速 <sup class="fsup"><a id="fnr.1.1" class="footref" href="#fn.1" role="doc-backlink">[1]</a></sup> <sup>, </sup><sup class="fsup"><a id="fnr.2.1" class="footref" href="#fn.2" role="doc-backlink">[2]</a></sup>" class="outline-3">
 <h3 id="启动加速 <sup class="fsup"><a id="fnr.1.1" class="footref" href="#fn.1" role="doc-backlink">[1]</a></sup> <sup>, </sup><sup class="fsup"><a id="fnr.2.1" class="footref" href="#fn.2" role="doc-backlink">[2]</a></sup>"><a href="#启动加速 <sup class="fsup"><a id="fnr.1.1" class="footref" href="#fn.1" role="doc-backlink">[1]</a></sup> <sup>, </sup><sup class="fsup"><a id="fnr.2.1" class="footref" href="#fn.2" role="doc-backlink">[2]</a></sup>">启动加速 <sup class="fsup"><a id="fnr.1.1" class="footref" href="#fn.1" role="doc-backlink">[1]</a></sup> <sup>, </sup><sup class="fsup"><a id="fnr.2.1" class="footref" href="#fn.2" role="doc-backlink">[2]</a></sup></a></h3>
-<div class="outline-text-3" id="text-org99729e3">
+<div class="outline-text-3" id="text-orgda0ef5e">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">;;; Basic settings
@@ -279,7 +271,7 @@ Emacs 配置分享，下载路径在 GitHub 上：<a target="_blank" href="https
 
 <div id="outline-container-编码设置 <sup class="fsup"><a id="fnr.3.1" class="footref" href="#fn.3" role="doc-backlink">[3]</a></sup>" class="outline-3">
 <h3 id="编码设置 <sup class="fsup"><a id="fnr.3.1" class="footref" href="#fn.3" role="doc-backlink">[3]</a></sup>"><a href="#编码设置 <sup class="fsup"><a id="fnr.3.1" class="footref" href="#fn.3" role="doc-backlink">[3]</a></sup>">编码设置 <sup class="fsup"><a id="fnr.3.1" class="footref" href="#fn.3" role="doc-backlink">[3]</a></sup></a></h3>
-<div class="outline-text-3" id="text-org7e587e0">
+<div class="outline-text-3" id="text-orgecfe08e">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">;; Coding System
@@ -302,7 +294,7 @@ Emacs 配置分享，下载路径在 GitHub 上：<a target="_blank" href="https
 
 <div id="outline-container-GUI 设置" class="outline-3">
 <h3 id="GUI 设置"><a href="#GUI 设置">GUI 设置</a></h3>
-<div class="outline-text-3" id="text-orgb1e2067">
+<div class="outline-text-3" id="text-orgaabb882">
 <p>
 窗口最大化，关闭各种栏栏框框。
 </p>
@@ -324,7 +316,7 @@ Emacs 配置分享，下载路径在 GitHub 上：<a target="_blank" href="https
 
 <div id="outline-container-杂七杂八的设置" class="outline-3">
 <h3 id="杂七杂八的设置"><a href="#杂七杂八的设置">杂七杂八的设置</a></h3>
-<div class="outline-text-3" id="text-org4518a81">
+<div class="outline-text-3" id="text-org4407545">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">;; Misc
@@ -355,7 +347,7 @@ Emacs 配置分享，下载路径在 GitHub 上：<a target="_blank" href="https
 
 <div id="outline-container-结束 early-init" class="outline-3">
 <h3 id="结束 early-init"><a href="#结束 early-init">结束 early-init</a></h3>
-<div class="outline-text-3" id="text-org3cd3452">
+<div class="outline-text-3" id="text-org395f26c">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(provide 'early-init)</code>
@@ -368,7 +360,7 @@ Emacs 配置分享，下载路径在 GitHub 上：<a target="_blank" href="https
 
 <div id="outline-container-插件安装" class="outline-2">
 <h2 id="插件安装"><a href="#插件安装">插件安装</a></h2>
-<div class="outline-text-2" id="text-orgae36525">
+<div class="outline-text-2" id="text-orgf167529">
 <p>
 折腾来折腾去，还是 git 插件到本地来得实在，直接 load 就行，不考虑编译。
 </p>
@@ -413,7 +405,7 @@ If PKG has already existed, then try to reinstall it."
 
 <div id="outline-container-环境变量" class="outline-2">
 <h2 id="环境变量"><a href="#环境变量">环境变量</a></h2>
-<div class="outline-text-2" id="text-org8e306c3">
+<div class="outline-text-2" id="text-org3a8c602">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(dolist (path (directory-files user-module-directory
@@ -431,11 +423,11 @@ If PKG has already existed, then try to reinstall it."
 
 <div id="outline-container-SetupEl" class="outline-2">
 <h2 id="SetupEl"><a href="#SetupEl">SetupEl</a></h2>
-<div class="outline-text-2" id="text-org015601d">
+<div class="outline-text-2" id="text-orga930f71">
 </div>
 <div id="outline-container-简介" class="outline-3">
 <h3 id="简介"><a href="#简介">简介</a></h3>
-<div class="outline-text-3" id="text-org3d66676">
+<div class="outline-text-3" id="text-orgb519fbb">
 <p>
 <a target="_blank" href="https://git.sr.ht/~pkal/setup">setup.el</a> 是一套宏，可以用于做包和模块的管理。与各种包管理器类似，在 <code>(setup feature ...)</code> 中通过各种关键字来实现各种各样的功能。它提供了一套基础的关键字，很基础。但是自定义关键字非常简单。
 </p>
@@ -478,7 +470,7 @@ setup.el 内置关键字有：
 
 <div id="outline-container-安装" class="outline-3">
 <h3 id="安装"><a href="#安装">安装</a></h3>
-<div class="outline-text-3" id="text-org80268e5">
+<div class="outline-text-3" id="text-org171ad36">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">;;; SetupEl
@@ -493,7 +485,7 @@ setup.el 内置关键字有：
 
 <div id="outline-container-子系统与上下文" class="outline-3">
 <h3 id="子系统与上下文"><a href="#子系统与上下文">子系统与上下文</a></h3>
-<div class="outline-text-3" id="text-org684e451">
+<div class="outline-text-3" id="text-orgca2809c">
 <p>
 <code>(setup feature)</code> 表明配置一个名为 <code>feature</code> 的子系统。这个名字可以任意，可以是已存在的包名。如果是后者，后续可以方便的传入一些参数。
 </p>
@@ -569,7 +561,7 @@ setup 子系统的过程中，会保持几个变量： <code>feature</code>, <co
 
 <div id="outline-container-绑定" class="outline-3">
 <h3 id="绑定"><a href="#绑定">绑定</a></h3>
-<div class="outline-text-3" id="text-org0d92731">
+<div class="outline-text-3" id="text-org97cf91e">
 <p>
 <code>:global</code> 用于全局绑定，无关 feature. 如 <code>(:global "RET" newline-and-indent)</code>
 </p>
@@ -616,7 +608,7 @@ setup 子系统的过程中，会保持几个变量： <code>feature</code>, <co
 
 <div id="outline-container-包调用" class="outline-3">
 <h3 id="包调用"><a href="#包调用">包调用</a></h3>
-<div class="outline-text-3" id="text-orgd55dd40">
+<div class="outline-text-3" id="text-org8f23573">
 <p>
 前面提到过 <code>:package</code> 是用来安装包的，它指定了 shorthand （详见<a href="#自定义关键字">自定义关键字</a>），所以可以用来做 feature. 如下面这个系统的 feature 是 <code>simple</code>.
 </p>
@@ -664,7 +656,7 @@ setup 子系统的过程中，会保持几个变量： <code>feature</code>, <co
 
 <div id="outline-container-赋值" class="outline-3">
 <h3 id="赋值"><a href="#赋值">赋值</a></h3>
-<div class="outline-text-3" id="text-orgaee70fb">
+<div class="outline-text-3" id="text-orgccb12c9">
 <p>
 <code>:option</code> 是一个集大成的赋值方法，它是 repeatable, 因此使用方法和 <code>setq</code> 类似。如
 </p>
@@ -707,7 +699,7 @@ setup 子系统的过程中，会保持几个变量： <code>feature</code>, <co
 
 <div id="outline-container-钩子" class="outline-3">
 <h3 id="钩子"><a href="#钩子">钩子</a></h3>
-<div class="outline-text-3" id="text-org33eed5c">
+<div class="outline-text-3" id="text-orgb77dedf">
 <p>
 <code>:hook</code>, repeatable, 输入的是函数，把这些函数都钩到当前系统的 hook 中。如：
 </p>
@@ -744,7 +736,7 @@ setup 子系统的过程中，会保持几个变量： <code>feature</code>, <co
 
 <div id="outline-container-条件" class="outline-3">
 <h3 id="条件"><a href="#条件">条件</a></h3>
-<div class="outline-text-3" id="text-org88a4faa">
+<div class="outline-text-3" id="text-org653d786">
 <p>
 <code>:only-if</code> 判断条件，条件为假时整个 setup 退出。
 </p>
@@ -776,7 +768,7 @@ setup 子系统的过程中，会保持几个变量： <code>feature</code>, <co
 
 <div id="outline-container-自定义关键字" class="outline-3">
 <h3 id="自定义关键字"><a href="#自定义关键字">自定义关键字</a></h3>
-<div class="outline-text-3" id="text-org51c014c">
+<div class="outline-text-3" id="text-org5d44492">
 <p>
 <a target="_blank" href="https://www.emacswiki.org/emacs/SetupEl">Emacs Wiki</a> 上给出了许多有用的自定义关键字，我使用了其中一些。自定义关键字的框架是：
 </p>
@@ -800,7 +792,7 @@ setup 的执行过程就是把 body 当作宏来执行，因此关键字函数�
 
 <div id="outline-container-:doc" class="outline-4">
 <h4 id=":doc"><a href="#:doc">:doc</a></h4>
-<div class="outline-text-4" id="text-orgd8551f1">
+<div class="outline-text-4" id="text-org8a2b7c3">
 <p>
 先定义一个简单的 <code>:doc</code>, 用来记录当前系统的文档信息 <sup class="fsup"><a id="fnr.1.2" class="footref" href="#fn.1" role="doc-backlink">[1]</a></sup>。
 </p>
@@ -837,7 +829,7 @@ macro 返回的是 nil, 也就是这个关键词并不会真正参与到 setup �
 
 <div id="outline-container-:git" class="outline-4">
 <h4 id=":git"><a href="#:git">:git</a></h4>
-<div class="outline-text-4" id="text-orgb4eec9c">
+<div class="outline-text-4" id="text-orgce7cd26">
 <p>
 写一个 <code>:git</code> 作为 <code>:package</code> 的替代：
 </p>
@@ -882,7 +874,7 @@ The first PACKAGE can be used to deduce the feature context."
 
 <div id="outline-container-:load-path" class="outline-4">
 <h4 id=":load-path"><a href="#:load-path">:load-path</a></h4>
-<div class="outline-text-4" id="text-org6a3ee71">
+<div class="outline-text-4" id="text-org33063b9">
 <p>
 定义环境变量关键字，它可以传入一个 sexp, 把它的返回值加入环境变量，也可以是绝对路径，还可以是相对路径，相对于当前 feature 所在的路径（就是 <code>guess-path</code> ），最后返回一个 <code>add-to-list</code> 的宏。
 </p>
@@ -910,7 +902,7 @@ The first PACKAGE can be used to deduce the feature context."
 
 <div id="outline-container-:autoload" class="outline-4">
 <h4 id=":autoload"><a href="#:autoload">:autoload</a></h4>
-<div class="outline-text-4" id="text-orgb0d4c20">
+<div class="outline-text-4" id="text-orga500b0f">
 <p>
 <code>:autoload</code> 是基于当前系统的 feature 去查找，必要时用 <code>:with-feature</code> 切换上下文 <sup class="fsup"><a id="fnr.4.1" class="footref" href="#fn.4" role="doc-backlink">[4]</a></sup>。
 </p>
@@ -939,7 +931,7 @@ The first PACKAGE can be used to deduce the feature context."
 
 <div id="outline-container-:after" class="outline-4">
 <h4 id=":after"><a href="#:after">:after</a></h4>
-<div class="outline-text-4" id="text-org6ca7ab9">
+<div class="outline-text-4" id="text-org9f6beb4">
 <p>
 改良版的 <code>:when-loaded</code>, 它明确指定一个 feature 来使用 <code>with-eval-after-load</code>.
 </p>
@@ -992,7 +984,7 @@ If FEATURES is a list, apply BODY to all elements inside."
 
 <div id="outline-container-:diminish" class="outline-4">
 <h4 id=":diminish"><a href="#:diminish">:diminish</a></h4>
-<div class="outline-text-4" id="text-org267a5ec">
+<div class="outline-text-4" id="text-org48f81da">
 <p>
 名字取自 <a target="_blank" href="https://github.com/myrjola/diminish.el">diminish.el</a> 包，用来移除当前 minor-mode 在 mode-line 上的显示 <sup class="fsup"><a id="fnr.4.2" class="footref" href="#fn.4" role="doc-backlink">[4]</a></sup>。
 </p>
@@ -1014,7 +1006,7 @@ If FEATURES is a list, apply BODY to all elements inside."
 
 <div id="outline-container-:advice" class="outline-4">
 <h4 id=":advice"><a href="#:advice">:advice</a></h4>
-<div class="outline-text-4" id="text-org00ab5a8">
+<div class="outline-text-4" id="text-orgd9401f2">
 <p>
 添加 advice, 采用的是类似 <code>define-advice</code> 的形式 <sup class="fsup"><a id="fnr.4.3" class="footref" href="#fn.4" role="doc-backlink">[4]</a></sup>。
 </p>
@@ -1060,7 +1052,7 @@ See `advice-add' for more details."
 
 <div id="outline-container-:face" class="outline-4">
 <h4 id=":face"><a href="#:face">:face</a></h4>
-<div class="outline-text-4" id="text-org04228e6">
+<div class="outline-text-4" id="text-org6faa327">
 <p>
 这个关键字和 <code>:advice</code> 一样有点无聊，但是还是把它包装起来了。通过调用 <code>set-face-attribute</code> 方法来设置字体样式。
 </p>
@@ -1124,7 +1116,7 @@ t 表示补满剩下的参数。公共参数为 1，还需传入 2 个参数，�
 
 <div id="outline-container-:lazy" class="outline-4">
 <h4 id=":lazy"><a href="#:lazy">:lazy</a></h4>
-<div class="outline-text-4" id="text-org6d03bbb">
+<div class="outline-text-4" id="text-org97858f9">
 <p>
 懒加载，把要执行的 body 封装到一个函数里面，执行这个函数才会释放里面的内容。比如有一些比较大的插件就可以用 lazy 封装，把封装得到的函数绑定到快捷键上，当快捷键触发时才 requrie 。
 </p>
@@ -1171,7 +1163,7 @@ t 表示补满剩下的参数。公共参数为 1，还需传入 2 个参数，�
 
 <div id="outline-container-:global" class="outline-4">
 <h4 id=":global"><a href="#:global">:global</a></h4>
-<div class="outline-text-4" id="text-org652dd93">
+<div class="outline-text-4" id="text-orgab364b6">
 <p>
 原本 <code>:global</code> 就是单纯用来绑定全局按键的，现在加一个 hook, 把对应的按键也绑到 minibuffer 上，这是去除 modalka 的重要一步
 </p>
@@ -1195,7 +1187,7 @@ t 表示补满剩下的参数。公共参数为 1，还需传入 2 个参数，�
 
 <div id="outline-container-:disabled" class="outline-4">
 <h4 id=":disabled"><a href="#:disabled">:disabled</a></h4>
-<div class="outline-text-4" id="text-org2f9da18">
+<div class="outline-text-4" id="text-orgd007565">
 <p>
 停止后续setup, 用来调试或者弃用某个 feature.
 </p>
@@ -1218,11 +1210,11 @@ t 表示补满剩下的参数。公共参数为 1，还需传入 2 个参数，�
 
 <div id="outline-container-基础设置" class="outline-2">
 <h2 id="基础设置"><a href="#基础设置">基础设置</a></h2>
-<div class="outline-text-2" id="text-orgb10835a">
+<div class="outline-text-2" id="text-org3df9b71">
 </div>
 <div id="outline-container-Emacs 函数库" class="outline-3">
 <h3 id="Emacs 函数库"><a href="#Emacs 函数库">Emacs 函数库</a></h3>
-<div class="outline-text-3" id="text-org06b20a8">
+<div class="outline-text-3" id="text-org57761f7">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup (:git dash "https://github.com/magnars/dash.el")
@@ -1247,7 +1239,7 @@ t 表示补满剩下的参数。公共参数为 1，还需传入 2 个参数，�
 
 <div id="outline-container-基本按键映射" class="outline-3">
 <h3 id="基本按键映射"><a href="#基本按键映射">基本按键映射</a></h3>
-<div class="outline-text-3" id="text-org87dcffc">
+<div class="outline-text-3" id="text-orgac9b398">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup keys
@@ -1287,7 +1279,7 @@ t 表示补满剩下的参数。公共参数为 1，还需传入 2 个参数，�
 
 <div id="outline-container-Minibuffer" class="outline-3">
 <h3 id="Minibuffer"><a href="#Minibuffer">Minibuffer</a></h3>
-<div class="outline-text-3" id="text-org58f71c3">
+<div class="outline-text-3" id="text-orgc1ee088">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup minibuffer
@@ -1307,11 +1299,11 @@ t 表示补满剩下的参数。公共参数为 1，还需传入 2 个参数，�
 
 <div id="outline-container-外观设置" class="outline-2">
 <h2 id="外观设置"><a href="#外观设置">外观设置</a></h2>
-<div class="outline-text-2" id="text-org1616780">
+<div class="outline-text-2" id="text-orgcdbbadd">
 </div>
 <div id="outline-container-字体设置" class="outline-3">
 <h3 id="字体设置"><a href="#字体设置">字体设置</a></h3>
-<div class="outline-text-3" id="text-orgf20c50c">
+<div class="outline-text-3" id="text-org069592b">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup faces
@@ -1336,7 +1328,7 @@ t 表示补满剩下的参数。公共参数为 1，还需传入 2 个参数，�
 
 <div id="outline-container-主题设置" class="outline-3">
 <h3 id="主题设置"><a href="#主题设置">主题设置</a></h3>
-<div class="outline-text-3" id="text-org383f54f">
+<div class="outline-text-3" id="text-org57a339f">
 <p>
 <a target="_blank" href="https://draculatheme.com/">Dracule Theme</a> 的忠实粉丝就是我了，恨不得整个操作系统都用上。
 </p>
@@ -1355,7 +1347,7 @@ t 表示补满剩下的参数。公共参数为 1，还需传入 2 个参数，�
 
 <div id="outline-container-图标" class="outline-3">
 <h3 id="图标"><a href="#图标">图标</a></h3>
-<div class="outline-text-3" id="text-org0cb7350">
+<div class="outline-text-3" id="text-orge5a0c52">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup (:git all-the-icons "https://github.com/domtronn/all-the-icons.el")
@@ -1369,11 +1361,11 @@ t 表示补满剩下的参数。公共参数为 1，还需传入 2 个参数，�
 
 <div id="outline-container-编辑设置" class="outline-2">
 <h2 id="编辑设置"><a href="#编辑设置">编辑设置</a></h2>
-<div class="outline-text-2" id="text-org00c3ac3">
+<div class="outline-text-2" id="text-orgb043b84">
 </div>
 <div id="outline-container-基本编辑操作" class="outline-3">
 <h3 id="基本编辑操作"><a href="#基本编辑操作">基本编辑操作</a></h3>
-<div class="outline-text-3" id="text-org04d2ba1">
+<div class="outline-text-3" id="text-orgff8e995">
 <p>
 定义了包括光标移动、复制粘贴、选择删除等一系列相关操作，以及快捷键定义。
 </p>
@@ -1532,7 +1524,7 @@ t 表示补满剩下的参数。公共参数为 1，还需传入 2 个参数，�
 
 <div id="outline-container-文件自动刷新" class="outline-3">
 <h3 id="文件自动刷新"><a href="#文件自动刷新">文件自动刷新</a></h3>
-<div class="outline-text-3" id="text-org26ac6c1">
+<div class="outline-text-3" id="text-orgebe5aec">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup autorevert
@@ -1547,7 +1539,7 @@ t 表示补满剩下的参数。公共参数为 1，还需传入 2 个参数，�
 
 <div id="outline-container-保存历史记录和光标位置" class="outline-3">
 <h3 id="保存历史记录和光标位置"><a href="#保存历史记录和光标位置">保存历史记录和光标位置</a></h3>
-<div class="outline-text-3" id="text-orgf9818ce">
+<div class="outline-text-3" id="text-org8aa2cab">
 <p>
 我确实没想到还能在这种地方 hook, 看了前辈的配置直接震惊一整晚 <sup class="fsup"><a id="fnr.2.2" class="footref" href="#fn.2" role="doc-backlink">[2]</a></sup>。
 </p>
@@ -1580,11 +1572,11 @@ t 表示补满剩下的参数。公共参数为 1，还需传入 2 个参数，�
 
 <div id="outline-container-窗口设置" class="outline-3">
 <h3 id="窗口设置"><a href="#窗口设置">窗口设置</a></h3>
-<div class="outline-text-3" id="text-org0b103c1">
+<div class="outline-text-3" id="text-org52bfc21">
 </div>
 <div id="outline-container-窗口分割" class="outline-4">
 <h4 id="窗口分割"><a href="#窗口分割">窗口分割</a></h4>
-<div class="outline-text-4" id="text-org9c5abd2">
+<div class="outline-text-4" id="text-org200930f">
 <p>
 选择 buffer, 水平或垂直分隔。
 </p>
@@ -1610,7 +1602,7 @@ t 表示补满剩下的参数。公共参数为 1，还需传入 2 个参数，�
 
 <div id="outline-container-窗口间移动" class="outline-4">
 <h4 id="窗口间移动"><a href="#窗口间移动">窗口间移动</a></h4>
-<div class="outline-text-4" id="text-org82332c2">
+<div class="outline-text-4" id="text-orgfe932de">
 <p>
 使用数字编号在窗口间快速移动。原包好久不维护了，define-minor-mode 没有用关键字参数导致一直报 warning. 于是用了 pr 列表里面的一个 fork.
 </p>
@@ -1642,11 +1634,11 @@ t 表示补满剩下的参数。公共参数为 1，还需传入 2 个参数，�
 
 <div id="outline-container-括号增强" class="outline-3">
 <h3 id="括号增强"><a href="#括号增强">括号增强</a></h3>
-<div class="outline-text-3" id="text-org55035c4">
+<div class="outline-text-3" id="text-orgd923dfa">
 </div>
 <div id="outline-container-高亮括号" class="outline-4">
 <h4 id="高亮括号"><a href="#高亮括号">高亮括号</a></h4>
-<div class="outline-text-4" id="text-org3d56d17">
+<div class="outline-text-4" id="text-org5e99706">
 <p>
 高亮包围当前光标位置的括号，并用方框标识。
 </p>
@@ -1675,7 +1667,7 @@ t 表示补满剩下的参数。公共参数为 1，还需传入 2 个参数，�
 
 <div id="outline-container-Smart Parens" class="outline-4">
 <h4 id="Smart Parens"><a href="#Smart Parens">Smart Parens</a></h4>
-<div class="outline-text-4" id="text-org4d47504">
+<div class="outline-text-4" id="text-orgb9c6c67">
 <p>
 增强版的 electric-pair-mode, 同时提供了一些基于括号的操作，参见<a target="_blank" href="https://ebzzry.com/en/emacs-pairs/">Emacs and Pairs</a>.
 </p>
@@ -1724,11 +1716,11 @@ t 表示补满剩下的参数。公共参数为 1，还需传入 2 个参数，�
 
 <div id="outline-container-补全增强" class="outline-3">
 <h3 id="补全增强"><a href="#补全增强">补全增强</a></h3>
-<div class="outline-text-3" id="text-org2bad54d">
+<div class="outline-text-3" id="text-org4553e69">
 </div>
 <div id="outline-container-补全前端" class="outline-4">
 <h4 id="补全前端"><a href="#补全前端">补全前端</a></h4>
-<div class="outline-text-4" id="text-org977bf34">
+<div class="outline-text-4" id="text-orgd7b0339">
 <p>
 弹框补全 corfu. 图标用的是 kind-all-the-icons, 源自论坛大佬：<a target="_blank" href="https://emacs-china.org/t/corfu-all-the-icons-icon/20907">糊了一个 corfu 适用的 all-the-icons 的 icon 效果 - Emacs-general - Emacs China</a>。
 </p>
@@ -1767,7 +1759,7 @@ t 表示补满剩下的参数。公共参数为 1，还需传入 2 个参数，�
 
 <div id="outline-container-补全后端" class="outline-4">
 <h4 id="补全后端"><a href="#补全后端">补全后端</a></h4>
-<div class="outline-text-4" id="text-org8aeaa58">
+<div class="outline-text-4" id="text-org89e4dc2">
 <p>
 cape 提供了多种补全后端，目前用得并不多。
 </p>
@@ -1788,7 +1780,7 @@ cape 提供了多种补全后端，目前用得并不多。
 
 <div id="outline-container-补全模版" class="outline-4">
 <h4 id="补全模版"><a href="#补全模版">补全模版</a></h4>
-<div class="outline-text-4" id="text-org27efff6">
+<div class="outline-text-4" id="text-orgc4e8e27">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup (:git yasnippet "https://github.com/joaotavora/yasnippet")
@@ -1849,7 +1841,7 @@ cape 提供了多种补全后端，目前用得并不多。
 
 <div id="outline-container-Minibuffer 增强" class="outline-3">
 <h3 id="Minibuffer 增强"><a href="#Minibuffer 增强">Minibuffer 增强</a></h3>
-<div class="outline-text-3" id="text-orgf9643b7">
+<div class="outline-text-3" id="text-org9f39ba6">
 <p>
 新三件套 (vertico, orderless, consult)
 </p>
@@ -1929,7 +1921,7 @@ cape 提供了多种补全后端，目前用得并不多。
 
 <div id="outline-container-Isearch 增强" class="outline-3">
 <h3 id="Isearch 增强"><a href="#Isearch 增强">Isearch 增强</a></h3>
-<div class="outline-text-3" id="text-orge744712">
+<div class="outline-text-3" id="text-org869e817">
 <p>
 使用 phi-search, 支持 emacs-rime
 </p>
@@ -1971,7 +1963,7 @@ cape 提供了多种补全后端，目前用得并不多。
 
 <div id="outline-container-连续按键" class="outline-3">
 <h3 id="连续按键"><a href="#连续按键">连续按键</a></h3>
-<div class="outline-text-3" id="text-orgbdda17f">
+<div class="outline-text-3" id="text-orgb1a8460">
 <p>
 有时候需要需要连续用到几个组合键，比如在 Org Mode 中，下一个标题的按键是 <code>C-c C-n</code>, 连续使用就需要多次按下这个组合键，使用起来甚是不便。Hydra 就是用来解决这类问题的插件。
 </p>
@@ -1990,15 +1982,15 @@ cape 提供了多种补全后端，目前用得并不多。
 
 <div id="outline-container-编程" class="outline-2">
 <h2 id="编程"><a href="#编程">编程</a></h2>
-<div class="outline-text-2" id="text-orgd466125">
+<div class="outline-text-2" id="text-org27b2b56">
 </div>
 <div id="outline-container-显示" class="outline-3">
 <h3 id="显示"><a href="#显示">显示</a></h3>
-<div class="outline-text-3" id="text-org506697d">
+<div class="outline-text-3" id="text-org08e0209">
 </div>
 <div id="outline-container-行号" class="outline-4">
 <h4 id="行号"><a href="#行号">行号</a></h4>
-<div class="outline-text-4" id="text-org35c4bc4">
+<div class="outline-text-4" id="text-orgbf7e8bb">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup display-line-numbers
@@ -2020,7 +2012,7 @@ cape 提供了多种补全后端，目前用得并不多。
 
 <div id="outline-container-高亮当前行" class="outline-4">
 <h4 id="高亮当前行"><a href="#高亮当前行">高亮当前行</a></h4>
-<div class="outline-text-4" id="text-org4f00c14">
+<div class="outline-text-4" id="text-org4d889f9">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup hl-line
@@ -2034,7 +2026,7 @@ cape 提供了多种补全后端，目前用得并不多。
 
 <div id="outline-container-彩色括号" class="outline-4">
 <h4 id="彩色括号"><a href="#彩色括号">彩色括号</a></h4>
-<div class="outline-text-4" id="text-org6fdc4d9">
+<div class="outline-text-4" id="text-org170c8ce">
 <p>
 对不同层次的括号使用不同颜色，对 Lisp 这种多重括号尤其有效。
 </p>
@@ -2052,7 +2044,7 @@ cape 提供了多种补全后端，目前用得并不多。
 
 <div id="outline-container-不显示 eldoc" class="outline-4">
 <h4 id="不显示 eldoc"><a href="#不显示 eldoc">不显示 eldoc</a></h4>
-<div class="outline-text-4" id="text-org764a957">
+<div class="outline-text-4" id="text-org878bdd4">
 <p>
 还要单独为这个写一个 setup, 多捞哦。
 </p>
@@ -2068,7 +2060,7 @@ cape 提供了多种补全后端，目前用得并不多。
 </div>
 <div id="outline-container-缩进提示" class="outline-4">
 <h4 id="缩进提示"><a href="#缩进提示">缩进提示</a></h4>
-<div class="outline-text-4" id="text-org58ecf8b">
+<div class="outline-text-4" id="text-org4bdba13">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup (:git highlight-indent-guides "https://github.com/DarthFennec/highlight-indent-guides")
@@ -2092,7 +2084,7 @@ cape 提供了多种补全后端，目前用得并不多。
 </div>
 <div id="outline-container-移动到缩进行首" class="outline-3">
 <h3 id="移动到缩进行首"><a href="#移动到缩进行首">移动到缩进行首</a></h3>
-<div class="outline-text-3" id="text-orgf3c1565">
+<div class="outline-text-3" id="text-org329508e">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup (:git mwim "https://github.com/alezost/mwim.el")
@@ -2109,7 +2101,7 @@ cape 提供了多种补全后端，目前用得并不多。
 
 <div id="outline-container-代码折叠" class="outline-3">
 <h3 id="代码折叠"><a href="#代码折叠">代码折叠</a></h3>
-<div class="outline-text-3" id="text-org23bb57b">
+<div class="outline-text-3" id="text-org17aa0d6">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup hideshow
@@ -2130,7 +2122,7 @@ cape 提供了多种补全后端，目前用得并不多。
 </div>
 <div id="outline-container-LSP" class="outline-3">
 <h3 id="LSP"><a href="#LSP">LSP</a></h3>
-<div class="outline-text-3" id="text-orga789604">
+<div class="outline-text-3" id="text-org481bd4c">
 <p>
 不搞开发，能用就行。不 hook <code>prog-mode</code> 的原因是写比如 elisp 就没必要启动用它。
 </p>
@@ -2163,7 +2155,7 @@ cape 提供了多种补全后端，目前用得并不多。
 
 <div id="outline-container-Tree-sitter" class="outline-3">
 <h3 id="Tree-sitter"><a href="#Tree-sitter">Tree-sitter</a></h3>
-<div class="outline-text-3" id="text-org0653c7d">
+<div class="outline-text-3" id="text-orgaf6fd80">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup treesit
@@ -2181,7 +2173,7 @@ cape 提供了多种补全后端，目前用得并不多。
 
 <div id="outline-container-YAML" class="outline-3">
 <h3 id="YAML"><a href="#YAML">YAML</a></h3>
-<div class="outline-text-3" id="text-org0bfe436">
+<div class="outline-text-3" id="text-org052627f">
 <p>
 偶尔会用到。
 </p>
@@ -2199,11 +2191,11 @@ cape 提供了多种补全后端，目前用得并不多。
 
 <div id="outline-container-Emacs Lisp" class="outline-3">
 <h3 id="Emacs Lisp"><a href="#Emacs Lisp">Emacs Lisp</a></h3>
-<div class="outline-text-3" id="text-org3174407">
+<div class="outline-text-3" id="text-org15a4c04">
 </div>
 <div id="outline-container-elisp-def" class="outline-4">
 <h4 id="elisp-def"><a href="#elisp-def">elisp-def</a></h4>
-<div class="outline-text-4" id="text-orgaf07225">
+<div class="outline-text-4" id="text-org236923c">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup (:git elisp-def "https://github.com/Wilfred/elisp-def")
@@ -2220,7 +2212,7 @@ cape 提供了多种补全后端，目前用得并不多。
 
 <div id="outline-container-Yuck" class="outline-3">
 <h3 id="Yuck"><a href="#Yuck">Yuck</a></h3>
-<div class="outline-text-3" id="text-orgf9a07d7">
+<div class="outline-text-3" id="text-org946ee48">
 <p>
 Yuck 是窗口图形模块套件 <a target="_blank" href="https://elkowar.github.io/eww/">EWW</a> 的语言，基于 Lisp.
 </p>
@@ -2239,7 +2231,7 @@ Yuck 是窗口图形模块套件 <a target="_blank" href="https://elkowar.github
 
 <div id="outline-container-Sxhkd" class="outline-3">
 <h3 id="Sxhkd"><a href="#Sxhkd">Sxhkd</a></h3>
-<div class="outline-text-3" id="text-org73f8922">
+<div class="outline-text-3" id="text-orgd61fff8">
 <p>
 bspwm 下的键盘映射配置。
 </p>
@@ -2258,7 +2250,7 @@ bspwm 下的键盘映射配置。
 
 <div id="outline-container-Jinja2" class="outline-3">
 <h3 id="Jinja2"><a href="#Jinja2">Jinja2</a></h3>
-<div class="outline-text-3" id="text-orgca6cfe1">
+<div class="outline-text-3" id="text-orgdd12ce0">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup (:git jinja2-mode "https://github.com/paradoxxxzero/jinja2-mode")
@@ -2273,7 +2265,7 @@ bspwm 下的键盘映射配置。
 
 <div id="outline-container-Markdown" class="outline-3">
 <h3 id="Markdown"><a href="#Markdown">Markdown</a></h3>
-<div class="outline-text-3" id="text-org01bda3e">
+<div class="outline-text-3" id="text-orgea5c5ea">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup (:git markdown-mode "https://github.com/jrblevin/markdown-mode")
@@ -2289,7 +2281,7 @@ bspwm 下的键盘映射配置。
 
 <div id="outline-container-Elvish" class="outline-3">
 <h3 id="Elvish"><a href="#Elvish">Elvish</a></h3>
-<div class="outline-text-3" id="text-org9399c69">
+<div class="outline-text-3" id="text-org4da49d6">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup (:git elvish-mode "https://github.com/ALSchwalm/elvish-mode")
@@ -2306,7 +2298,7 @@ bspwm 下的键盘映射配置。
 
 <div id="outline-container-Lua" class="outline-3">
 <h3 id="Lua"><a href="#Lua">Lua</a></h3>
-<div class="outline-text-3" id="text-org4e74c86">
+<div class="outline-text-3" id="text-orgbed1bc5">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup (:git lua-mode "https://github.com/immerrr/lua-mode")
@@ -2324,7 +2316,7 @@ bspwm 下的键盘映射配置。
 
 <div id="outline-container-Org mode" class="outline-2">
 <h2 id="Org mode"><a href="#Org mode">Org mode</a></h2>
-<div class="outline-text-2" id="text-org45cee54">
+<div class="outline-text-2" id="text-org9320a73">
 <p>
 Org mode 原本是一个基于 outline 的任务管理，但是因为提供了丰富的语言标记，以及结合 emacs 提供导出、发布等各种操作，它已然成为一个强大的笔记、管理、收集等集一体的系统。
 </p>
@@ -2395,7 +2387,7 @@ Org mode 原本是一个基于 outline 的任务管理，但是因为提供了�
 
 <div id="outline-container-快速改变 heading" class="outline-3">
 <h3 id="快速改变 heading"><a href="#快速改变 heading">快速改变 heading</a></h3>
-<div class="outline-text-3" id="text-orgef92584">
+<div class="outline-text-3" id="text-orgdedbe4b">
 <p>
 通过快捷键来快速调整 headline 等级。
 </p>
@@ -2444,7 +2436,7 @@ Org mode 原本是一个基于 outline 的任务管理，但是因为提供了�
 
 <div id="outline-container-快速插入" class="outline-3">
 <h3 id="快速插入"><a href="#快速插入">快速插入</a></h3>
-<div class="outline-text-3" id="text-org60f619a">
+<div class="outline-text-3" id="text-org7b72139">
 <ol class="org-ol">
 <li>输入一个 URL, 尝试自动获取返回的 HTML 的 <code>&lt;title&gt;</code>, 如果有就把它作为 org-link 的 description.</li>
 <li>给定一个存放图片的目录，按最近修改时间排序</li>
@@ -2567,7 +2559,7 @@ Org mode 原本是一个基于 outline 的任务管理，但是因为提供了�
 
 <div id="outline-container-Org Agenda" class="outline-3">
 <h3 id="Org Agenda"><a href="#Org Agenda">Org Agenda</a></h3>
-<div class="outline-text-3" id="text-org6a822ad">
+<div class="outline-text-3" id="text-orgc17aee3">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup org-agenda
@@ -2592,7 +2584,7 @@ Org mode 原本是一个基于 outline 的任务管理，但是因为提供了�
 
 <div id="outline-container-样式美化" class="outline-3">
 <h3 id="样式美化"><a href="#样式美化">样式美化</a></h3>
-<div class="outline-text-3" id="text-orga80f711">
+<div class="outline-text-3" id="text-org366b97c">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup (:git org-modern "https://github.com/minad/org-modern")
@@ -2623,7 +2615,7 @@ Org mode 原本是一个基于 outline 的任务管理，但是因为提供了�
 
 <div id="outline-container-排版" class="outline-3">
 <h3 id="排版"><a href="#排版">排版</a></h3>
-<div class="outline-text-3" id="text-orgd81a319">
+<div class="outline-text-3" id="text-org2eb80fb">
 <p>
 采用左右两侧留白，页面集中到中部的排版。
 </p>
@@ -2644,7 +2636,7 @@ Org mode 原本是一个基于 outline 的任务管理，但是因为提供了�
 
 <div id="outline-container-Latex 导出" class="outline-3">
 <h3 id="Latex 导出"><a href="#Latex 导出">Latex 导出</a></h3>
-<div class="outline-text-3" id="text-orgd486e9a">
+<div class="outline-text-3" id="text-org480149f">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup org-latex
@@ -2667,7 +2659,7 @@ Org mode 原本是一个基于 outline 的任务管理，但是因为提供了�
 </div>
 <div id="outline-container-快速查询" class="outline-3">
 <h3 id="快速查询"><a href="#快速查询">快速查询</a></h3>
-<div class="outline-text-3" id="text-orgb38e4ca">
+<div class="outline-text-3" id="text-org931702b">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup (:git org-ql "https://github.com/alphapapa/org-ql"
@@ -2690,11 +2682,11 @@ Org mode 原本是一个基于 outline 的任务管理，但是因为提供了�
 
 <div id="outline-container-工具" class="outline-2">
 <h2 id="工具"><a href="#工具">工具</a></h2>
-<div class="outline-text-2" id="text-orgfa3a13d">
+<div class="outline-text-2" id="text-orge9246cc">
 </div>
 <div id="outline-container-输入法" class="outline-3">
 <h3 id="输入法"><a href="#输入法">输入法</a></h3>
-<div class="outline-text-3" id="text-org555004d">
+<div class="outline-text-3" id="text-orgeef94c7">
 <p>
 Emacs 的 RIME 输入法，只要断言做得好，就可以丝滑地在中英文输入法之间切换，且不会影响快捷键的使用。
 </p>
@@ -2753,7 +2745,7 @@ Emacs 的 RIME 输入法，只要断言做得好，就可以丝滑地在中英�
 </div>
 <div id="outline-container-文件管理" class="outline-3">
 <h3 id="文件管理"><a href="#文件管理">文件管理</a></h3>
-<div class="outline-text-3" id="text-org8607d53">
+<div class="outline-text-3" id="text-org12f28f7">
 <p>
 Dirvish 是一个非常优秀的文件管理器，优美的前端，集成 Dired, 它完全能够作为一个独立的基于命令行的文件管理器使用（我确实也是把它作为系统默认的文件管理器使用）
 </p>
@@ -2841,7 +2833,7 @@ Dirvish 是一个非常优秀的文件管理器，优美的前端，集成 Dired
 </div>
 <div id="outline-container-中文分词" class="outline-3">
 <h3 id="中文分词"><a href="#中文分词">中文分词</a></h3>
-<div class="outline-text-3" id="text-org8f0dc1e">
+<div class="outline-text-3" id="text-org4abe7e7">
 <p>
 基于中文分词的词语移动。Emacs 内置的 forward-word/backward-word 遇上中文会直接跑到句子结束。用了 jieba 分词就可以实现中文词语的 forward/backward.
 </p>
@@ -2876,7 +2868,7 @@ jieba.el 在每个 Emacs 应用打开都会启动一个 node-js 的服务器，�
 
 <div id="outline-container-大纲展示" class="outline-3">
 <h3 id="大纲展示"><a href="#大纲展示">大纲展示</a></h3>
-<div class="outline-text-3" id="text-orgc31d87b">
+<div class="outline-text-3" id="text-org603fbdf">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup (:git imenu-list "https://github.com/bmag/imenu-list")
@@ -2902,7 +2894,7 @@ jieba.el 在每个 Emacs 应用打开都会启动一个 node-js 的服务器，�
 
 <div id="outline-container-摘抄库" class="outline-3">
 <h3 id="摘抄库"><a href="#摘抄库">摘抄库</a></h3>
-<div class="outline-text-3" id="text-orgc94ee80">
+<div class="outline-text-3" id="text-orgf73c6e9">
 <p>
 自己写的一个摘抄管理，用 sqlite3 数据库。
 </p>
@@ -2923,7 +2915,7 @@ jieba.el 在每个 Emacs 应用打开都会启动一个 node-js 的服务器，�
 
 <div id="outline-container-记忆工具" class="outline-3">
 <h3 id="记忆工具"><a href="#记忆工具">记忆工具</a></h3>
-<div class="outline-text-3" id="text-orga4b4cbc">
+<div class="outline-text-3" id="text-org9d07d6f">
 <p>
 卡片记忆方法，虽然并不是很卡片。
 </p>
@@ -2957,7 +2949,7 @@ jieba.el 在每个 Emacs 应用打开都会启动一个 node-js 的服务器，�
 
 <div id="outline-container-音乐播放器" class="outline-3">
 <h3 id="音乐播放器"><a href="#音乐播放器">音乐播放器</a></h3>
-<div class="outline-text-3" id="text-org326d8f6">
+<div class="outline-text-3" id="text-orga89adb0">
 <p>
 MPD 的前端，其实还是用的 MPC, 所以它是 MPD 前端的前端。简单但够用。
 </p>
@@ -2994,7 +2986,7 @@ MPD 的前端，其实还是用的 MPC, 所以它是 MPD 前端的前端。简�
 
 <div id="outline-container-邮件和订阅" class="outline-3">
 <h3 id="邮件和订阅"><a href="#邮件和订阅">邮件和订阅</a></h3>
-<div class="outline-text-3" id="text-org074bb04">
+<div class="outline-text-3" id="text-orgc07b010">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup gnus
@@ -3009,7 +3001,7 @@ MPD 的前端，其实还是用的 MPC, 所以它是 MPD 前端的前端。简�
 
 <div id="outline-container-日志" class="outline-3">
 <h3 id="日志"><a href="#日志">日志</a></h3>
-<div class="outline-text-3" id="text-org9cee72f">
+<div class="outline-text-3" id="text-orgf3c76cf">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup (:git org-journal "https://github.com/bastibe/org-journal")
@@ -3057,7 +3049,7 @@ MPD 的前端，其实还是用的 MPC, 所以它是 MPD 前端的前端。简�
 
 <div id="outline-container-番茄闹钟" class="outline-3">
 <h3 id="番茄闹钟"><a href="#番茄闹钟">番茄闹钟</a></h3>
-<div class="outline-text-3" id="text-org2c313b9">
+<div class="outline-text-3" id="text-orgb4aeb8d">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup (:git org-pomodoro "https://github.com/marcinkoziej/org-pomodoro"
@@ -3080,7 +3072,7 @@ MPD 的前端，其实还是用的 MPC, 所以它是 MPD 前端的前端。简�
 
 <div id="outline-container-笔记管理" class="outline-3">
 <h3 id="笔记管理"><a href="#笔记管理">笔记管理</a></h3>
-<div class="outline-text-3" id="text-orgf09e572">
+<div class="outline-text-3" id="text-org3b77d5d">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup (:git denote "https://github.com/protesilaos/denote")
@@ -3166,7 +3158,7 @@ set to '(subdirectory title keywords)."
 </div>
 <div id="outline-container-博客生成" class="outline-3">
 <h3 id="博客生成"><a href="#博客生成">博客生成</a></h3>
-<div class="outline-text-3" id="text-org8eb703e">
+<div class="outline-text-3" id="text-org3f654da">
 <p>
 基于 <a target="_blank" href="https://github.com/bastibe/org-static-blog">org-static-blog</a> 写的自用的 publish 系统。
 </p>
@@ -3309,7 +3301,7 @@ hljs.highlightElement(codeElement);
 </div>
 <div id="outline-container-书籍管理" class="outline-3">
 <h3 id="书籍管理"><a href="#书籍管理">书籍管理</a></h3>
-<div class="outline-text-3" id="text-org67a59e6">
+<div class="outline-text-3" id="text-org94e88d0">
 <p>
 用 org mode 的 Attachment 来做书籍管理。 <code>:PROPERTIES:</code> 里填上各种信息，然后对应的文件名字归一化。加一个 advice, 使得文档打开使用当前窗口，而不是默认的 find-file-other-window.
 </p>
@@ -3393,11 +3385,11 @@ hljs.highlightElement(codeElement);
 
 <div id="outline-container-文档阅读" class="outline-3">
 <h3 id="文档阅读"><a href="#文档阅读">文档阅读</a></h3>
-<div class="outline-text-3" id="text-org32f5255">
+<div class="outline-text-3" id="text-orgef427c2">
 </div>
 <div id="outline-container-EPUB" class="outline-4">
 <h4 id="EPUB"><a href="#EPUB">EPUB</a></h4>
-<div class="outline-text-4" id="text-org19fef64">
+<div class="outline-text-4" id="text-org8b65cd3">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup (:git nov "https://depp.brause.cc/nov.el.git"
@@ -3413,7 +3405,7 @@ hljs.highlightElement(codeElement);
 
 <div id="outline-container-PDF" class="outline-4">
 <h4 id="PDF"><a href="#PDF">PDF</a></h4>
-<div class="outline-text-4" id="text-orgfb9ac0f">
+<div class="outline-text-4" id="text-org796ea5f">
 <p>
 要执行一遍 <code>/pdf-tools/server/autobuild</code>, 它自动安装 epdfinfo 到指定位置。 <code>pdf-view-restore</code> 用来保存文档阅读到的位置，下次打开后自动跳转过去。
 </p>
@@ -3455,7 +3447,7 @@ hljs.highlightElement(codeElement);
 
 <div id="outline-container-配置结束" class="outline-2">
 <h2 id="配置结束"><a href="#配置结束">配置结束</a></h2>
-<div class="outline-text-2" id="text-org80c7379">
+<div class="outline-text-2" id="text-org30ed929">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(defun startup-echo-area-message ()

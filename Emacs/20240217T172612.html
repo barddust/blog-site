@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title> 用 Org Mode 写博客并通过 GitHub Action 部署到 Cloudflare - Ward of Dust </title>
+<meta name="author" content="MrDust">
+<link rel="stylesheet" href="/static/Fantasque/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dracula-prism@2.1.16/dist/css/dracula-prism.min.css">
+<link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/static/Slippery/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@callmebill/lxgw-wenkai-web@latest/style.css"><link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header">
+<div class="title">
+<a href="/">Ward of Dust</a>
+</div>
+<div class="navigation">
+<a class="item" href="/archive.html">Archives</a>
+<a class="item" href="/taxonomy.html">Taxonomy</a>
+<a class="item" href="/about.html">About</a></div>
+</div>
+</div>
+<div id="content" class="content">
+<div class="post">
+<h1 class="title">用 Org Mode 写博客并通过 GitHub Action 部署到 Cloudflare</h1>
+<div class="metadata">
+<div class="date"><span>2024-02-17</span></div>
+<div class="tags">
+<a class="tag" href="/tag/blog.html">#blog</a> <a class="tag" href="/tag/cloudflare.html">#cloudflare</a> <a class="tag" href="/tag/emacs.html">#emacs</a> <a class="tag" href="/tag/githubpage.html">#githubpage</a> <a class="tag" href="/tag/orgmode.html">#orgmode</a> <a class="tag" href="/tag/post.html">#post</a></div>
+<div class="category">
+<a href="/category/Emacs.html">$Emacs</a>
+</div>
+</div>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#前言">前言</a></li>
+<li><a href="#Org Publish">Org Publish</a>
+<ul>
+<li><a href="#基本配置和使用">基本配置和使用</a></li>
+<li><a href="#属性列表">属性列表</a></li>
+<li><a href="#博客架构">博客架构</a>
+<ul>
+<li><a href="#基本属性列表">基本属性列表</a></li>
+<li><a href="#定义模块项目">定义模块项目</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#Org Html">Org Html</a>
+<ul>
+<li><a href="#Org Export">Org Export</a></li>
+<li><a href="#发布过程链">发布过程链</a></li>
+<li><a href="#自定义后端">自定义后端</a></li>
+</ul>
+</li>
+<li><a href="#Tips &amp; Tricks">Tips &amp; Tricks</a>
+<ul>
+<li><a href="#导出过程中获取源文件名">导出过程中获取源文件名</a></li>
+<li><a href="#导出的文章调用另一个文章的连接是本地路径">导出的文章调用另一个文章的连接是本地路径</a></li>
+<li><a href="#第三方插件">第三方插件</a></li>
+<li><a href="#样式">样式</a></li>
+</ul>
+</li>
+<li><a href="#GitHub Action 自动部署">GitHub Action 自动部署</a>
+<ul>
+<li><a href="#Action 脚本">Action 脚本</a>
+<ul>
+<li><a href="#actions/checkout">actions/checkout</a></li>
+<li><a href="#purcell/setup-emacs@master">purcell/setup-emacs@master</a></li>
+<li><a href="#peaceiris/actions-gh-pages@v3">peaceiris/actions-gh-pages@v3</a></li>
+<li><a href="#Deploy Key 的配置">Deploy Key 的配置</a></li>
+</ul>
+</li>
+<li><a href="#自动化部署">自动化部署</a></li>
+</ul>
+</li>
+<li><a href="#Cloudflare Pages">Cloudflare Pages</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-前言" class="outline-2">
+<h2 id="前言"><a href="#前言">前言</a></h2>
+<div class="outline-text-2" id="text-org9ab6b1d">
+<p>
+具有折腾和重复造轮子癖好的我反复尝试了各种各样的博客工具，挥霍时间折磨自己。
+</p>
+
+<p>
+最开始先是直到了原来可以用 markdown 来写博客，于是在网上找到了 Gridea, 格局一下子就打开了。撰写 md 、生成博客框架、部署，一条龙服务到家。只可惜当时已经入坑 Emacs , 于是尝试使用 Org Mode 来写博客。
+</p>
+
+<p>
+事实上， Org Mode 就具有 Publish 功能，只是它不是一套方案，需要自己定制如何去生成整个架构。当时年幼无知的我，被 elisp 源码和 css 样式拒在门外。
+</p>
+
+<p>
+随后发现了 Hugo （见《<a target="_blank" href="/Computer/20221223T144635.html" target="_blank">基于 Hugo + Org Mode + Github Page 的静态站点搭建</a>》），它对 Org Mode 支持并不友好，并不适配主题。于是乎用了 ox-hugo 这个包，它把 org 转换适配的 md. 用起来是很好的，只是这样的工作流多了一个中间层，也就是才 org 到 md, 再到 html. 明明 Org Mode 是支持直接生成 HTML 的。
+</p>
+
+<p>
+于是我参照 org-stattic-blog 这个包，自己糊了一个包，用起来很好，完完全全自定义，哪里不好改哪里。但是写的过程很痛苦，改起来其实不太好弄，因为整个过程是几乎是自己重新建构的，包括增量生成，只有底层从 org 导出 html 那个函数用的是 Org Mode. 直到上个月，使用的时候报错，没有很好的 debug 信息，于是打算放弃了。
+</p>
+
+<p>
+然后看到了 Nikola, 一个 Python 写的静态博客生成工具，它有 Org Mode 的插件-&#x2014;整个 Nikola 都做到了模块化，插件完全可以自己写，这一点非常赞。但终究还是脱离 Emacs 和我用的笔记包 denote, 所以弄了一下就放弃了。
+</p>
+
+<p>
+终于，非复吴下阿蒙的我，重新拾起了 Org Mode 的 Publish, 前面写的 org-static-blog 的 fork 已经让我的能力大增，于是就有了今天的这篇文章。不可能完完整整地记录下整个过程，因为我是集成了 denote 笔记管理包，用到了里面的函数，把它讲一遍也不太现实。因此我主要是记下思路，具体的代码可以到 GitHub 中的仓库去看。
+</p>
+
+<p>
+如有不足，欢迎指正。
+</p>
+</div>
+</div>
+
+<div id="outline-container-Org Publish" class="outline-2">
+<h2 id="Org Publish"><a href="#Org Publish">Org Publish</a></h2>
+<div class="outline-text-2" id="text-org4291828">
+<p>
+官方文档：<a target="_blank" href="https://orgmode.org/manual/Publishing.html">Publishing (The Org Manual)</a>, 建议先把它读完，整个过程还是比较清晰。
+</p>
+</div>
+
+<div id="outline-container-基本配置和使用" class="outline-3">
+<h3 id="基本配置和使用"><a href="#基本配置和使用">基本配置和使用</a></h3>
+<div class="outline-text-3" id="text-org087bc50">
+<p>
+首先，发布 (publish) 以项目 (project) 作为单位，配置是把它记录在变量 <code>org-publish-project-alist</code> 中。一个项目至少包含源地址、目的地址，因此有：
+</p>
+
+<div class="org-src-container">
+<pre>
+<code class="language-elisp">(setq org-publish-project-alist
+      '(("org"                            ; 项目名
+         :base-directory "~/org/"         ; 源地址
+         :publishing-directory "~/public" ; 目的地址
+         )))</code>
+</pre>
+
+</div>
+
+<p>
+随后就可以通过 <code>M-x org-publish</code> 并选择 <code>org</code> 来发布该项目。一个项目是由一个作为项目名的字符串，以及一连串的属性构成，这些属性就表明了要如何去控制整个发布过程。
+</p>
+</div>
+</div>
+
+<div id="outline-container-属性列表" class="outline-3">
+<h3 id="属性列表"><a href="#属性列表">属性列表</a></h3>
+<div class="outline-text-3" id="text-org8f3bf70">
+<p>
+这里给出一些重要的属性，一大部分属性在<a target="_blank" href="https://orgmode.org/manual/Publishing-options.html">文档</a>中已经给出，但是全部属性，需要在源码中去找。
+</p>
+
+<ul class="org-ul">
+<li><code>base-extension</code>: 文件后缀，指定源目录下哪些文件需要发布。默认是 <code>"org"</code> ，它是一个正则，如果匹配图片可以用“或”符号连接： <code>"jpg\\|png"</code></li>
+<li><code>exclude</code>: 一个正则表达式，名字匹配的文件不发布</li>
+<li><code>include</code>: 一个列表，里面是字符串，指定哪些文件一定要发布，它的优先级最高。通过和 <code>exclude</code> 来配合做到单独发布，如首页等页面。</li>
+<li><code>publishing-functoin</code>: 发布函数，执行每个文件的的生成过程。传入三个参数， <code>plist</code> 是属性列表，整个发布过程的信息都存储其中，当然包括上面这些属性； <code>filename</code> 当前要发布的源文件的绝对路径； <code>pub-dir</code> 为发布的目录。默认是 <code>org-html-publish-to-html</code>.</li>
+<li><code>preparation-function</code>, <code>completion-function</code>: 函数或者一个函数列表，分别在项目启动前和项目完成后调用，传入属性列表 <code>info</code> （和 <code>plist</code> 是同一个东西，不同的变量名罢了）。可以完成一些前置的文件生成，或者后续的文件处理。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-博客架构" class="outline-3">
+<h3 id="博客架构"><a href="#博客架构">博客架构</a></h3>
+<div class="outline-text-3" id="text-org86709ed">
+<p>
+首先通过不同的项目来搭建博客的框架。
+</p>
+</div>
+
+<div id="outline-container-基本属性列表" class="outline-4">
+<h4 id="基本属性列表"><a href="#基本属性列表">基本属性列表</a></h4>
+<div class="outline-text-4" id="text-org5057fab">
+<p>
+对于所有的页面，会有一些通用的属性需要设置，比如说 <code>&lt;head&gt;</code> 中的样式。定义一个属性函数，它提供公共属性，并把传入的属性拼接，返回拼接后的属性列表。
+</p>
+
+<div class="org-src-container">
+<pre>
+<code class="language-elisp">(defcustom blorg-base-plist
+  (list
+   :section-numbers nil
+   :with-toc nil
+   :with-entities nil
+   :html-head-include-default-style nil
+   :html-head (concat "&lt;link rel=\"shortcut icon\" href=\"/static/favicon.ico\" type=\"image/x-icon\"&gt;\n"
+                      "&lt;link rel=\"stylesheet\" href=\"/static/Slippery/style.css\"&gt;"
+                      "&lt;link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/@callmebill/lxgw-wenkai-web@latest/style.css\"&gt;"
+                      "&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"/static/style.css\"&gt;\n")
+   :html-preamble 'blorg-html-preamble
+   :html-postamble 'blorg-html-postamble
+   :with-sub-superscript nil
+   :html-footnote-format "&lt;sup class=\"fsup\"&gt;%s&lt;/sup&gt;"
+   :html-self-link-headlines t
+   )
+  "Common Property list of Blorg.")
+
+(defun blorg-compose-project (proj-name &amp;rest args)
+  (let ((base-plist (ht&lt;-plist blorg-base-plist)))
+    (ht-update base-plist (ht&lt;-plist args))
+    (cons proj-name (ht-&gt;plist base-plist))))</code>
+</pre>
+
+</div>
+
+<p>
+比如我给所有页面都加上了头像 favicon, 英文使用 <a target="_blank" href="https://befonts.com/slippery-font.html">Slippery</a> 字体，中文使用<a target="_blank" href="https://github.com/lxgw/LxgwWenKai/">霞鹜文楷</a>，以及一个公共的 css 样式。
+</p>
+</div>
+</div>
+
+<div id="outline-container-定义模块项目" class="outline-4">
+<h4 id="定义模块项目"><a href="#定义模块项目">定义模块项目</a></h4>
+<div class="outline-text-4" id="text-org1bb523e">
+<div class="org-src-container">
+<pre>
+<code class="language-elisp">(setq org-publish-project-alist
+      (list
+       (blorg-compose-project
+        "blorg-post"
+        :base-directory denote-directory
+        :publishing-directory blorg-output-dir
+        :recursive t
+        :with-toc t
+        :publishing-function 'blorg-post-publishing-function
+        :preparation-function
+        (lambda (plist)
+          (advice-add 'org-publish-get-base-files :filter-return
+                      'blorg-post-filter-files)
+          (add-hook 'org-publish-after-publishing-hook
+                    'blorg-post-add-tag-and-category-to-changed-files))
+        :completion-function
+        (lambda (plist)
+          (advice-remove 'org-publish-get-base-files
+                         'blorg-post-filter-files)
+          (remove-hook 'org-publish-after-publishing-hook
+                       'blorg-post-add-tag-and-category-to-changed-files)))
+
+       (blorg-compose-project
+        "blorg-index"
+        :base-directory blorg-cache-dir
+        :publishing-directory blorg-output-dir
+        :exclude ".*"
+        :include '("index.org")
+        :preparation-function 'blorg-assemble-index
+        :blorg-type "index"
+        :with-title nil)
+
+       (blorg-compose-project
+        "blorg-taxonomy"
+        :base-directory blorg-cache-dir
+        :publishing-directory blorg-output-dir
+        :exclude ".*"
+        :include '("taxonomy.org")
+        :preparation-function 'blorg-assemble-taxonomy
+        :blorg-type "taxonomy")
+
+       (blorg-compose-project
+        "blorg-category"
+        :base-directory (f-expand "category" blorg-cache-dir)
+        :publishing-directory (f-expand "category" blorg-output-dir)
+        :blorg-type "each-taxonomy"
+        :preparation-function
+        (lambda (_)
+          (blorg-assemble-each-taxonomy "category" _)))
+
+       (blorg-compose-project
+        "blorg-tag"
+        :base-directory (f-expand "tag" blorg-cache-dir)
+        :publishing-directory (f-expand "tag" blorg-output-dir)
+        :blorg-type "each-taxonomy"
+        :preparation-function
+        (lambda (_)
+          (blorg-assemble-each-taxonomy "tag" _)))
+
+       (blorg-compose-project
+        "blorg-archive"
+        :base-directory blorg-cache-dir
+        :publishing-directory blorg-output-dir
+        :exclude ".*"
+        :include '("archive.org")
+        :blorg-type "archive"
+        :preparation-function 'blorg-assemble-archive)
+
+       (blorg-compose-project
+        "blorg-asset"
+        :base-directory (expand-file-name "assets" denote-directory)
+        :publishing-directory (expand-file-name "assets" blorg-output-dir)
+        :base-extension "jpg\\|gif\\|png"
+        :publishing-function 'blorg-image-publishing-function)
+
+       (blorg-compose-project
+        "blorg-static"
+        :base-directory (expand-file-name "static" denote-directory)
+        :publishing-directory (expand-file-name "static" blorg-output-dir)
+        :base-extension "ico\\|css\\|js\\|svg\\|woff\\|woff2\\|otf"
+        :recursive t
+        :publishing-function 'org-publish-attachment
+        :preparation-function
+        (lambda (_)
+          (let ((in (f-expand "style.scss" denote-directory))
+                (out (f-expand "static/style.css" denote-directory)))
+            (when (or (not (f-exists-p out))
+                      (blorg-file-is-older-p out in))
+              (shell-command-to-string
+               (format "sass %s %s" in out))))))))</code>
+</pre>
+
+</div>
+</div>
+
+<ul class="org-ul">
+<li><a id="blorg-post"></a>blorg-post<br />
+<div class="outline-text-5" id="text-org7254736">
+<p>
+发布文章， <code>recursive</code> 涵盖了笔记目录下所有的的 org 文件。
+</p>
+
+<p>
+<code>with-toc</code> 会生成标题目录，对于不想生成目录的文章，只需在 org 文件中加上 <code>#+options: toc:nil</code> 即可。
+</p>
+
+<p>
+使用的发布函数是 <code>blorg-post-publishing-function</code>, 主要工作是清空当前上一篇文章发布时产生的变量。
+</p>
+
+<p>
+准备函数在 <code>org-publish-get-base-files</code> 设置了一个钩子 <code>blorg-post-filter-files</code>, 前者是去获取源目录下的文件的函数，这里相当于添加了一个过滤，把符合条件的筛选出来。org publish 基本是只能通过文件后缀去获取文件，而我用 denote 有标签，只有含有 <code>post</code> 和 <code>page</code> 标签的文章才发布。
+</p>
+
+<p>
+最后在完成函数中把钩子去掉，不影响后面项目的生成。
+</p>
+
+<p>
+同时注意到，我还设置了一个钩子 <code>blorg-post-add-tag-and-category-to-changed-files</code>. org publish 自带增量检查，只发布修改过的文章。对于比如标签页、分类页，我当然也希望它只发布相关的标签或分类，而不是全部都重新发布一遍。
+</p>
+</div>
+</li>
+
+<li><a id="blorg-index/blorg-archive"></a>blorg-index/blorg-archive<br />
+<div class="outline-text-5" id="text-orge39f182">
+<p>
+这两个的功能类似极其类似，都是生成单个页面，都是一系列文章的集合。
+</p>
+
+<p>
+因为是单个页面，所以在指定目录下，需要先 <code>exclude</code> 所有的文章，再通过高优先级的 <code>include</code> 把这个文件单独引入。
+</p>
+
+<p>
+这类聚合类的页面，我们是没有源文件的，即我不会为了我的博客单独写一个 index.org, 因而这份工作就放在项目的准备函数里面；准备函数负责在暂存目录下生成一个 index.org/archive.org ，然后项目在把这个单独的文件发布。
+</p>
+</div>
+</li>
+
+<li><a id="blorg-taxonomy/blorg-tag/blorg-category"></a>blorg-taxonomy/blorg-tag/blorg-category<br />
+<div class="outline-text-5" id="text-org95ca152">
+<p>
+这三个项目是：
+</p>
+<ul class="org-ul">
+<li>标签分类页，用于展示博客所有的标签和分类</li>
+<li>标签页文章：含有当前标签的文章列表</li>
+<li>分类页文章：属于当前分类的文章列表</li>
+</ul>
+
+<p>
+同样，三个都需要在准备函数中生成，第一个是单独的页面，只需要一个 taxonomy.org 即可。后面两个每个标签或分类对应一个页面，因此需要生成一系列的文章。在准备函数中生成， <code>publishing-directory</code> 指向对应目录，就相当于正常把文章发布出来。
+</p>
+</div>
+</li>
+
+<li><a id="blorg-asset/blorg-static"></a>blorg-asset/blorg-static<br />
+<div class="outline-text-5" id="text-org0538c81">
+<p>
+静态文件项目，第一个是文章中引用的图片的目录，第二个是页面的静态文件，如 css, js, 一些字体。
+</p>
+
+<p>
+<code>publishing-function</code> 指定为 <code>org-publish-attachment</code>, 它执行的操作就是简单地把未出版或修改过的文件复制到发布目录。对于图片我加了一个操作，就是让它复制过去后的名字归一化，都使用它们源文件的名字的 md5 摘要作为发布文件名。
+</p>
+
+<p>
+我在 static 的准备函数中加入了一个命令，用来把 scss<sup class="fsup"><a id="fnr.1.1" class="footref" href="#fn.1" role="doc-backlink">[1]</a></sup> 文件转换成 css 文件。
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-Org Html" class="outline-2">
+<h2 id="Org Html"><a href="#Org Html">Org Html</a></h2>
+<div class="outline-text-2" id="text-org01cc320">
+<p>
+至此，一个完整的项目生成过程应当已经清楚了，知道发布过程怎样开始的、怎样结束的。但是有些东西需要精细化地调整，比如说，文章中对另一篇文章的引用，生成的 html 的 a 标签指向的是本地地址，这显然不能作为博客在网上发布；比如它默认的数学公示模块是 mathjax, 而我想用 katex; 再比如代码高亮、mermaid.js 的支持等等。
+</p>
+
+<p>
+每个博客发布工具都一样，如果不讲究这些细节的东西，大抵都是能用的；而如果想要自定义，必然要深入到源代码中去客制化。
+</p>
+</div>
+
+<div id="outline-container-Org Export" class="outline-3">
+<h3 id="Org Export"><a href="#Org Export">Org Export</a></h3>
+<div class="outline-text-3" id="text-org5907672">
+<p>
+官网中提到，Org Mode 能导出多种形式的文件，包括 html, latex 等，包括之前提到 ox-hugo, 它就是把 org 导出成 md.
+</p>
+
+<p>
+整个导出模块是 <code>ox</code>, 即 org export, 它是一个抽象的模块，定义了导出的属性和过程的逻辑，相当于定位了 org 文件中哪些东西需要导出，比如粗体、代码块、表格等。
+</p>
+
+<p>
+Org export 不能单独工作，它需要后端去解释<b>怎么</b>导出这个过，这些不同的解释叫作不同的<b>后端</b> (backend). 如 org-html 是一个后端，它利用 Org  Export 提供的抽象函数，完成了 org 导出 html 的过程； org-latex 是一个后端，同样利用底层的抽象函数，完成了 org 导出 latex 的过程。
+</p>
+
+<p>
+即，Org Export 定义了单个文件导出的抽象集合，Org Html 或其他后端定义了单个文件导出的具体过程， Org Publish 则定义了一个项目（多个文件）的导出过程。
+</p>
+
+<div class="org-src-container">
+<pre class="mermaid">
+flowchart TD
+
+A(Org Export) --&gt; B(Org Html) --&gt; C(Org Publish)</pre>
+
+</div>
+
+<p>
+Org Export 还有很多前面以及 Org Publish 没有提到的导出过程的属性，可以 <code>M-x describe-varialbe RET org-export-options-alist</code> 查看。导出过程中，这些属性都可以在 plist/info 中找到。
+</p>
+</div>
+</div>
+
+<div id="outline-container-发布过程链" class="outline-3">
+<h3 id="发布过程链"><a href="#发布过程链">发布过程链</a></h3>
+<div class="outline-text-3" id="text-org1b0a104">
+<p>
+Org Publish (ox-publish.el):
+</p>
+<ul class="org-ul">
+<li><code>org-publish</code>: 选择项目，开始发布</li>
+<li><code>org-publish-projects</code>: 逐个发布项目，获取项目中需要发布的文件，同时进行增量检查，最终只发布未创建或这修改过的文件</li>
+<li><code>org-publish-file</code>: 发布项目中的文件，调用 publishing-function 去实现文件的发布（以默认的 <code>org-html-publish-to-html</code> 未例</li>
+</ul>
+
+<p>
+Org Html (ox-html.el):
+</p>
+<ul class="org-ul">
+<li><code>org-html-publish-to-html</code>: 回调 <code>org-publish-org-to</code>, 传入 html 后端，表明了整个导出模块在导出 html 的时候要调用哪些函数</li>
+<li><code>org-publish-org-to</code>: 打开源文件的 buffer, 读取内容，传入 <code>org-export-to-file</code> 中进行导出</li>
+</ul>
+
+<p>
+Org Export (ox.el):
+</p>
+<ul class="org-ul">
+<li><code>org-export-to-file</code>: 打开目标文件的 buffer, 将 html 传入 <code>org-export-as</code> 中生成导出的 html 字符串，写入到 buffer 中并保存</li>
+<li><code>org-export-as</code>: 分析源文件的内容，根据给定后端，对应导出到新格式的内容</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-自定义后端" class="outline-3">
+<h3 id="自定义后端"><a href="#自定义后端">自定义后端</a></h3>
+<div class="outline-text-3" id="text-orgd784d53">
+<p>
+使用 <code>org-export-define-derived-backend</code> 来派生出一个后端。
+</p>
+
+<div class="org-src-container">
+<pre>
+<code class="language-elisp">(org-export-define-derived-backend 'blorg-backend 'html
+  :translate-alist '((template . blorg-html-template)
+                     (inner-template . blorg-html-inner-template)
+                     (src-block . blorg-html-src-block)
+                     (link . blorg-html-link)
+                     (special-block . blorg-html-special-block)
+                     (quote-block . blorg-html-quote-block)
+                     (footnote-reference . blorg-html-footnote-reference)
+                     (headline . blorg-html-headline))
+  :filters-alist '((:filter-final-output . (org-html-final-function
+                                            blorg-html-remove-spaces))))</code>
+</pre>
+
+</div>
+
+<p>
+这里定义了一个后端叫 <code>blorg-backend</code>, 它基于 html 后端，将其中对应的函数进行修改。 <code>translate-alist</code> 是一个映射，指定了各种形式的内容用哪个函数进行导出。
+</p>
+
+<p>
+<code>template</code> 是整个 HTML 模板，从 <code>&lt;html&gt;</code> 出发，包括了 <code>&lt;head&gt;</code> 和 <code>&lt;body&gt;</code>. 传入的参数中 contents 是调用了 <code>inner-template</code> 之后的得到的字符串。而 <code>inner-template</code> 则是是文章<b>导出后</b>的 HTML，也就是它是从底层开始导出，最后再在上层拼装。
+</p>
+
+<p>
+同样的道理，对于代码块 (src-block) 、超链接 (link) 等都可以用自定义的函数去操作。
+</p>
+
+<p>
+具体有哪模块和参数，可以去看 <code>ox-html.el</code> （describe 与 org-html 相关的函数就能找到）在开头使用 <code>org-export-define-backend</code> 对 html 后端进行的定义。
+</p>
+
+<p>
+自定义后端之后，我们就可以魔改 <code>org-publish-file</code>, 使用我们自己的后端来执行导出操作。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-Tips &amp; Tricks" class="outline-2">
+<h2 id="Tips &amp; Tricks"><a href="#Tips &amp; Tricks">Tips &amp; Tricks</a></h2>
+<div class="outline-text-2" id="text-org820e633">
+</div>
+<div id="outline-container-导出过程中获取源文件名" class="outline-3">
+<h3 id="导出过程中获取源文件名"><a href="#导出过程中获取源文件名">导出过程中获取源文件名</a></h3>
+<div class="outline-text-3" id="text-orge3c7a80">
+<p>
+在 info/plist 中有一个 <code>:input-file</code> 属性，它就是源文件的绝对路径，通过 <code>plist-get</code> 获取即可。
+</p>
+</div>
+</div>
+
+<div id="outline-container-导出的文章调用另一个文章的连接是本地路径" class="outline-3">
+<h3 id="导出的文章调用另一个文章的连接是本地路径"><a href="#导出的文章调用另一个文章的连接是本地路径">导出的文章调用另一个文章的连接是本地路径</a></h3>
+<div class="outline-text-3" id="text-orgd3ed9e7">
+<p>
+修改后端的 link 导出函数，自定义的 link 函数调用 <code>org-html-link</code> 来获取初始的 <code>&lt;a&gt;</code>, 然后做通过正则匹配 <code>href</code>, 调整后再通过正则替换。参考如下：
+</p>
+
+<div class="org-src-container">
+<pre>
+<code class="language-elisp">(defun blorg-html-link (link desc info)
+  "FIX: Links and Images"
+  (let ((html-string (org-html-link link desc info)))
+    ;; Handle normal links
+    (cond
+     ((s-starts-with-p "&lt;a" html-string)
+      (let ((url-match (s-match "href=\"\\([^\"]+\\)\"" html-string)))
+        (if (and url-match (s-starts-with-p "#" (cadr url-match)))
+            html-string
+          (concat "&lt;a target=\"_blank\"" (substring html-string 2)))))
+     ;; Handle image
+     ((s-starts-with-p "&lt;img" html-string)
+      (let ((url-match (s-match "src=\"\\([^\"]+\\)\"" html-string)))
+        (if url-match
+            (let* ((link (cadr url-match))
+                   (uri (f-join "/" (f-dirname link) (concat (md5 (f-base link))
+                                                             "."
+                                                             (f-ext link))))
+                   (html-string-1 (s-replace-regexp "src=\"\\([^\"]+\\)\""
+                                                    (format "src=\"%s\"" uri)
+                                                    html-string)))
+              (concat (format "&lt;a href=\"%s\" target=\"_blank\"&gt;\n" uri)
+                      html-string-1
+                      "&lt;/a&gt;"))
+          html-string)))
+     (t html-string))))</code>
+</pre>
+
+</div>
+
+<p>
+在自定义后端的 <code>:translate-alist</code> 添加 <code>(link . blorg-html-link)</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-第三方插件" class="outline-3">
+<h3 id="第三方插件"><a href="#第三方插件">第三方插件</a></h3>
+<div class="outline-text-3" id="text-orgc4d05c8">
+<p>
+每个页面导出时，设置一个列表变量 <code>blorg-extra-pkgs</code>. 比如当前文章用到了数学导出，那么在导出数学公式的时候往 <code>blorg-extra-pkgs</code> 里添加一个 <code>math</code>. 因为导出过程是从下到上，所以在最终拼装整个 HTML <code>template</code> 的时候，去索引 <code>blorg-extra-pkgs</code> 里面的符号，比如有 <code>math</code>, 那么就在 HTML 的头和尾加上相应的 css 样式和 js 脚本即可。
+</p>
+
+<p>
+怎么知道当前正在导出的是数学公式呢？需要去看 <code>ox-html.el</code> 的源码，查找关键词，去跟一下导出过程。
+</p>
+</div>
+</div>
+
+<div id="outline-container-样式" class="outline-3">
+<h3 id="样式"><a href="#样式">样式</a></h3>
+<div class="outline-text-3" id="text-orga474c5a">
+<p>
+至于导出之后的 HTML, 怎么配置一个好看的主题呢？最后是去网上找现成的，有一些项目是 Org Publish 的主题，不过可能需要调整。
+</p>
+
+<p>
+我是手撸的，之前也是，所以有些经验。这次主题的前端架构大量参考了之前用的 Hugo 的主题 <a target="_blank" href="https://hugoloveit.com">LoveIt</a>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-GitHub Action 自动部署" class="outline-2">
+<h2 id="GitHub Action 自动部署"><a href="#GitHub Action 自动部署">GitHub Action 自动部署</a></h2>
+<div class="outline-text-2" id="text-org9fdc00b">
+<p>
+传统的部署方式是，在本地跑了 org-publish, 整个博客站点在本地生成，然后通过 git 上传到仓库。
+</p>
+
+<p>
+通过 GitHub 的 Action, 可以实现一些自动化，比如部署和生成的操作，也就是说，笔记只需要 push 上去，生成博客这个过程在云端那边实现-&#x2014;本质上就是那边开了个虚拟机来跑部署程序。
+</p>
+
+<p>
+去看一下 GitHub Action 文档的 <a target="_blank" href="https://docs.github.com/en/actions/quickstart">Quick Start</a>, 快速写一个简单的脚本即可。
+</p>
+</div>
+
+<div id="outline-container-Action 脚本" class="outline-3">
+<h3 id="Action 脚本"><a href="#Action 脚本">Action 脚本</a></h3>
+<div class="outline-text-3" id="text-org315508e">
+<p>
+在笔记仓库的目录下新建一个文件夹 <code>.github/workflows</code> ， <code>workflows</code> 也是一个文件夹，就是自动化脚本。
+</p>
+
+<p>
+脚本是用 YAML 写的，所以新建一个脚本 <code>org-publish.yml</code>, 名字随便。
+</p>
+
+<div class="org-src-container">
+<pre>
+<code class="language-yaml">name: Blorg to export html
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Timezone
+        run: sudo timedatectl set-timezone 'Asia/Shanghai'
+
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Setup Emacs
+        uses: purcell/setup-emacs@master
+        with:
+          version: 29.2
+
+      - name: Publish
+        run: emacs -Q --batch -nw --load ${{ github.workspace }}/init.el --eval "(blorg t)" --kill
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          external_repository: fingerknight/blog-site
+          publish_branch: main
+          publish_dir: ./doc
+</code>
+</pre>
+
+</div>
+
+<p>
+解释：
+</p>
+<ol class="org-ol">
+<li><code>name</code>, 顾名思义，就是这个脚本的项目名，不要求和文件名统一</li>
+<li><code>on</code>, 表示触发条件，这里表示 <code>push</code> 之后触发，且限定为 main 分支</li>
+<li><code>jobs</code>, 就是任务列表，它可以跑多个任务，比如这里定义了一个叫作 <code>deploy</code> 的任务</li>
+<li><code>runs-on</code>, 就是设备环境</li>
+<li><code>steps</code>, 该任务的执行步骤，它是一个列表，所以每个任务打头都应该有一个横杠</li>
+<li><code>run</code>, 执行某条命令</li>
+<li><code>uses</code>, 调用外部的某个 action 脚本</li>
+</ol>
+
+<p>
+具体细节我不了解，想搞清楚参阅官方文档。
+</p>
+
+<p>
+脚本的内容是参考这篇文章《<a target="_blank" href="https://superbear.github.io/post/2021/11/use-org-mode-and-hugo-to-write-blog/">用Org Mode + Hugo写博客，并通过Github Action自动部署到Github Pages - superbear's blog</a>》。
+</p>
+</div>
+
+<div id="outline-container-actions/checkout" class="outline-4">
+<h4 id="actions/checkout"><a href="#actions/checkout">actions/checkout</a></h4>
+<div class="outline-text-4" id="text-orgd0dd524">
+<p>
+自动部署本质就是它那边的设备跑程序，所以 checkout 就是把当前的仓库下载到虚拟机上。
+</p>
+</div>
+</div>
+
+<div id="outline-container-purcell/setup-emacs@master" class="outline-4">
+<h4 id="purcell/setup-emacs@master"><a href="#purcell/setup-emacs@master">purcell/setup-emacs@master</a></h4>
+<div class="outline-text-4" id="text-org1c8aca2">
+<p>
+人家的虚拟机是不能乱装东西的，所以它没有 Emacs. 根据参考文章，Purcell 大神维护了一个 action 的仓库，就是用来安装 Emacs.
+</p>
+
+<p>
+通过 <code>with</code> 来设置版本号。
+</p>
+
+<p>
+然后调用命令去执行 Org Publish. 其中 <code>${{ github.workspace }}</code> 是当前工作区目录。调用前面的 checkout 之后好像自动进入仓库目录，所以打开 Emacs 时直接 load 仓库目录下的 init.el 即可。
+</p>
+
+<div class="org-src-container">
+<pre>
+<code class="language-elisp">(require 'package)
+(require 'package-vc)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+
+(dolist (pkg '(denote dash f s ht))
+  (unless (package-installed-p pkg)
+    (package-install pkg)))
+
+(unless (package-installed-p 'blorg)
+  (package-vc-install "https://github.com/fingerknight/blorg" nil nil 'blorg))
+
+(require 'denote)
+(require 'blorg)
+
+(setq denote-directory "/home/runner/work/Note/Note"
+      denote-excluded-directories-regexp "^assets\\|^static\\|^doc"
+      blorg-output-dir "/home/runner/work/Note/Note/doc")
+
+(provide 'init)</code>
+</pre>
+
+</div>
+
+<p>
+我的仓库名字叫 Note, 这里面两个 Note, 前一个是根据仓库建立的家目录，后面的是 checkout 的文件名（我猜）。具体是哪个，可以写个测试脚本 <code>-run: ls ${{ github.workspace }}</code> ，然后去仓库 Action 标签那里看结果，会显示完整命令。
+</p>
+
+<p>
+我用 setup-emacs 会有个 bug, 直接使用会出现报错 <code>emacs: standard input is not a tty</code>. 查看 <a target="_blank" href="https://github.com/purcell/setup-emacs/issues/21">Issue</a>, 要加 <code>--batch</code> 参数解决。
+</p>
+</div>
+</div>
+
+<div id="outline-container-peaceiris/actions-gh-pages@v3" class="outline-4">
+<h4 id="peaceiris/actions-gh-pages@v3"><a href="#peaceiris/actions-gh-pages@v3">peaceiris/actions-gh-pages@v3</a></h4>
+<div class="outline-text-4" id="text-orgaa5b568">
+<p>
+将生成的博客，部署到另外一个仓库。理论上也可以上传到本地仓库（会不会出现 pull 触发导致循环呢？），但是两个仓库，笔记仓库不公开，仅自己可见；博客仓库公开，所有人可见，这诚然是一种好策略。
+</p>
+
+<p>
+部署有四个重要的选项：
+</p>
+<ul class="org-ul">
+<li><code>deploy_key</code>: 这个固定写 <code>${{ secrets.ACTIONS_DEPLOY_KEY }}</code> ，官方文档里会说怎么配置，我下面也会记录</li>
+<li><code>external_repository</code>: 要部署到的仓库，也就是公开的博客的仓库</li>
+<li><code>publish_branch</code>: 要部署到的分支</li>
+<li><code>publish_dir</code>: 当前博客在本地的地址，因为当前目录就是笔记仓库的目录，所以直接 <code>./</code> 加目录就好了</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-Deploy Key 的配置" class="outline-4">
+<h4 id="Deploy Key 的配置"><a href="#Deploy Key 的配置">Deploy Key 的配置</a></h4>
+<div class="outline-text-4" id="text-org3b345b1">
+<p>
+本地生成密钥对： <code>ssh-keygen -t rsa -b 4096 -C "$(git config user.email)" -f gh-pages -N ""</code> ，在当前目录下会得到公钥 <code>gh-pages.pub</code> 和私钥 <code>gh-pages</code>.
+</p>
+
+<p>
+将公钥添加到部署的仓库，也就是公开的博客仓库；将私钥添加到私密的笔记仓库。
+</p>
+
+<p>
+在博客仓库下， <code>Settings</code> -&gt; <code>Depoly keys</code> -&gt; <code>add deploy key</code>, 名字随意，将公钥复制进去。
+</p>
+
+<p>
+在笔记仓库下， <code>Settings</code> -&gt; <code>Secrets and variables</code> -&gt; <code>Actions</code> -&gt; <code>New repository secret</code>, 名字必须是 <code>ACTIONS_DEPLOY_KEY</code>, 将私钥复制进去。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-自动化部署" class="outline-3">
+<h3 id="自动化部署"><a href="#自动化部署">自动化部署</a></h3>
+<div class="outline-text-3" id="text-org7345405">
+<p>
+至此，都 push 笔记之后，action 就会重建博客，根据 <code>peaceiris/actions-gh-pages</code> 的说明，它默认会把目标仓库先清空，在重新生成，可以通过加 <code>keep_files: true</code> 来保存原有文件，通过覆盖放方式进行部署。所以其实用了 GitHub Action 之后就不需要考虑增量部署，反正压力都在云端，我本地无所谓，最多也就是一分钟不到就搞定了。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-Cloudflare Pages" class="outline-2">
+<h2 id="Cloudflare Pages"><a href="#Cloudflare Pages">Cloudflare Pages</a></h2>
+<div class="outline-text-2" id="text-orgab0b946">
+<p>
+至此，可以通过 GitHub Page 来配置仓库，博客也就搞定了。但是听说 Cloudflare Page 要快一点，刚好手上有个域名，所以就是试试。
+</p>
+
+<p>
+在 <code>Workers &amp; Pages</code> 那里 <code>create application</code>. 选择 <code>Pages</code>, 连接到 Github 仓库。这里连接的是部署好的博客的仓库，随后的各种部署命令都默认，也就是不需要在这里部署， GitHub Action 那里已经把博客生成了，Cloudflare 只需要把页面接管过来即可。
+</p>
+
+<p>
+配置好后它会免费提供一个域名，访问应该就能看到来。当然也可以自定义域名，需要先在 Cloudflare 配好域名：注册一个新 Website, 根据它给的说明，在域名提供商那边配置 Cloudflare 的 Name Server.
+</p>
+
+<p>
+具体速度吧，感觉上快上一点点，不过半斤八两吧。
+</p>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div id="fn.1" class="footdef"><span class="footnum"> (1) </span><a class="foot2ref" href="#fnr.1.1" role="doc-backlink"> ⇑ </a>
+ <div class="footpara" role="doc-footnote"><p class="footpara">
+SASS 是一个 css 的扩展语言，用于简化 css 的编码过程。见 <a target="_blank" href="https://sass-lang.com">Sass: Syntactically Awesome Style Sheets</a>.
+</p></div></div>
+
+
+</div>
+</div></div>
+</div>
+<div id="postamble" class="status">
+<center>
+Powered by <a href="https://orgmode.org">Org Mode</a>.
+</center>
+</div>
+<script src="/static/script.js"></script>
+<script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+mermaid.initialize({ startOnLoad: true, securityLevel: 'loose' });
+</script><script src="/static/prism.js"></script>
+</body>
+</html>
