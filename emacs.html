@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<title> Emacs 配置 生平 - Ward of Dust </title>
+<title> Emacs 配置 - Ward of Dust </title>
 <meta name="author" content="MrDust">
 <link rel="stylesheet" href="/static/Fantasque/style.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dracula-prism@2.1.16/dist/css/dracula-prism.min.css">
@@ -24,11 +24,147 @@
 </div>
 <div id="content" class="content">
 <div class="post">
-<h1 class="title">Emacs 配置 生平</h1>
+<h1 class="title">Emacs 配置</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#前言">前言</a></li>
+<li><a href="#前配置 early-init">前配置 early-init</a>
+<ul>
+<li><a href="#定义基本变量">定义基本变量</a></li>
+<li><a href="#启动加速">启动加速</a></li>
+<li><a href="#编码设置">编码设置</a></li>
+<li><a href="#GUI 设置">GUI 设置</a></li>
+<li><a href="#杂七杂八的设置">杂七杂八的设置</a></li>
+<li><a href="#结束 early-init">结束 early-init</a></li>
+</ul>
+</li>
+<li><a href="#SetupEl">SetupEl</a>
+<ul>
+<li><a href="#简介">简介</a></li>
+<li><a href="#安装">安装</a></li>
+<li><a href="#子系统与上下文">子系统与上下文</a></li>
+<li><a href="#绑定">绑定</a></li>
+<li><a href="#包调用">包调用</a></li>
+<li><a href="#赋值">赋值</a></li>
+<li><a href="#钩子">钩子</a></li>
+<li><a href="#条件">条件</a></li>
+<li><a href="#自定义关键字">自定义关键字</a>
+<ul>
+<li><a href="#:doc">:doc</a></li>
+<li><a href="#:package">:package</a></li>
+<li><a href="#:load-path">:load-path</a></li>
+<li><a href="#:after">:after</a></li>
+<li><a href="#:diminish">:diminish</a></li>
+<li><a href="#:advice">:advice</a></li>
+<li><a href="#:face">:face</a></li>
+<li><a href="#:global">:global</a></li>
+<li><a href="#:disabled">:disabled</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#基础设置">基础设置</a>
+<ul>
+<li><a href="#基础库">基础库</a></li>
+<li><a href="#基本设置">基本设置</a></li>
+<li><a href="#模态编辑">模态编辑</a></li>
+<li><a href="#Minibuffer">Minibuffer</a></li>
+</ul>
+</li>
+<li><a href="#外观设置">外观设置</a>
+<ul>
+<li><a href="#字体设置">字体设置</a></li>
+<li><a href="#主题设置">主题设置</a></li>
+</ul>
+</li>
+<li><a href="#编辑设置">编辑设置</a>
+<ul>
+<li><a href="#基本编辑操作">基本编辑操作</a></li>
+<li><a href="#窗口设置">窗口设置</a>
+<ul>
+<li><a href="#窗口分割">窗口分割</a></li>
+<li><a href="#窗口间移动">窗口间移动</a></li>
+</ul>
+</li>
+<li><a href="#括号增强">括号增强</a>
+<ul>
+<li><a href="#高亮括号">高亮括号</a></li>
+<li><a href="#Smart Parens">Smart Parens</a></li>
+</ul>
+</li>
+<li><a href="#补全增强">补全增强</a>
+<ul>
+<li><a href="#补全前端">补全前端</a></li>
+<li><a href="#补全后端">补全后端</a></li>
+<li><a href="#补全模版">补全模版</a></li>
+</ul>
+</li>
+<li><a href="#Minibuffer 增强">Minibuffer 增强</a></li>
+<li><a href="#Isearch 增强">Isearch 增强</a></li>
+</ul>
+</li>
+<li><a href="#编程">编程</a>
+<ul>
+<li><a href="#显示">显示</a>
+<ul>
+<li><a href="#行号">行号</a></li>
+<li><a href="#高亮当前行">高亮当前行</a></li>
+<li><a href="#彩色括号">彩色括号</a></li>
+<li><a href="#eldoc">eldoc</a></li>
+<li><a href="#缩进提示">缩进提示</a></li>
+</ul>
+</li>
+<li><a href="#移动到缩进行首">移动到缩进行首</a></li>
+<li><a href="#代码折叠">代码折叠</a></li>
+<li><a href="#Tree-sitter">Tree-sitter</a></li>
+<li><a href="#LSP">LSP</a></li>
+<li><a href="#YAML">YAML</a></li>
+<li><a href="#Emacs Lisp">Emacs Lisp</a>
+<ul>
+<li><a href="#elisp-def">elisp-def</a></li>
+</ul>
+</li>
+<li><a href="#Yuck">Yuck</a></li>
+<li><a href="#Sxhkd">Sxhkd</a></li>
+<li><a href="#Jinja2">Jinja2</a></li>
+<li><a href="#Markdown">Markdown</a></li>
+</ul>
+</li>
+<li><a href="#Org mode">Org mode</a>
+<ul>
+<li><a href="#快速改变 heading">快速改变 heading</a></li>
+<li><a href="#快速插入">快速插入</a></li>
+<li><a href="#Org Agenda">Org Agenda</a></li>
+<li><a href="#排版">排版</a></li>
+<li><a href="#Latex 导出">Latex 导出</a></li>
+<li><a href="#快速查询">快速查询</a></li>
+</ul>
+</li>
+<li><a href="#工具">工具</a>
+<ul>
+<li><a href="#输入法">输入法</a></li>
+<li><a href="#文件管理">文件管理</a></li>
+<li><a href="#中文分词">中文分词</a></li>
+<li><a href="#大纲展示">大纲展示</a></li>
+<li><a href="#摘抄库">摘抄库</a></li>
+<li><a href="#音乐播放器">音乐播放器</a></li>
+<li><a href="#邮件">邮件</a></li>
+<li><a href="#订阅">订阅</a></li>
+<li><a href="#日志">日志</a></li>
+<li><a href="#笔记管理">笔记管理</a></li>
+<li><a href="#书籍管理">书籍管理</a></li>
+</ul>
+</li>
+<li><a href="#配置结束">配置结束</a></li>
+</ul>
+</div>
+</div>
 
 <div id="outline-container-前言" class="outline-2">
 <h2 id="前言"><a href="#前言">前言</a></h2>
-<div class="outline-text-2" id="text-org24fc55e">
+<div class="outline-text-2" id="text-org3931c2f">
 <p>
 Emacs 配置分享，下载路径在 GitHub 上：<a target="_blank" href="https://github.com/fingerknight/.emacs.d">https://github.com/fingerknight/.emacs.d</a>.
 </p>
@@ -37,20 +173,12 @@ Emacs 配置分享，下载路径在 GitHub 上：<a target="_blank" href="https
 
 <div id="outline-container-前配置 early-init" class="outline-2">
 <h2 id="前配置 early-init"><a href="#前配置 early-init">前配置 early-init</a></h2>
-<div class="outline-text-2" id="text-org4edaf1f">
+<div class="outline-text-2" id="text-orgf615cfb">
 </div>
 
 <div id="outline-container-定义基本变量" class="outline-3">
 <h3 id="定义基本变量"><a href="#定义基本变量">定义基本变量</a></h3>
-<div class="outline-text-3" id="text-org7b5a1f7">
-<p>
-定义家目录以及四个目录分类：
-</p>
-<ul class="org-ul">
-<li><code>modules</code>, 插件的存放路径</li>
-<li><code>libraries</code>, 自己写的插件</li>
-</ul>
-
+<div class="outline-text-3" id="text-orga9c6c0f">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">;;; -*- lexical-binding: t; -*-
@@ -68,7 +196,7 @@ Emacs 配置分享，下载路径在 GitHub 上：<a target="_blank" href="https
 
 <div id="outline-container-启动加速" class="outline-3">
 <h3 id="启动加速"><a href="#启动加速">启动加速</a></h3>
-<div class="outline-text-3" id="text-org808b080">
+<div class="outline-text-3" id="text-org0e20e2c">
 <p>
 调整 GC，关闭一些不必要的功能 <sup class="fsup"><a id="fnr.1.1" class="footref" href="#fn.1" role="doc-backlink">[1]</a></sup> <sup>, </sup><sup class="fsup"><a id="fnr.2.1" class="footref" href="#fn.2" role="doc-backlink">[2]</a></sup>。
 </p>
@@ -106,7 +234,7 @@ Emacs 配置分享，下载路径在 GitHub 上：<a target="_blank" href="https
 
 <div id="outline-container-编码设置" class="outline-3">
 <h3 id="编码设置"><a href="#编码设置">编码设置</a></h3>
-<div class="outline-text-3" id="text-orgc63623f">
+<div class="outline-text-3" id="text-org4eaf7db">
 <p>
 设置 UTF-8 编码 <sup class="fsup"><a id="fnr.3.1" class="footref" href="#fn.3" role="doc-backlink">[3]</a></sup>
 </p>
@@ -133,7 +261,7 @@ Emacs 配置分享，下载路径在 GitHub 上：<a target="_blank" href="https
 
 <div id="outline-container-GUI 设置" class="outline-3">
 <h3 id="GUI 设置"><a href="#GUI 设置">GUI 设置</a></h3>
-<div class="outline-text-3" id="text-orgf16ffeb">
+<div class="outline-text-3" id="text-org544d9c5">
 <p>
 窗口最大化，关闭各种栏栏框框。
 </p>
@@ -155,7 +283,7 @@ Emacs 配置分享，下载路径在 GitHub 上：<a target="_blank" href="https
 
 <div id="outline-container-杂七杂八的设置" class="outline-3">
 <h3 id="杂七杂八的设置"><a href="#杂七杂八的设置">杂七杂八的设置</a></h3>
-<div class="outline-text-3" id="text-org1a50eff">
+<div class="outline-text-3" id="text-orgd3f8e91">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">;; Misc
@@ -185,7 +313,7 @@ Emacs 配置分享，下载路径在 GitHub 上：<a target="_blank" href="https
 
 <div id="outline-container-结束 early-init" class="outline-3">
 <h3 id="结束 early-init"><a href="#结束 early-init">结束 early-init</a></h3>
-<div class="outline-text-3" id="text-org6d8d004">
+<div class="outline-text-3" id="text-orgc642602">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(provide 'early-init)</code>
@@ -198,11 +326,11 @@ Emacs 配置分享，下载路径在 GitHub 上：<a target="_blank" href="https
 
 <div id="outline-container-SetupEl" class="outline-2">
 <h2 id="SetupEl"><a href="#SetupEl">SetupEl</a></h2>
-<div class="outline-text-2" id="text-org604167d">
+<div class="outline-text-2" id="text-org1ae9b9b">
 </div>
 <div id="outline-container-简介" class="outline-3">
 <h3 id="简介"><a href="#简介">简介</a></h3>
-<div class="outline-text-3" id="text-orgada6c92">
+<div class="outline-text-3" id="text-org5fd1227">
 <p>
 <a target="_blank" href="https://git.sr.ht/~pkal/setup">setup.el</a> 是一套宏，可以用于做包和模块的管理。与各种包管理器类似，在 <code>(setup feature ...)</code> 中通过各种关键字来实现各种各样的功能。它提供了一套基础的关键字，很基础。但是自定义关键字非常简单。
 </p>
@@ -245,7 +373,7 @@ setup.el 内置关键字有：
 
 <div id="outline-container-安装" class="outline-3">
 <h3 id="安装"><a href="#安装">安装</a></h3>
-<div class="outline-text-3" id="text-org34ac045">
+<div class="outline-text-3" id="text-orgd254643">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">;;; -*- lexical-binding: t; -*-
@@ -269,7 +397,7 @@ setup.el 内置关键字有：
 
 <div id="outline-container-子系统与上下文" class="outline-3">
 <h3 id="子系统与上下文"><a href="#子系统与上下文">子系统与上下文</a></h3>
-<div class="outline-text-3" id="text-org8cf2ec4">
+<div class="outline-text-3" id="text-org7d7aa61">
 <p>
 <code>(setup feature)</code> 表明配置一个名为 <code>feature</code> 的子系统。这个名字可以任意，可以是已存在的包名。如果是后者，后续可以方便的传入一些参数。
 </p>
@@ -345,7 +473,7 @@ setup 子系统的过程中，会保持几个变量： <code>feature</code>, <co
 
 <div id="outline-container-绑定" class="outline-3">
 <h3 id="绑定"><a href="#绑定">绑定</a></h3>
-<div class="outline-text-3" id="text-org10e2d22">
+<div class="outline-text-3" id="text-orge75badf">
 <p>
 <code>:global</code> 用于全局绑定，无关 feature. 如 <code>(:global "RET" newline-and-indent)</code>
 </p>
@@ -392,7 +520,7 @@ setup 子系统的过程中，会保持几个变量： <code>feature</code>, <co
 
 <div id="outline-container-包调用" class="outline-3">
 <h3 id="包调用"><a href="#包调用">包调用</a></h3>
-<div class="outline-text-3" id="text-org0fa1741">
+<div class="outline-text-3" id="text-org032d780">
 <p>
 前面提到过 <code>:package</code> 是用来安装包的，它指定了 shorthand （详见<a href="#自定义关键字">自定义关键字</a>），所以可以用来做 feature. 如下面这个系统的 feature 是 <code>simple</code>.
 </p>
@@ -440,7 +568,7 @@ setup 子系统的过程中，会保持几个变量： <code>feature</code>, <co
 
 <div id="outline-container-赋值" class="outline-3">
 <h3 id="赋值"><a href="#赋值">赋值</a></h3>
-<div class="outline-text-3" id="text-org97c7a18">
+<div class="outline-text-3" id="text-org6b9ad94">
 <p>
 <code>:option</code> 是一个集大成的赋值方法，它是 repeatable, 因此使用方法和 <code>setq</code> 类似。如
 </p>
@@ -483,7 +611,7 @@ setup 子系统的过程中，会保持几个变量： <code>feature</code>, <co
 
 <div id="outline-container-钩子" class="outline-3">
 <h3 id="钩子"><a href="#钩子">钩子</a></h3>
-<div class="outline-text-3" id="text-org95bb8e2">
+<div class="outline-text-3" id="text-org6f6d479">
 <p>
 <code>:hook</code>, repeatable, 输入的是函数，把这些函数都钩到当前系统的 hook 中。如：
 </p>
@@ -520,7 +648,7 @@ setup 子系统的过程中，会保持几个变量： <code>feature</code>, <co
 
 <div id="outline-container-条件" class="outline-3">
 <h3 id="条件"><a href="#条件">条件</a></h3>
-<div class="outline-text-3" id="text-orgb54b18e">
+<div class="outline-text-3" id="text-org0bb35e9">
 <p>
 <code>:only-if</code> 判断条件，条件为假时整个 setup 退出。
 </p>
@@ -552,7 +680,7 @@ setup 子系统的过程中，会保持几个变量： <code>feature</code>, <co
 
 <div id="outline-container-自定义关键字" class="outline-3">
 <h3 id="自定义关键字"><a href="#自定义关键字">自定义关键字</a></h3>
-<div class="outline-text-3" id="text-orgf8248d7">
+<div class="outline-text-3" id="text-org01e567b">
 <p>
 <a target="_blank" href="https://www.emacswiki.org/emacs/SetupEl">Emacs Wiki</a> 上给出了许多有用的自定义关键字，我使用了其中一些。自定义关键字的框架是：
 </p>
@@ -576,7 +704,7 @@ setup 的执行过程就是把 body 当作宏来执行，因此关键字函数�
 
 <div id="outline-container-:doc" class="outline-4">
 <h4 id=":doc"><a href="#:doc">:doc</a></h4>
-<div class="outline-text-4" id="text-org30dd738">
+<div class="outline-text-4" id="text-orga9eb52e">
 <p>
 先定义一个简单的 <code>:doc</code>, 用来记录当前系统的文档信息 <sup class="fsup"><a id="fnr.1.2" class="footref" href="#fn.1" role="doc-backlink">[1]</a></sup>。
 </p>
@@ -613,7 +741,7 @@ macro 返回的是 nil, 也就是这个关键词并不会真正参与到 setup �
 
 <div id="outline-container-:package" class="outline-4">
 <h4 id=":package"><a href="#:package">:package</a></h4>
-<div class="outline-text-4" id="text-orgc5c63f4">
+<div class="outline-text-4" id="text-orgc43cfb3">
 <p>
 重写 <code>:package</code> ，将 <code>package-vc</code> 整合其中，如此便可以安装 GitHub 上的非官方包。
 </p>
@@ -660,7 +788,7 @@ The first PACKAGE can be used to deduce the feature context."
 
 <div id="outline-container-:load-path" class="outline-4">
 <h4 id=":load-path"><a href="#:load-path">:load-path</a></h4>
-<div class="outline-text-4" id="text-org1521e13">
+<div class="outline-text-4" id="text-org49a8c43">
 <p>
 定义环境变量关键字，它可以传入一个 sexp, 把它的返回值加入环境变量，也可以是绝对路径，还可以是相对路径，相对于当前 feature 所在的路径（就是 <code>guess-path</code> ），最后返回一个 <code>add-to-list</code> 的宏。
 </p>
@@ -671,12 +799,12 @@ The first PACKAGE can be used to deduce the feature context."
   (lambda (path)
     (when (and (stringp path)
                (not (file-name-absolute-p path)))
-      (let ((guess-path (expand-file-name
-                         path
-                         (expand-file-name (format "%s" (setup-get 'feature))
-                                           package-user-dir))))
-        (when (file-exists-p guess-path)
-          (setq path guess-path))))
+      (let ((guess-path (directory-files package-user-dir t
+                                         (format "%s" (setup-get 'feature)))))
+        (when (and guess-path
+                   (file-exists-p (car guess-path)))
+          (setq path (expand-file-name path
+                                       (car guess-path))))))
     `(add-to-list 'load-path ,path))
   :documentation "Update load-path."
   :repeatable t)</code>
@@ -688,7 +816,7 @@ The first PACKAGE can be used to deduce the feature context."
 
 <div id="outline-container-:after" class="outline-4">
 <h4 id=":after"><a href="#:after">:after</a></h4>
-<div class="outline-text-4" id="text-org66cdd8a">
+<div class="outline-text-4" id="text-org7a8da94">
 <p>
 改良版的 <code>:when-loaded</code>, 它明确指定一个 feature 来使用 <code>with-eval-after-load</code>.
 </p>
@@ -741,7 +869,7 @@ If FEATURES is a list, apply BODY to all elements inside."
 
 <div id="outline-container-:diminish" class="outline-4">
 <h4 id=":diminish"><a href="#:diminish">:diminish</a></h4>
-<div class="outline-text-4" id="text-orgb132f31">
+<div class="outline-text-4" id="text-org0d9e056">
 <p>
 使用 <a target="_blank" href="https://github.com/myrjola/diminish.el">diminish.el</a> 包，移除当前 minor-mode 在 mode-line 上的显示 <sup class="fsup"><a id="fnr.4.1" class="footref" href="#fn.4" role="doc-backlink">[4]</a></sup>。
 </p>
@@ -749,10 +877,8 @@ If FEATURES is a list, apply BODY to all elements inside."
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup-define :diminish
-  (lambda (&amp;optional mode opt)
-    `(diminish (or ',mode
-                   ',(setup-get 'mode))
-               ,opt))
+  (lambda (&amp;optional opt)
+    `(diminish ',(setup-get 'mode) ,opt))
   :documentation "Hide the mode-line lighter of the current mode."
   :after-loaded t)</code>
 </pre>
@@ -763,7 +889,7 @@ If FEATURES is a list, apply BODY to all elements inside."
 
 <div id="outline-container-:advice" class="outline-4">
 <h4 id=":advice"><a href="#:advice">:advice</a></h4>
-<div class="outline-text-4" id="text-org3153e6f">
+<div class="outline-text-4" id="text-org189902a">
 <p>
 添加 advice, 采用的是类似 <code>define-advice</code> 的形式 <sup class="fsup"><a id="fnr.4.2" class="footref" href="#fn.4" role="doc-backlink">[4]</a></sup>。
 </p>
@@ -809,7 +935,7 @@ See `advice-add' for more details."
 
 <div id="outline-container-:face" class="outline-4">
 <h4 id=":face"><a href="#:face">:face</a></h4>
-<div class="outline-text-4" id="text-orga898d63">
+<div class="outline-text-4" id="text-orgde27722">
 <p>
 这个关键字和 <code>:advice</code> 一样有点无聊，但是还是把它包装起来了。通过调用 <code>set-face-attribute</code> 方法来设置字体样式。
 </p>
@@ -835,7 +961,7 @@ See `advice-add' for more details."
 
 <div id="outline-container-:global" class="outline-4">
 <h4 id=":global"><a href="#:global">:global</a></h4>
-<div class="outline-text-4" id="text-orga2663bb">
+<div class="outline-text-4" id="text-orgd667452">
 <p>
 原本 <code>:global</code> 就是单纯用来绑定全局按键的，现在加一个 hook, 把对应的按键也绑到 minibuffer 上
 </p>
@@ -859,7 +985,7 @@ See `advice-add' for more details."
 
 <div id="outline-container-:disabled" class="outline-4">
 <h4 id=":disabled"><a href="#:disabled">:disabled</a></h4>
-<div class="outline-text-4" id="text-orge8cf23b">
+<div class="outline-text-4" id="text-org654dc84">
 <p>
 停止后续setup, 用来调试或者弃用某个 feature.
 </p>
@@ -882,11 +1008,11 @@ See `advice-add' for more details."
 
 <div id="outline-container-基础设置" class="outline-2">
 <h2 id="基础设置"><a href="#基础设置">基础设置</a></h2>
-<div class="outline-text-2" id="text-orgfccff46">
+<div class="outline-text-2" id="text-org492ec56">
 </div>
 <div id="outline-container-基础库" class="outline-3">
 <h3 id="基础库"><a href="#基础库">基础库</a></h3>
-<div class="outline-text-3" id="text-org55fdb4b">
+<div class="outline-text-3" id="text-org7022abc">
 <p>
 一些有用的基础库。
 </p>
@@ -904,7 +1030,7 @@ See `advice-add' for more details."
 
 <div id="outline-container-基本设置" class="outline-3">
 <h3 id="基本设置"><a href="#基本设置">基本设置</a></h3>
-<div class="outline-text-3" id="text-org704f06b">
+<div class="outline-text-3" id="text-org0edc087">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup delsel
@@ -939,8 +1065,9 @@ See `advice-add' for more details."
 
 (setup keys
   (:doc "Basic key settings.")
-  (:global "RET" newline-and-indent
-           "C-h" backward-char
+  ;; (:disabled)
+  (:global
+   "C-h" backward-char
            "C-j" next-line
            "C-k" previous-line
            "C-l" forward-char
@@ -957,16 +1084,168 @@ See `advice-add' for more details."
            "M-t" move-to-window-line-top-bottom
            "C-q" comment-line
            "C-s" save-buffer
-           "C-p" help-command))</code>
+           "C-p" help-command
+           )
+  )</code>
 </pre>
 
 </div>
 </div>
 </div>
 
+<div id="outline-container-模态编辑" class="outline-3">
+<h3 id="模态编辑"><a href="#模态编辑">模态编辑</a></h3>
+<div class="outline-text-3" id="text-org91eddd5">
+<div class="org-src-container">
+<pre>
+<code class="language-elisp">(setup (:package modalka)
+  (:doc "Modal editing your way")
+  (:disabled)
+  (:require modalka)
+  (modalka-define-kbd "1" "C-1")
+  (modalka-define-kbd "2" "C-2")
+  (modalka-define-kbd "3" "C-3")
+  (modalka-define-kbd "4" "C-4")
+  (modalka-define-kbd "5" "C-5")
+  (modalka-define-kbd "6" "C-6")
+  (modalka-define-kbd "7" "C-7")
+  (modalka-define-kbd "8" "C-8")
+  (modalka-define-kbd "9" "C-9")
+  (modalka-define-kbd "0" "C-0")
+  (modalka-define-kbd "-" "C--")
+  (modalka-define-kbd "u" "C-u")
+
+  (:bind "SPC" set-mark-command
+         "c" (symbol-value 'mode-specific-map)
+         "x" (symbol-value 'ctl-x-map)
+         ;; "m"
+         )
+
+
+  ;; (modalka-define-kbd "c" "C-c")
+
+  ;; (modalka-define-kbd "w" "C-w")
+  ;; (modalka-define-kbd "y" "C-y")
+
+  ;; (define-key modalka-mode-map (kbd "c") mode-specific-map)
+  ;; (define-key modalka-mode-map (kbd "x") ctl-x-map)
+
+  ;; (:bind "c" mode-specific-map)
+  ;; (global-set-key '[8711] (kbd "&lt;escape&gt;"))
+  (global-set-key '[8711] #'modalka-mode)
+
+  (:option modalka-excluded-modes
+           '(inferior-emacs-lisp-mode))
+  (modalka-global-mode 1)
+  (:diminish " @ ")
+  )</code>
+</pre>
+
+</div>
+
+<div class="org-src-container">
+<pre>
+<code class="language-elisp">(setup (:package meow)
+  (:doc "Meow is yet another modal editing mode for Emacs.")
+  (:disabled)
+  (:require meow)
+  (defun meow-setup ()
+    (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
+    (meow-motion-overwrite-define-key
+     '("j" . meow-next)
+     '("k" . meow-prev)
+     '("&lt;escape&gt;" . ignore))
+    (meow-leader-define-key
+     ;; SPC j/k will run the original command in MOTION state.
+     '("j" . "H-j")
+     '("k" . "H-k")
+     ;; Use SPC (0-9) for digit arguments.
+     '("1" . meow-digit-argument)
+     '("2" . meow-digit-argument)
+     '("3" . meow-digit-argument)
+     '("4" . meow-digit-argument)
+     '("5" . meow-digit-argument)
+     '("6" . meow-digit-argument)
+     '("7" . meow-digit-argument)
+     '("8" . meow-digit-argument)
+     '("9" . meow-digit-argument)
+     '("0" . meow-digit-argument)
+     '("/" . meow-keypad-describe-key)
+     '("?" . meow-cheatsheet))
+    (meow-normal-define-key
+     '("0" . meow-expand-0)
+     '("9" . meow-expand-9)
+     '("8" . meow-expand-8)
+     '("7" . meow-expand-7)
+     '("6" . meow-expand-6)
+     '("5" . meow-expand-5)
+     '("4" . meow-expand-4)
+     '("3" . meow-expand-3)
+     '("2" . meow-expand-2)
+     '("1" . meow-expand-1)
+     '("-" . negative-argument)
+     '(";" . meow-reverse)
+     '("," . meow-inner-of-thing)
+     '("." . meow-bounds-of-thing)
+     '("[" . meow-beginning-of-thing)
+     '("]" . meow-end-of-thing)
+     '("a" . meow-append)
+     '("A" . meow-open-below)
+     '("b" . meow-back-word)
+     '("B" . meow-back-symbol)
+     '("c" . meow-change)
+     '("d" . meow-delete)
+     '("D" . meow-backward-delete)
+     '("e" . meow-next-word)
+     '("E" . meow-next-symbol)
+     '("f" . meow-find)
+     '("g" . meow-cancel-selection)
+     '("G" . meow-grab)
+     '("h" . meow-left)
+     '("H" . meow-left-expand)
+     '("i" . meow-insert)
+     '("I" . meow-open-above)
+     '("j" . meow-next)
+     '("J" . meow-next-expand)
+     '("k" . meow-prev)
+     '("K" . meow-prev-expand)
+     '("l" . meow-right)
+     '("L" . meow-right-expand)
+     '("m" . meow-join)
+     '("n" . meow-search)
+     '("o" . meow-block)
+     '("O" . meow-to-block)
+     '("p" . meow-yank)
+     '("q" . meow-quit)
+     '("Q" . meow-goto-line)
+     '("r" . meow-replace)
+     '("R" . meow-swap-grab)
+     '("s" . meow-kill)
+     '("t" . recenter-top-bottom)
+     '("T" . move-to-window-line-top-bottom)
+     '("u" . meow-undo)
+     '("U" . meow-undo-in-selection)
+     '("v" . meow-visit)
+     '("w" . meow-mark-word)
+     '("W" . meow-mark-symbol)
+     '("x" . meow-line)
+     '("X" . meow-goto-line)
+     '("y" . meow-save)
+     '("Y" . meow-sync-grab)
+     '("z" . meow-pop-selection)
+     '("'" . repeat)
+     '("&lt;escape&gt;" . ignore)))
+  (global-set-key '[8711] (kbd "&lt;escape&gt;"))
+  (meow-setup)
+  (meow-global-mode 1))</code>
+</pre>
+
+</div>
+</div>
+</div>
 <div id="outline-container-Minibuffer" class="outline-3">
 <h3 id="Minibuffer"><a href="#Minibuffer">Minibuffer</a></h3>
-<div class="outline-text-3" id="text-org5bdbbda">
+<div class="outline-text-3" id="text-org5dd3368">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup minibuffer
@@ -986,11 +1265,11 @@ See `advice-add' for more details."
 
 <div id="outline-container-外观设置" class="outline-2">
 <h2 id="外观设置"><a href="#外观设置">外观设置</a></h2>
-<div class="outline-text-2" id="text-org49f0b69">
+<div class="outline-text-2" id="text-org1b80073">
 </div>
 <div id="outline-container-字体设置" class="outline-3">
 <h3 id="字体设置"><a href="#字体设置">字体设置</a></h3>
-<div class="outline-text-3" id="text-orgeb8aee6">
+<div class="outline-text-3" id="text-org079c347">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup faces
@@ -1015,7 +1294,7 @@ See `advice-add' for more details."
 
 <div id="outline-container-主题设置" class="outline-3">
 <h3 id="主题设置"><a href="#主题设置">主题设置</a></h3>
-<div class="outline-text-3" id="text-org4995fd4">
+<div class="outline-text-3" id="text-org5c372df">
 <p>
 <a target="_blank" href="https://draculatheme.com/">Dracule Theme</a> 的忠实粉丝就是我了，恨不得整个操作系统都用上。
 </p>
@@ -1034,11 +1313,11 @@ See `advice-add' for more details."
 
 <div id="outline-container-编辑设置" class="outline-2">
 <h2 id="编辑设置"><a href="#编辑设置">编辑设置</a></h2>
-<div class="outline-text-2" id="text-orga9c7625">
+<div class="outline-text-2" id="text-orgbb2bdb3">
 </div>
 <div id="outline-container-基本编辑操作" class="outline-3">
 <h3 id="基本编辑操作"><a href="#基本编辑操作">基本编辑操作</a></h3>
-<div class="outline-text-3" id="text-org1e8ddf3">
+<div class="outline-text-3" id="text-orgc72d536">
 <p>
 定义了包括光标移动、复制粘贴、选择删除等一系列相关操作，以及快捷键定义。
 </p>
@@ -1178,7 +1457,8 @@ See `advice-add' for more details."
 
   (:global "C-v" dust/select-map
            "C-d" dust/delete-map
-           "C-f" dust/find-map))</code>
+           "C-f" dust/find-map)
+  )</code>
 </pre>
 
 </div>
@@ -1187,11 +1467,11 @@ See `advice-add' for more details."
 
 <div id="outline-container-窗口设置" class="outline-3">
 <h3 id="窗口设置"><a href="#窗口设置">窗口设置</a></h3>
-<div class="outline-text-3" id="text-orgc0fedf5">
+<div class="outline-text-3" id="text-org70813fb">
 </div>
 <div id="outline-container-窗口分割" class="outline-4">
 <h4 id="窗口分割"><a href="#窗口分割">窗口分割</a></h4>
-<div class="outline-text-4" id="text-org9431a79">
+<div class="outline-text-4" id="text-org9b7be12">
 <p>
 选择 buffer, 水平或垂直分隔。
 </p>
@@ -1208,7 +1488,8 @@ See `advice-add' for more details."
     (select-window (split-window-below))
     (switch-to-buffer buffer))
   (:global "C-x 2" dust/split-window-below
-           "C-x 3" dust/split-window-right))</code>
+           "C-x 3" dust/split-window-right)
+  )</code>
 </pre>
 
 </div>
@@ -1217,7 +1498,7 @@ See `advice-add' for more details."
 
 <div id="outline-container-窗口间移动" class="outline-4">
 <h4 id="窗口间移动"><a href="#窗口间移动">窗口间移动</a></h4>
-<div class="outline-text-4" id="text-org51d627d">
+<div class="outline-text-4" id="text-orgb8ff8ca">
 <p>
 使用数字编号在窗口间快速移动。
 </p>
@@ -1248,11 +1529,11 @@ See `advice-add' for more details."
 
 <div id="outline-container-括号增强" class="outline-3">
 <h3 id="括号增强"><a href="#括号增强">括号增强</a></h3>
-<div class="outline-text-3" id="text-org2560168">
+<div class="outline-text-3" id="text-orgb3bfca6">
 </div>
 <div id="outline-container-高亮括号" class="outline-4">
 <h4 id="高亮括号"><a href="#高亮括号">高亮括号</a></h4>
-<div class="outline-text-4" id="text-org050806d">
+<div class="outline-text-4" id="text-orga0c84ed">
 <p>
 高亮包围当前光标位置的括号，并用方框标识。
 </p>
@@ -1280,7 +1561,7 @@ See `advice-add' for more details."
 
 <div id="outline-container-Smart Parens" class="outline-4">
 <h4 id="Smart Parens"><a href="#Smart Parens">Smart Parens</a></h4>
-<div class="outline-text-4" id="text-orgee37888">
+<div class="outline-text-4" id="text-orga2c6f54">
 <p>
 增强版的 electric-pair-mode, 同时提供了一些基于括号的操作，参见<a target="_blank" href="https://ebzzry.com/en/emacs-pairs/">Emacs and Pairs</a>.
 </p>
@@ -1314,7 +1595,8 @@ See `advice-add' for more details."
               "M-j" sp-next-sexp
               "M-k" sp-previous-sexp
               "M-l" sp-forward-symbol
-              "M-h" sp-backward-symbol))</code>
+              "M-h" sp-backward-symbol)
+  )</code>
 </pre>
 
 </div>
@@ -1324,11 +1606,11 @@ See `advice-add' for more details."
 
 <div id="outline-container-补全增强" class="outline-3">
 <h3 id="补全增强"><a href="#补全增强">补全增强</a></h3>
-<div class="outline-text-3" id="text-org5aa09e1">
+<div class="outline-text-3" id="text-org871d014">
 </div>
 <div id="outline-container-补全前端" class="outline-4">
 <h4 id="补全前端"><a href="#补全前端">补全前端</a></h4>
-<div class="outline-text-4" id="text-org4e9d3fb">
+<div class="outline-text-4" id="text-org48887e3">
 <p>
 弹框补全 corfu. 图标用的是 kind-all-the-icons, 源自论坛大佬：<a target="_blank" href="https://emacs-china.org/t/corfu-all-the-icons-icon/20907">糊了一个 corfu 适用的 all-the-icons 的 icon 效果 - Emacs-general - Emacs China</a>。
 </p>
@@ -1365,7 +1647,7 @@ See `advice-add' for more details."
 
 <div id="outline-container-补全后端" class="outline-4">
 <h4 id="补全后端"><a href="#补全后端">补全后端</a></h4>
-<div class="outline-text-4" id="text-org57a6880">
+<div class="outline-text-4" id="text-org703aca1">
 <p>
 cape 提供了多种补全后端。
 </p>
@@ -1383,13 +1665,14 @@ cape 提供了多种补全后端。
 
 <div id="outline-container-补全模版" class="outline-4">
 <h4 id="补全模版"><a href="#补全模版">补全模版</a></h4>
-<div class="outline-text-4" id="text-org60836d2">
+<div class="outline-text-4" id="text-org8e3f511">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup (:package tempel)
   (:doc "A tiny template package for Emacs")
   (:when-loaded
-    (:global "C-=" tempel-complete)))</code>
+    (:global "C-=" tempel-complete))
+  )</code>
 </pre>
 
 </div>
@@ -1411,7 +1694,7 @@ cape 提供了多种补全后端。
 
 <div id="outline-container-Minibuffer 增强" class="outline-3">
 <h3 id="Minibuffer 增强"><a href="#Minibuffer 增强">Minibuffer 增强</a></h3>
-<div class="outline-text-3" id="text-org789e2df">
+<div class="outline-text-3" id="text-org8cd0713">
 <p>
 新三件套 (vertico, orderless, consult)
 </p>
@@ -1460,7 +1743,8 @@ cape 提供了多种补全后端。
              nil
              (window-parameters (mode-line-format . none))))
   (:global  "C-/" embark-act
-            "C-?" embark-dwim))
+            "C-?" embark-dwim)
+  )
 
 (setup (:package consult embark-consult)
   (:doc "Search and navigation commands based on the Emacs completion function")
@@ -1471,7 +1755,8 @@ cape 提供了多种补全后端。
            "C-f C-m" consult-mark
            "C-f C-S-m" consult-global-mark
            "C-f C-d" consult-ripgrep
-           "C-f C-s" consult-imenu))</code>
+           "C-f C-s" consult-imenu)
+  )</code>
 </pre>
 
 </div>
@@ -1480,7 +1765,7 @@ cape 提供了多种补全后端。
 
 <div id="outline-container-Isearch 增强" class="outline-3">
 <h3 id="Isearch 增强"><a href="#Isearch 增强">Isearch 增强</a></h3>
-<div class="outline-text-3" id="text-orga2114cf">
+<div class="outline-text-3" id="text-org670849a">
 <p>
 使用 phi-search, 支持 emacs-rime
 </p>
@@ -1495,7 +1780,7 @@ cape 提供了多种补全后端。
   (:doc "Another incremental search &amp; replace")
   (:global "C-." phi-search
            "C-," phi-search-backward
-           "C-f C-r" phi-replace-query)
+       "C-f C-r" phi-replace-query)
   (:option phi-search-limit 10000)
   (defvar dust/phi-search--last-search nil)
   (defun dust/phi--insert-last-search ()
@@ -1519,15 +1804,15 @@ cape 提供了多种补全后端。
 
 <div id="outline-container-编程" class="outline-2">
 <h2 id="编程"><a href="#编程">编程</a></h2>
-<div class="outline-text-2" id="text-org8779b89">
+<div class="outline-text-2" id="text-orgd2c01db">
 </div>
 <div id="outline-container-显示" class="outline-3">
 <h3 id="显示"><a href="#显示">显示</a></h3>
-<div class="outline-text-3" id="text-org9195b99">
+<div class="outline-text-3" id="text-orgd92fdf7">
 </div>
 <div id="outline-container-行号" class="outline-4">
 <h4 id="行号"><a href="#行号">行号</a></h4>
-<div class="outline-text-4" id="text-org15d3710">
+<div class="outline-text-4" id="text-org4a54d48">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup display-line-numbers
@@ -1550,7 +1835,7 @@ cape 提供了多种补全后端。
 
 <div id="outline-container-高亮当前行" class="outline-4">
 <h4 id="高亮当前行"><a href="#高亮当前行">高亮当前行</a></h4>
-<div class="outline-text-4" id="text-orgff46d46">
+<div class="outline-text-4" id="text-orgf20f666">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup hl-line
@@ -1564,7 +1849,7 @@ cape 提供了多种补全后端。
 
 <div id="outline-container-彩色括号" class="outline-4">
 <h4 id="彩色括号"><a href="#彩色括号">彩色括号</a></h4>
-<div class="outline-text-4" id="text-org0343faa">
+<div class="outline-text-4" id="text-org7a6730f">
 <p>
 对不同层次的括号使用不同颜色，对 Lisp 这种多重括号尤其有效。
 </p>
@@ -1581,7 +1866,7 @@ cape 提供了多种补全后端。
 
 <div id="outline-container-eldoc" class="outline-4">
 <h4 id="eldoc"><a href="#eldoc">eldoc</a></h4>
-<div class="outline-text-4" id="text-org20044e5">
+<div class="outline-text-4" id="text-org750fd4f">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup eldoc
@@ -1596,7 +1881,7 @@ cape 提供了多种补全后端。
 
 <div id="outline-container-缩进提示" class="outline-4">
 <h4 id="缩进提示"><a href="#缩进提示">缩进提示</a></h4>
-<div class="outline-text-4" id="text-orge78e249">
+<div class="outline-text-4" id="text-orgd5be1a8">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup (:package highlight-indent-guides)
@@ -1620,7 +1905,7 @@ cape 提供了多种补全后端。
 
 <div id="outline-container-移动到缩进行首" class="outline-3">
 <h3 id="移动到缩进行首"><a href="#移动到缩进行首">移动到缩进行首</a></h3>
-<div class="outline-text-3" id="text-org09523a4">
+<div class="outline-text-3" id="text-org6a60bc4">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup (:package mwim)
@@ -1635,7 +1920,7 @@ cape 提供了多种补全后端。
 
 <div id="outline-container-代码折叠" class="outline-3">
 <h3 id="代码折叠"><a href="#代码折叠">代码折叠</a></h3>
-<div class="outline-text-3" id="text-org4fec41c">
+<div class="outline-text-3" id="text-org9adeead">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup hideshow
@@ -1657,7 +1942,7 @@ cape 提供了多种补全后端。
 
 <div id="outline-container-Tree-sitter" class="outline-3">
 <h3 id="Tree-sitter"><a href="#Tree-sitter">Tree-sitter</a></h3>
-<div class="outline-text-3" id="text-org47a95a6">
+<div class="outline-text-3" id="text-org01c3096">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup (:package treesit-auto)
@@ -1675,7 +1960,7 @@ cape 提供了多种补全后端。
 
 <div id="outline-container-LSP" class="outline-3">
 <h3 id="LSP"><a href="#LSP">LSP</a></h3>
-<div class="outline-text-3" id="text-org765f5f3">
+<div class="outline-text-3" id="text-org6cd7835">
 <p>
 不搞开发，能用就行。不 hook <code>prog-mode</code> 的原因是写比如 elisp 就没必要启动用它。
 </p>
@@ -1702,7 +1987,7 @@ cape 提供了多种补全后端。
 
 <div id="outline-container-YAML" class="outline-3">
 <h3 id="YAML"><a href="#YAML">YAML</a></h3>
-<div class="outline-text-3" id="text-org0702ca0">
+<div class="outline-text-3" id="text-org50a9dec">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup (:package yaml-mode)
@@ -1716,11 +2001,11 @@ cape 提供了多种补全后端。
 
 <div id="outline-container-Emacs Lisp" class="outline-3">
 <h3 id="Emacs Lisp"><a href="#Emacs Lisp">Emacs Lisp</a></h3>
-<div class="outline-text-3" id="text-org2a80b8f">
+<div class="outline-text-3" id="text-orgac8b154">
 </div>
 <div id="outline-container-elisp-def" class="outline-4">
 <h4 id="elisp-def"><a href="#elisp-def">elisp-def</a></h4>
-<div class="outline-text-4" id="text-org822d407">
+<div class="outline-text-4" id="text-org5150501">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup (:package elisp-def)
@@ -1736,7 +2021,7 @@ cape 提供了多种补全后端。
 
 <div id="outline-container-Yuck" class="outline-3">
 <h3 id="Yuck"><a href="#Yuck">Yuck</a></h3>
-<div class="outline-text-3" id="text-org54016bd">
+<div class="outline-text-3" id="text-org8c6abbf">
 <p>
 Yuck 是窗口图形模块套件 <a target="_blank" href="https://elkowar.github.io/eww/">EWW</a> 的语言，基于 Lisp.
 </p>
@@ -1754,7 +2039,7 @@ Yuck 是窗口图形模块套件 <a target="_blank" href="https://elkowar.github
 
 <div id="outline-container-Sxhkd" class="outline-3">
 <h3 id="Sxhkd"><a href="#Sxhkd">Sxhkd</a></h3>
-<div class="outline-text-3" id="text-org9abf40d">
+<div class="outline-text-3" id="text-org674427d">
 <p>
 bspwm 下的键盘映射配置。
 </p>
@@ -1772,7 +2057,7 @@ bspwm 下的键盘映射配置。
 
 <div id="outline-container-Jinja2" class="outline-3">
 <h3 id="Jinja2"><a href="#Jinja2">Jinja2</a></h3>
-<div class="outline-text-3" id="text-orge4711d6">
+<div class="outline-text-3" id="text-org26cf9bc">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup (:package jinja2-mode)
@@ -1786,7 +2071,7 @@ bspwm 下的键盘映射配置。
 
 <div id="outline-container-Markdown" class="outline-3">
 <h3 id="Markdown"><a href="#Markdown">Markdown</a></h3>
-<div class="outline-text-3" id="text-orgc9d41db">
+<div class="outline-text-3" id="text-org9432562">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup (:package markdown-mode)
@@ -1801,7 +2086,7 @@ bspwm 下的键盘映射配置。
 
 <div id="outline-container-Org mode" class="outline-2">
 <h2 id="Org mode"><a href="#Org mode">Org mode</a></h2>
-<div class="outline-text-2" id="text-org2d990e1">
+<div class="outline-text-2" id="text-org084b2cd">
 <p>
 Org mode 原本是一个基于 outline 的任务管理，但是因为提供了丰富的语言标记，以及结合 emacs 提供导出、发布等各种操作，它已然成为一个强大的笔记、管理、收集等集一体的系统。
 </p>
@@ -1870,7 +2155,7 @@ Org mode 原本是一个基于 outline 的任务管理，但是因为提供了�
 
 <div id="outline-container-快速改变 heading" class="outline-3">
 <h3 id="快速改变 heading"><a href="#快速改变 heading">快速改变 heading</a></h3>
-<div class="outline-text-3" id="text-org7e8aefa">
+<div class="outline-text-3" id="text-orga16d622">
 <p>
 通过快捷键来快速调整 headline 等级。
 </p>
@@ -1919,7 +2204,7 @@ Org mode 原本是一个基于 outline 的任务管理，但是因为提供了�
 
 <div id="outline-container-快速插入" class="outline-3">
 <h3 id="快速插入"><a href="#快速插入">快速插入</a></h3>
-<div class="outline-text-3" id="text-org0285f9e">
+<div class="outline-text-3" id="text-orga746337">
 <ol class="org-ol">
 <li>输入一个 URL, 尝试自动获取返回的 HTML 的 <code>&lt;title&gt;</code>, 如果有就把它作为 org-link 的 description. 或输入 denote 笔记，以它的标题作为 description.</li>
 <li>给定一个存放图片的目录，按最近修改时间排序</li>
@@ -2001,12 +2286,12 @@ Org mode 原本是一个基于 outline 的任务管理，但是因为提供了�
 
 <div id="outline-container-Org Agenda" class="outline-3">
 <h3 id="Org Agenda"><a href="#Org Agenda">Org Agenda</a></h3>
-<div class="outline-text-3" id="text-orgf3a555f">
+<div class="outline-text-3" id="text-org07170a9">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup org-agenda
   (:doc "Org Agenda settings")
-  (:global "C-\\" org-cycle-agenda-files)
+  ;; (:global "C-\\" org-cycle-agenda-files)
   (:option org-agenda-files '("~/Agendas"))
   (:when-loaded
 
@@ -2026,7 +2311,7 @@ Org mode 原本是一个基于 outline 的任务管理，但是因为提供了�
 
 <div id="outline-container-排版" class="outline-3">
 <h3 id="排版"><a href="#排版">排版</a></h3>
-<div class="outline-text-3" id="text-org357f556">
+<div class="outline-text-3" id="text-orgb32428b">
 <p>
 采用左右两侧留白，页面集中到中部的排版。
 </p>
@@ -2046,7 +2331,7 @@ Org mode 原本是一个基于 outline 的任务管理，但是因为提供了�
 
 <div id="outline-container-Latex 导出" class="outline-3">
 <h3 id="Latex 导出"><a href="#Latex 导出">Latex 导出</a></h3>
-<div class="outline-text-3" id="text-org1059769">
+<div class="outline-text-3" id="text-orgc1dff1b">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup org-latex
@@ -2069,7 +2354,7 @@ Org mode 原本是一个基于 outline 的任务管理，但是因为提供了�
 </div>
 <div id="outline-container-快速查询" class="outline-3">
 <h3 id="快速查询"><a href="#快速查询">快速查询</a></h3>
-<div class="outline-text-3" id="text-orga8c9be9">
+<div class="outline-text-3" id="text-org951cacd">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup (:package org-ql)
@@ -2087,11 +2372,11 @@ Org mode 原本是一个基于 outline 的任务管理，但是因为提供了�
 
 <div id="outline-container-工具" class="outline-2">
 <h2 id="工具"><a href="#工具">工具</a></h2>
-<div class="outline-text-2" id="text-org0537bf2">
+<div class="outline-text-2" id="text-org0a19dd9">
 </div>
 <div id="outline-container-输入法" class="outline-3">
 <h3 id="输入法"><a href="#输入法">输入法</a></h3>
-<div class="outline-text-3" id="text-org9362d9e">
+<div class="outline-text-3" id="text-org22b0502">
 <p>
 Emacs 的 RIME 输入法，只要断言做得好，就可以丝滑地在中英文输入法之间切换，且不会影响快捷键的使用。
 </p>
@@ -2137,7 +2422,8 @@ Emacs 的 RIME 输入法，只要断言做得好，就可以丝滑地在中英�
   (:hook (lambda ()
            (when (rime--ascii-mode-p)
              (rime--inline-ascii))))
-  (:global "C-&lt;SPC&gt;" toggle-input-method))</code>
+  (:global "C-&lt;SPC&gt;" toggle-input-method)
+  )</code>
 </pre>
 
 </div>
@@ -2145,7 +2431,7 @@ Emacs 的 RIME 输入法，只要断言做得好，就可以丝滑地在中英�
 </div>
 <div id="outline-container-文件管理" class="outline-3">
 <h3 id="文件管理"><a href="#文件管理">文件管理</a></h3>
-<div class="outline-text-3" id="text-org1f7223b">
+<div class="outline-text-3" id="text-orgbccfa61">
 <p>
 Dirvish 是一个非常优秀的文件管理器，优美的前端，集成 Dired, 它完全能够作为一个独立的基于命令行的文件管理器使用（我确实也是把它作为系统默认的文件管理器使用）
 </p>
@@ -2161,69 +2447,71 @@ Dirvish 是一个非常优秀的文件管理器，优美的前端，集成 Dired
               dirvish-quick-access
               dirvish-subtree
               subr-x)
-  (:option dirvish-quick-access-entries
-           '(("h" "~/")
-             ("e" "~/.emacs.d/")
-             ("g" "~/gh-repo/")
-             ("n" "~/Note/")
-             ("G" "~/.emacs.d/etc/gnus/")))
+  (:when-loaded
+    (:option dirvish-quick-access-entries
+             '(("h" "~/")
+               ("e" "~/.emacs.d/")
+               ("g" "~/gh-repo/")
+               ("n" "~/Note/")
+               ("G" "~/.emacs.d/etc/gnus/")))
 
-  (:option dirvish-preview-dispatchers '(image gif audio archive))
-  (dirvish-define-preview lsd (file)
-    "Use `lsd' to generate directory preview."
-    :require ("lsd") ; tell Dirvish to check if we have the executable
-    (when (file-directory-p file) ; we only interest in directories here
-      `(shell . ("lsd" "-al" "--icon" "never" ,file))))
-  (:option (append dirvish-preview-dispatchers) 'lsd)
+    (:option dirvish-preview-dispatchers '(image gif audio archive))
+    (dirvish-define-preview lsd (file)
+      "Use `lsd' to generate directory preview."
+      :require ("lsd") ; tell Dirvish to check if we have the executable
+      (when (file-directory-p file) ; we only interest in directories here
+        `(shell . ("lsd" "-al" "--icon" "never" ,file))))
+    (:option (append dirvish-preview-dispatchers) 'lsd)
 
-  (defun dust/dirvish--truncate-line (&amp;rest _)
-    (setq-local truncate-lines t))
+    (defun dust/dirvish--truncate-line (&amp;rest _)
+      (setq-local truncate-lines t))
 
-  (dirvish-emerge-define-predicate is-dir
-                                   "If item is a directory"
-                                   (equal (car type) 'dir))
+    (dirvish-emerge-define-predicate is-dir
+      "If item is a directory"
+      (equal (car type) 'dir))
 
-  (:option dirvish-use-header-line nil
-           dirvish-attributes '(subtree-state all-the-icons file-size)
-           delete-by-moving-to-trash t
-           dirvish-mode-line-height 21
-           dirvish-redisplay-debounce 1
-           dired-listing-switches
-           "-l --almost-all --human-readable --group-directories-first --no-group --time-style=iso"
+    (:option dirvish-use-header-line nil
+             dirvish-attributes '(subtree-state all-the-icons file-size)
+             delete-by-moving-to-trash t
+             dirvish-mode-line-height 21
+             dirvish-redisplay-debounce 1
+             dired-listing-switches
+             "-l --almost-all --human-readable --group-directories-first --no-group --time-style=iso"
 
-           dirvish-emerge-groups
-           '(("Hidden" (regex . "^\\."))
-             ("Directory" (predicate . is-dir))
-             ("Documents" (extensions "pdf" "tex" "bib" "epub"))
-             ("Video" (extensions "mp4" "mkv" "webm"))
-             ("Picture" (extensions "jpg" "png" "svg" "gif"))
-             ("Audio" (extensions "mp3" "flac" "wav" "ape" "aac"))
-             ("Archive" (extensions "gz" "rar" "zip"))
-             ("Org" (extensions "org"))
-             ("Emacs Lisp" (extensions "el"))
-             ("Python" (extensions "py"))
-             ("Files" (regex . ".*"))))
+             dirvish-emerge-groups
+             '(("Hidden" (regex . "^\\."))
+               ("Directory" (predicate . is-dir))
+               ("Documents" (extensions "pdf" "tex" "bib" "epub"))
+               ("Video" (extensions "mp4" "mkv" "webm"))
+               ("Picture" (extensions "jpg" "png" "svg" "gif"))
+               ("Audio" (extensions "mp3" "flac" "wav" "ape" "aac"))
+               ("Archive" (extensions "gz" "rar" "zip"))
+               ("Org" (extensions "org"))
+               ("Emacs Lisp" (extensions "el"))
+               ("Python" (extensions "py"))
+               ("Files" (regex . ".*"))))
 
-  (:option dirvish-override-dired-mode t)
+    (:option dirvish-override-dired-mode t)
 
-  (:with-hook dirvish-find-entry-hook
-    (:hook dust/dirvish--truncate-line))
-  (:with-mode dirvish-emerge-mode
-    (:hook-into dirvish-setup))
+    (:with-hook dirvish-find-entry-hook
+      (:hook dust/dirvish--truncate-line))
+    (:with-mode dirvish-emerge-mode
+      (:hook-into dirvish-setup))
 
-  (:bind-into dirvish-mode-map
-    "a" dirvish-quick-access
-    "j" dired-next-line
-    "k" dired-previous-line
-    "f" dired-goto-file
-    "b" dired-up-directory
-    "n" dirvish-emerge-next-group
-    "p" dirvish-emerge-previous-group
-    "TAB" dirvish-subtree-toggle
-    "M-t" dirvish-layout-toggle
-    "z" dired
-    "SPC" dired-find-file)
-  (:global "C-x C-d" dirvish))</code>
+    (:bind-into dirvish-mode-map
+      "a" dirvish-quick-access
+      "j" dired-next-line
+      "k" dired-previous-line
+      "f" dired-goto-file
+      "b" dired-up-directory
+      "n" dirvish-emerge-next-group
+      "p" dirvish-emerge-previous-group
+      "TAB" dirvish-subtree-toggle
+      "M-t" dirvish-layout-toggle
+      "z" dired
+      "SPC" dired-find-file))
+  (:global "C-x C-d" dirvish)
+  )</code>
 </pre>
 
 </div>
@@ -2232,7 +2520,7 @@ Dirvish 是一个非常优秀的文件管理器，优美的前端，集成 Dired
 
 <div id="outline-container-中文分词" class="outline-3">
 <h3 id="中文分词"><a href="#中文分词">中文分词</a></h3>
-<div class="outline-text-3" id="text-org5ce4b48">
+<div class="outline-text-3" id="text-orgd36209f">
 <p>
 基于中文分词的词语移动。Emacs 内置的 forward-word/backward-word 遇上中文会直接跑到句子结束。用了 jieba 分词就可以实现中文词语的 forward/backward.
 </p>
@@ -2264,7 +2552,7 @@ jieba.el 在每个 Emacs 应用打开都会启动一个 node-js 的服务器，�
 
 <div id="outline-container-大纲展示" class="outline-3">
 <h3 id="大纲展示"><a href="#大纲展示">大纲展示</a></h3>
-<div class="outline-text-3" id="text-orgeef146c">
+<div class="outline-text-3" id="text-org7820615">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup (:package imenu-list)
@@ -2289,7 +2577,7 @@ jieba.el 在每个 Emacs 应用打开都会启动一个 node-js 的服务器，�
 
 <div id="outline-container-摘抄库" class="outline-3">
 <h3 id="摘抄库"><a href="#摘抄库">摘抄库</a></h3>
-<div class="outline-text-3" id="text-org860fd2d">
+<div class="outline-text-3" id="text-org8e478c7">
 <p>
 自己写的一个摘抄管理，用 sqlite3 数据库。
 </p>
@@ -2309,7 +2597,7 @@ jieba.el 在每个 Emacs 应用打开都会启动一个 node-js 的服务器，�
 
 <div id="outline-container-音乐播放器" class="outline-3">
 <h3 id="音乐播放器"><a href="#音乐播放器">音乐播放器</a></h3>
-<div class="outline-text-3" id="text-orgb4e9be0">
+<div class="outline-text-3" id="text-org7713a2b">
 <p>
 MPD 的前端，其实还是用的 MPC, 所以它是 MPD 前端的前端。简单但够用。
 </p>
@@ -2342,29 +2630,105 @@ MPD 的前端，其实还是用的 MPC, 所以它是 MPD 前端的前端。简�
 </div>
 </div>
 
-<div id="outline-container-邮件和订阅" class="outline-3">
-<h3 id="邮件和订阅"><a href="#邮件和订阅">邮件和订阅</a></h3>
-<div class="outline-text-3" id="text-orgdaacb5a">
+<div id="outline-container-邮件" class="outline-3">
+<h3 id="邮件"><a href="#邮件">邮件</a></h3>
+<div class="outline-text-3" id="text-org3154d23">
 <div class="org-src-container">
 <pre>
-<code class="language-elisp">(setup gnus
-  (:doc "A newsreader for GNU Emacs"
-        "See `etc/gnus/init.el'")
-  (:option gnus-home-directory (expand-file-name "gnus" user-emacs-directory)))</code>
+<code class="language-elisp">(setup mu4e
+  (:doc "A tool for dealing with e-mail messages stored in the Maildir-format")
+  (:load-path "/usr/share/emacs/site-lisp/mu4e")
+  (autoload 'mu4e "mu4e" "the mu mail user agent" t)
+  (:when-loaded
+    (defun my-make-mu4e-context (context-name full-name mail-address signature)
+      "https://www.emacswiki.org/emacs/mu4e"
+      (let ((dir-name (concat "/" context-name)))
+        (make-mu4e-context
+         :name context-name
+         :match-func
+         `(lambda (msg)
+            (when msg
+              (string-match-p
+                   ,(concat "^" dir-name)
+                   (mu4e-message-field msg :maildir))))
+         :vars
+         `((user-mail-address    . ,mail-address)
+           (user-full-name       . ,full-name)
+           (mu4e-sent-folder     . ,(concat dir-name "/Sent"))
+           (mu4e-drafts-folder   . ,(concat dir-name "/Drafts"))
+           (mu4e-trash-folder    . ,(concat dir-name "/Deleted"))
+           (mu4e-refile-folder   . ,(concat dir-name "/Archive"))
+           (mu4e-compose-signature . ,signature)))))
+
+    (:option mu4e-change-filenames-when-moving t
+             mu4e-index-cleanup nil
+             mu4e-index-lazy-check t
+             mu4e-get-mail-command "offlineimap -o")
+
+    (:option (append mu4e-contexts)
+             (my-make-mu4e-context "outlook"
+                                   "Mr Dust"
+                                   "mrdust1880@outlook.com"
+                                   "Dare to know."))))</code>
 </pre>
 
 </div>
 </div>
 </div>
 
-<div id="outline-container-日志" class="outline-3">
-<h3 id="日志"><a href="#日志">日志</a></h3>
-<div class="outline-text-3" id="text-org04e9bc7">
+<div id="outline-container-订阅" class="outline-3">
+<h3 id="订阅"><a href="#订阅">订阅</a></h3>
+<div class="outline-text-3" id="text-org7de7701">
 <div class="org-src-container">
 <pre>
-<code class="language-elisp">(setup (:git org-journal "https://github.com/bastibe/org-journal")
+<code class="language-elisp">(setup newsticker
+  (:doc "a feed reader for Emacs")
+  (:option newsticker-url-list-defaults nil
+           newsticker-ticker-interval 0
+           newsticker-retrieval-interval 0
+           newsticker-keep-obsolete-items nil
+           newsticker-automatically-mark-items-as-old nil
+           newsticker-date-format "(%F,%A %H:%M)"
+           newsticker-treeview-date-format "%F")
+
+  (:option newsticker-url-list
+           '(("知乎日报" "https://rsshub.app/zhihu/daily")
+             ("iDaily" "https://rsshub.app/idaily/today")
+             ("每日早报" "https://rsshub.app/readhub/daily")
+             ("理想生活实验室" "https://rsshub.app/toodaylab/posts")
+             ("少数派" "https://rsshub.app/sspai/inde")
+             ("纽约时报" "https://rsshub.app/nytimes/dual")
+             ("Hacker News" "https://rsshub.app/hackernews")
+             ("Bing 每日壁纸" "https://rsshub.app/bing")
+             ("Daily Art" "https://rsshub.app/dailyart/en")
+             ("One 一个" "https://rsshub.app/one")
+             ("Manateelazycat Blog" "https://manateelazycat.github.io/feed.xml")
+             ("Emacs China" "https://emacs-china.org/latest.rss")))
+
+  (defalias 'newsticker 'newsticker-treeview "Start newsticker")
+
+  (setup newst-treeview
+    (:bind-into newsticker-treeview-mode-map
+      "b" newsticker-treeview-prev-feed)
+    (:face newsticker-treeview-old-face
+      :foreground (face-attribute 'shadow :foreground))
+    (:face newsticker-treeview-selection-face
+      :foreground (face-attribute 'minibuffer-prompt :foreground)
+      :background (face-attribute 'minibuffer-prompt :background))
+    )
+  )</code>
+</pre>
+
+</div>
+</div>
+</div>
+<div id="outline-container-日志" class="outline-3">
+<h3 id="日志"><a href="#日志">日志</a></h3>
+<div class="outline-text-3" id="text-org83d0c39">
+<div class="org-src-container">
+<pre>
+<code class="language-elisp">(setup (:package org-journal)
   (:doc "A simple personal diary / journal using in Emacs.")
-  (:autoload org-journal-new-entry)
   (:when-loaded
     (defun org-journal-file-header-func (time)
       "Custom function to create journal header."
@@ -2378,7 +2742,7 @@ MPD 的前端，其实还是用的 MPC, 所以它是 MPD 前端的前端。简�
 
     ;; "https://github.com/bastibe/org-journal/issues/369"
     ;; (defconst org-journal--cache-file
-      ;; (no-littering-expand-var-file-name "org-journal.cache"))
+    ;; (no-littering-expand-var-file-name "org-journal.cache"))
     (:option org-journal-dir "~/Journal"
              org-journal-find-file 'find-file
 
@@ -2398,7 +2762,8 @@ MPD 的前端，其实还是用的 MPC, 所以它是 MPD 前端的前端。简�
   (defun dust/org-journal-new-journal ()
     (interactive)
     (org-journal-new-entry t))
-  (:global "C-c C-j" dust/org-journal-new-journal))</code>
+  (:global "C-c C-j" dust/org-journal-new-journal)
+  )</code>
 </pre>
 
 </div>
@@ -2407,7 +2772,7 @@ MPD 的前端，其实还是用的 MPC, 所以它是 MPD 前端的前端。简�
 
 <div id="outline-container-笔记管理" class="outline-3">
 <h3 id="笔记管理"><a href="#笔记管理">笔记管理</a></h3>
-<div class="outline-text-3" id="text-org6b317f8">
+<div class="outline-text-3" id="text-org81db4ac">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setup (:package denote)
@@ -2491,7 +2856,7 @@ set to '(subdirectory title keywords)."
 </div>
 <div id="outline-container-书籍管理" class="outline-3">
 <h3 id="书籍管理"><a href="#书籍管理">书籍管理</a></h3>
-<div class="outline-text-3" id="text-orgf4377fe">
+<div class="outline-text-3" id="text-orgc73bc31">
 <p>
 用 org mode 的 Attachment 来做书籍管理。 <code>:PROPERTIES:</code> 里填上各种信息，然后对应的文件名字归一化。加一个 advice, 使得文档打开使用当前窗口，而不是默认的 find-file-other-window.
 </p>
@@ -2576,7 +2941,7 @@ set to '(subdirectory title keywords)."
 
 <div id="outline-container-配置结束" class="outline-2">
 <h2 id="配置结束"><a href="#配置结束">配置结束</a></h2>
-<div class="outline-text-2" id="text-org549d9ef">
+<div class="outline-text-2" id="text-org97e5c82">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(defun startup-echo-area-message ()
@@ -2591,96 +2956,19 @@ set to '(subdirectory title keywords)."
 </div>
 </div>
 </div>
-
-<div id="outline-container-病人生平" class="outline-2">
-<h2 id="病人生平"><a href="#病人生平">病人生平</a></h2>
-<div class="outline-text-2" id="text-org2d34799">
-<p>
-Mr Dust, 尘先生，当然是因为我姓陈。或者手指骑士 Finger Knight ，又一个称号而已。邮箱 mrdust1880@outlook.com 
-</p>
-
-<p>
-兴趣比较广泛，数学、哲学、物理、历史都在尝试。
-</p>
-
-<p>
-科幻、代码、游戏，赛博朋克。
-</p>
-
-<p>
-奶茶参与血液循环，咖啡也超爱。
-</p>
-
-<p>
-偶尔画画，尽管画得很丑。
-</p>
-
-<p>
-争论问题时容易红温，但对事不对人。
-</p>
-
-<p>
-喜欢尝试，容易放弃。
-</p>
-
-<p>
-最大的梦想是教育，知识开源。
-</p>
-</div>
-</div>
-
-<div id="outline-container-宇宙安全声明" class="outline-2">
-<h2 id="宇宙安全声明"><a href="#宇宙安全声明">宇宙安全声明</a></h2>
-<div class="outline-text-2" id="text-org5b48da7">
-<p>
-本博客内容仅字面含义，非引战，非水军，非反串，仅为个人感想，无任何衍生含义内容不代表任何其他团体个人，无任何隐喻，暗示，反申，碰瓷，蹭热度等想法。博客内容天马行空，常常脱离常识，如有歧义欢迎指正。
-</p>
-
-<p>
-本人家庭和睦安康，无任何心理或精神疾病，智力为正常水平。观点及言论仅代表个人一点浅薄的看法，非专业学术内容。部分内容仅为猜测，不代表实际，与本人所在群体、父母亲朋以及所在地区无关。如有不同观点欢迎礼貌讨论，感谢指正。
-</p>
-
-<p>
-本言论不含有对任何群体的歧视，不含有任何挑起对立的含义。本人认知范围浅薄，无专业团队，内容偏个人想法，如有误会歧义欢迎指正。因个人生活时间所限，对于未回复的信息不代表任何无视。
-</p>
-
-<p>
-本博客使用字体为免费开源字体，无任何恶意侵权行为，文章中出现的内容均已标注出处，如出处有误等及时联系，本人尽快处理。如发现有引用未标注导致侵权，请及时联系协商，本人尽快修改或删除。
-</p>
-
-<p>
-本人表达能力一般，如因话语过于直白引起争议，绝非恶意鄙视基个人、团体或群体，他人评论绝非本人想法，不代表本人意思。如本人赞同您不认可的观点，是仅从本人狭隘的目光出发，绝非故意针对你个人，你所在群体、团体、组织。
-</p>
-
-<p>
-本人为地球人，热爱地球文明，绝无任何反人类倾向，本人承诺从未且绝不会私下向三体或其他任何地外行星发送地球坐标，未向任何外星人、异次元文明等其他宇宙私下透露过地球信息。
-</p>
-
-<p>
-本人承诺热爱小动物，如把人比喻成动物，仅通俗调侃，绝无任何践踏人类人格 、尊严、人权等意图，绝无歧视动物的意图。 <sup class="fsup"><a id="fnr.1.3" class="footref" href="#fn.1" role="doc-backlink">[1]</a></sup>
-</p>
-</div>
-</div>
 <div id="footnotes">
 <h2 class="footnotes">Footnotes: </h2>
 <div id="text-footnotes">
 
-<div id="fn.1" class="footdef"><span class="footnum"> (1) </span><a class="foot2ref" href="#fnr.1.1" role="doc-backlink"> ⇑ </a><a class="foot2ref" href="#fnr.1.2" role="doc-backlink"> ⇑ </a><a class="foot2ref" href="#fnr.1.3" role="doc-backlink"> ⇑ </a>
+<div id="fn.1" class="footdef"><span class="footnum"> (1) </span><a class="foot2ref" href="#fnr.1.1" role="doc-backlink"> ⇑ </a><a class="foot2ref" href="#fnr.1.2" role="doc-backlink"> ⇑ </a>
  <div class="footpara" role="doc-footnote"><p class="footpara">
-<a target="_blank" href="https://www.bilibili.com/video/BV1hM411Y7XL">叠 甲 圣 经_哔哩哔哩_bilibili</a>
+<a target="_blank" href="https://emacs.nasy.moe">Nasy Emacs 配置</a>
 </p></div></div>
 
 <div id="fn.2" class="footdef"><span class="footnum"> (2) </span><a class="foot2ref" href="#fnr.2.1" role="doc-backlink"> ⇑ </a>
  <div class="footpara" role="doc-footnote"><p class="footpara">
 <a target="_blank" href="https://github.com/alexluigit/emacs-grandview">GitHub - alexluigit/emacs-grandview: 原非大观。</a>
-</p>
-
-<div id="org70482ea" class="figure">
-<p><a href="/assets/0179b24839018784b799a73b790d054c.jpg" target="_blank">
-<img src="/assets/0179b24839018784b799a73b790d054c.jpg" alt="0179b24839018784b799a73b790d054c.jpg" /></a>
-</p>
-<p><span class="figure-number">Figure 1: </span>If I have to do this, I'll do this right.</p>
-</div></div></div>
+</p></div></div>
 
 <div id="fn.3" class="footdef"><span class="footnum"> (3) </span><a class="foot2ref" href="#fnr.3.1" role="doc-backlink"> ⇑ </a>
  <div class="footpara" role="doc-footnote"><p class="footpara">
