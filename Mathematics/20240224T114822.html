@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title> [Calculus] 8. Taylor Expansion - Ward of Dust </title>
+<meta name="author" content="MrDust">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/static/Slippery/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@callmebill/lxgw-wenkai-web@latest/style.css"><link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header">
+<div class="title">
+<a href="/">Ward of Dust</a>
+</div>
+<div class="navigation">
+<a class="item" href="/archive.html">Archives</a>
+<a class="item" href="/taxonomy.html">Taxonomy</a>
+<a class="item" href="/about.html">About</a></div>
+</div>
+</div>
+<div id="content" class="content">
+<div class="post">
+<h1 class="title">[Calculus] 8. Taylor Expansion</h1>
+<div class="metadata">
+<div class="date"><span>2024-02-24</span></div>
+<div class="tags">
+<a class="tag" href="/tag/calculus.html">#calculus</a> <a class="tag" href="/tag/math.html">#math</a> <a class="tag" href="/tag/post.html">#post</a></div>
+<div class="category">
+<a href="/category/Mathematics.html">$Mathematics</a>
+</div>
+</div>
+<div class="mathblock definition" id="org89c0499">
+<p><span class="number">Definition 8.1 </span>(higher derivative) 
+Given \(f: S \to \R\), and \(a \in S\). We say \(f\) is k-times differentiable at \(a\) if \(f\) is differentiable at every \(x\) near \(a\), and \(f'\) is (k-1)-times differentiable at \(a\).
+</p>
+
+</div>
+
+<div class="mathblock proposition" id="orged5ee51">
+<p><span class="number">Proposition 8.2 </span>
+Equivalently, here is another definition of higher derivatives.
+</p>
+
+<p>
+Given \(f: S \to \R\), and \(a \in S\). We say \(f\) is k-times differentiable at \(a\) if \(\exists \delta > 0[(a - \delta, a + \delta) \sube S]\) and \(f', f'', \cdots, f^{(k-1)}\) exists on \((a - \delta, a + \delta)\), and \(f^{(k-1)}\) is differentiable at \(a\).
+</p>
+
+</div>
+
+<div class="mathblock proof" id="orgebbcd49">
+<p><span class="number">Proof  </span>
+(\(\Rarr\))
+</p>
+
+<p>
+For times less than \(k-1\), we have:
+</p>
+
+\begin{align*}
+ f \text{ is } k\text{-times diff.}
+&\Rarr f \text{ is diff. near } a{, and } f' \text{ is } (k-1)\text{-times diff. at } a\\
+&\Darr\\
+f' \text{ is } (k-1)\text{-times diff.}
+&\Rarr f' \text{ is diff. near } a{, and } f'' \text{ is } (k-2)\text{-times diff. at } a\\
+&\Darr\\ \vdots\\
+&\Darr\\ f^{(k-2)} \text{ is } k\text{-times diff.}
+&\Rarr f^{(k-2)} \text{ is diff. near } a{, and } f^{(k-1)} \text{ is } (k-1)\text{-times diff. at } a
+\end{align*}
+
+<p>
+(\(\Larr\))
+</p>
+
+<p>
+\(f^{(k-1)}\) is diff. at \(a\), and \(f^{(k-2)}\) is diff. near \(a\), therefore \(f^{(k-2)}\) is 1-times diff.
+</p>
+
+<p>
+Repeat that, and we will obtain the answer
+<span class="QED">□</span>
+</p>
+</div>
+
+<div class="mathblock lemma" id="orgd4b8244">
+<p><span class="number">Lemma 8.3 </span>
+Given \(f: I \to \R\), and \(a,b \in I, a < b\).
+</p>
+
+<ul class="org-ul">
+<li>If \(f\) is convex and \(\exists\delta > 0 (a - \delta, a + \delta) \in I\), then \(f_{-}'(a)\) and \(f_{+}'(a)\) both exist, and \(f_{-}'(a) \le f_{+}'(a)\).</li>
+<li>If \(f\) is convex and \(\exists \delta >0 (a - \delta, b + \delta) \in I\), then \(f_{+}'(a) \le f_{-}'(b)\).</li>
+</ul>
+
+</div>
+
+<div class="mathblock proof" id="orgb727023">
+<p><span class="number">Proof  </span>
+(1)
+</p>
+
+<p>
+By proposition 7.4, consider \(a - \delta_1 < a < a + \delta_2\) where \(\delta_1,\delta_2 \le \delta\), we have
+</p>
+
+<p>
+\[
+\frac{f(a) - f(a-\delta_1)}{\delta_1} \le \frac{f(a+\delta_2) - f(a)}{\delta_2}
+\]
+</p>
+
+<p>
+Fix \(\delta_1\), and let \(delta_2\) be approaching to \(0\), \(\frac{f(a+\delta_2) - f(a)}{\delta_2}\) is decreasing in the process, and it is bounded. Therefore, \(f_{+}'(a)=\lim_{\delta_2 \to 0}\frac{f(a+\delta_2) - f(a)}{\delta_2}\) exists.
+</p>
+
+<p>
+Similarly, we can obtain that \(f_{-}'(a)\) exists, too.
+</p>
+
+<p>
+And if letting \(\delta_1,\delta_2\) be approaching 0 at the same time, we can obtain that \(f_{-}'(a) \le f_{+}'(b)\).
+</p>
+
+<p>
+(2)
+</p>
+
+<p>
+Let \(x,y \in I\), such that \(a < x < y < b\). Then
+</p>
+
+<p>
+\[
+\frac{ f(x) - f(a) }{ x - a } \le \frac{ f(y) - f(x) }{ y - x } \le \frac{ f(b) - f(y) }{ b - y }
+\]
+</p>
+
+<p>
+As \(x \to a\) and \(y \to b\), similarly as (1), we have \(f_{-}'(a) \le f_{+}'(b)\).
+<span class="QED">□</span>
+</p>
+</div>
+
+<div class="mathblock proposition" id="org9598b2f">
+<p><span class="number">Proposition 8.4 </span>(convex test by 2-times derivative) 
+If \(f: I \to \R\), where \(I\) is an open interval, is 2-times differentiable everywhere, then \(f\) is convex iff \(f''(x) \ge 0\) for all \(x \in I\).
+</p>
+
+</div>
+
+<div class="mathblock proposition" id="org47bea13">
+<p><span class="number">Proposition 8.5 </span>
+By lemmas, we can have that for \(a < x (\in I)\),
+</p>
+
+<p>
+\[
+f_{-}'(a) \le f_{+}'(a) \le f_{-}'(x) \le f_{+}'(x)
+\]
+</p>
+
+<p>
+Since \(f\) is 2-times differentiable everywhere, i.e,. \(f'(x)\) is differentiable everywhere, the left limit is equal to the right limit equaled to the limit itself, we have \(f'(a) \le f'(x)\).
+</p>
+
+<p>
+\[
+\lim{x \to 0}\frac{ f'(x) - f'(a) }{ x - a } = f''(a) \le 0
+\]
+</p>
+
+<p>
+for any \(a \in I\).
+</p>
+
+</div>
+
+<div class="mathblock definition" id="org80b57af">
+<p><span class="number">Definition 8.6 </span>
+We say two maps \(f(x), g(x)\) is k-times close as \(x \to a\) if
+</p>
+
+<p>
+\[
+\lim_{x \to a}\frac{f(x) - g(x)}{(x-a)^k} = 0
+\]
+</p>
+
+<p>
+, denoted as \(f(x) \underset{k}{\sim} g(x)\).
+</p>
+
+</div>
+
+<div class="mathblock proposition" id="org9cfc9b7">
+<p><span class="number">Proposition 8.7 </span>
+If \(P(x)\) is a k-times polynomial, then \[
+P(x) = \sum_{i=0}^{k}\frac{P^{(i)}(a)}{i!}(x-a)^i
+\]
+</p>
+
+</div>
+
+<div class="mathblock proof" id="org15c4f62">
+<p><span class="number">Proof  </span>
+Too hard for me. I'll give it a try another day.
+<span class="QED">□</span>
+</p>
+</div>
+
+<div class="mathblock proposition" id="org575b57a">
+<p><span class="number">Proposition 8.8 </span>
+If \(f(x) \underset{k}{\sim} P(x)\) and \(f(x) \underset{k}{\sim} Q(x)\) as \(x \to a\), then \(P(x) \underset{k}{\sim} Q(x)\) as \(x \to a\), and \(P(a) = Q(\)), \(P^{(i)}(a) = Q^{(i)}(a)\) for \(i = 1,2,\cdots, k\).
+</p>
+
+\begin{align*}
+\lim_{x \to a} \frac{P(x) - Q(x)}{(x - a)^k} &=
+ \lim_{x \to a} \frac{P(x) - f(x) + f(x) - Q(x)}{(x - a)^k}\\
+ &= \lim_{x \to a} \frac{f(x) - Q(x)}{(x - a)^k} - \lim_{x \to a} \frac{f(x) - P(x)}{(x - a)^k}\\
+ &= 0
+ \end{align*}
+
+</div>
+
+<div class="mathblock proof" id="orgd967231">
+<p><span class="number">Proof  </span>
+Let $ F(x) = P(x) - Q(x)$. Then \(\lim_{x \to a}\frac{F(x)}{(x-a)^k} = 0 \Rarr \lim_{x \to a}(P(x) - Q(x)) = 0\), i.e., \(P(a) = Q(a)\).
+</p>
+
+<p>
+Then
+</p>
+
+\begin{align*}
+\lim_{x \to a}\frac{P(x) - Q(x)}{(x-a)^k}
+&= \lim_{x \to a}\frac{P(x) - P(a) + P(a) - Q(x)}{(x-a)^k}\\
+&= \lim_{x \to a}\frac{P(x) - P(a) + Q(a) - Q(x)}{(x-a)^k}\\
+&= \lim_{x \to a}\frac{\frac{P(x) - P(a)}{x-a} - \frac{Q(x) - Q(a)}{x-a}}{(x-a)^{k-1}}\\ &= \lim_{x \to a}\frac{P'(a) - Q'(a)}{(x-a)^{k-1}}\\
+&= 0
+\end{align*}
+
+<p>
+this makes sure that \(P'(a) = Q'(a)\), else the limit will grow to infinity as \(x \to a\).
+</p>
+
+<p>
+Similarly, we can get the result we want.
+<span class="QED">□</span>
+</p>
+</div>
+
+<div class="mathblock definition" id="orgfa94d9b">
+<p><span class="number">Definition 8.9 </span>
+If \(f\) is k-times differentiable at \(a\), then we call
+</p>
+
+<p>
+\[
+T_k(x) := \sum_{i=0}^k \frac{f^{(i)}(a)}{i!}(x-a)^i
+\]
+</p>
+
+<p>
+the k-th Taylor polynomial of \(f\) at \(a\).
+</p>
+
+</div>
+
+<div class="mathblock theorem" id="org7a5f224">
+<p><span class="number">Theorem 8.10 </span>
+Theorem 8.9 \(f: I \to \R\) is k-times differentiable at \(a\), then \(f(x) \underset{k}{\sim} T_k(x)\) as \(x \to a\).
+</p>
+
+<p>
+Furthermore, if \(f\) is (k+1)-times differentiable near \(a\), then for every \(x \in I\), there exists \(c\) between \(x\) and \(a\),
+</p>
+
+<p>
+\[
+f(x) = f(a) + \frac{f'(a)}{1!}(x-a) + \cdots + \frac{f^{(k)}}{k!}(x-a)^k + \frac{f^{(k+1)}(c)}
+\]
+</p>
+
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<center>
+Powered by <a href="https://orgmode.org">Org Mode</a>.
+</center>
+</div>
+<script src="/static/script.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script src="/static/katex.js"></script></body>
+</html>
