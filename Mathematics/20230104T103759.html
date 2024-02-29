@@ -32,7 +32,7 @@
 <a href="/category/Mathematics.html">$Mathematics</a>
 </div>
 </div>
-<div class="mathblock definition" id="org2c35f70">
+<div class="mathblock definition" id="org8191020">
 <p><span class="number">Definition 1.1 </span>
 Let \(S\sube\R\) and \(r\in\R\). We say that:
 </p>
@@ -48,9 +48,9 @@ Let \(S\sube\R\) and \(r\in\R\). We say that:
 
 </div>
 
-<div class="mathblock definition" id="orgd1db42f">
+<div class="mathblock definition" id="org0f2547a">
 <p><span class="number">Definition 1.2 </span>(Dedekind cut) 
-Let \(A,B\sube\R\). We say that \((A,B)\) is a Dedekind cut of $\R\ if:
+Let \(A,B\sube\R\). We say that \((A,B)\) is a Dedekind cut of \(\R\) if:
 </p>
 <ol class="org-ol">
 <li>\(A\ne B\ne\varnothing\)</li>
@@ -60,7 +60,7 @@ Let \(A,B\sube\R\). We say that \((A,B)\) is a Dedekind cut of $\R\ if:
 
 </div>
 
-<div class="mathblock proposition" id="orgea6b55d">
+<div class="mathblock proposition" id="org2e0baef">
 <p><span class="number">Proposition 1.3 </span>(Dedekind's gapless property) 
 If \((A,B)\) is a Dedekind cut of \(\R\), then exactly one of the following happens:
 </p>
@@ -70,13 +70,13 @@ If \((A,B)\) is a Dedekind cut of \(\R\), then exactly one of the following happ
 </ul>
 
 </div>
-<div class="mathblock proof" id="org07d637c">
+<div class="mathblock proof" id="org6a309b0">
 <p><span class="number">Proof  </span>
 (齐神说要用区间套定理和阿基米德性质，但是我没用上。麻烦高人帮忙看看这个证明有没有问题)
 </p>
 
 <p>
-Let \(P_1\): '\(\max A\) exists, \(P_2\): '\(\min B\) exists. There may be four cases:
+Let \(P_1\): '\(\max A\) exists', \(P_2\): '\(\min B\) exists'. There may be four cases:
 </p>
 <ol class="org-ol">
 <li>\(P_1 \land P_2\)</li>
@@ -106,22 +106,42 @@ Since every \(b\in B\) is an upper bound of \(A\), by Weierstrass' theorem, \(\s
 </p>
 
 <p>
-\(\sup A\notin A\) since it is an upper bound of \(A\) then it must be the maximal of A. (contradiction)
+(a) \(\sup A \in A\).
 </p>
 
 <p>
-If \(\sup A\in B\), since \(\min B\) doesn't exist, there always exists a \(b_0\in B\) such that \(b_0 < \sup A\). (contradiction)
+Then \(\sup A = \max A\). Otherwise there exists an \(a_0 \in A\) such that \(\sup A < a_0\), which is a contradiction.
+</p>
+
+<p>
+However, by hypothesis, A has no maximal.
+</p>
+
+<p>
+(b) \(\sup A \in B\).
+</p>
+
+<p>
+Then \(\sup A = \min B\), by the definition of sup.
+</p>
+
+<p>
+However, by hypothesis again, B has no minimal.
+</p>
+
+<p>
+In summary, \(\sup A \notin A \land \sup A \notin B\), i.e., \(\sup A \notin \R\). This is also a contradiction.
 <span class="QED">□</span>
 </p>
 </div>
 
-<div class="mathblock theorem" id="orga75b6a4">
+<div class="mathblock theorem" id="org8e1581c">
 <p><span class="number">Theorem 1.4 </span>(Weierstrass) 
 Let \(S(\ne\varnothing)\sube\R\). If S has an upper bound, then \(\sup S\) exists.
 </p>
 
 </div>
-<div class="mathblock proof" id="org0da0f6a">
+<div class="mathblock proof" id="orgc5d8889">
 <p><span class="number">Proof  </span>
 Let \(B:=\{b\in\R|b\text{ is an upper(lower) bound of }S\}\), and \(A:=\R\backslash B\).
 </p>
@@ -140,7 +160,11 @@ Therefore, \((A,B)\) is a Dedekind cut.
 </p>
 
 <p>
-Suppose \(\max A\) exists, denoted as \(a_0\). Then \(a_0\in A\Rarr a_0\notin B\Rarr a_0\text{ is not an upper bound of }S \Rarr \exists s_0 \in S [a_0 < s_0] \Rarr s_0 \notin A \Rarr s_0 \in B \Rarr S_0 \text{ is an upper bound of } S\), a contradiction. i.e., \(\max A\) doesn't exists.
+Suppose \(\max A\) exists, denoted as \(a_0\). Then \(a_0\in A\Rarr a_0\notin B\Rarr a_0\text{ is not an upper bound of }S \Rarr \exists s_0 \in S [a_0 < s_0]\), a contradiction. i.e..
+</p>
+
+<p>
+Thus, \(\max A\) doesn't exists.
 </p>
 
 <p>
@@ -149,13 +173,13 @@ By Dedekind's gapless property, \(\min B\) must exist, i.e., \(\sup S\) exists.
 </p>
 </div>
 
-<div class="mathblock proposition" id="org7bb0632">
+<div class="mathblock proposition" id="orgee64c90">
 <p><span class="number">Proposition 1.5 </span>(Archimedean property) 
 \(\forall r\in\R \left[r > 0 \Rarr \exists n\in\N\left[\frac{1}{n} < r\right]\right]\)
 </p>
 
 </div>
-<div class="mathblock proof" id="org68f2f97">
+<div class="mathblock proof" id="org59fdd91">
 <p><span class="number">Proof  </span>
 It is equvalent to prove that \(\N\) has no upper bound.
 </p>
@@ -169,7 +193,11 @@ There must exist an \(N\in\N\), such that \(s_0 - 1 < N\). Were this false, i.e,
 </p>
 
 <p>
-Then we obtain that \(N + 1\) is an upper bound of \(\N\), since it is greater than \(s_0\). But this is not right apparently, \(N + 2\) is stall in \(\N\) but greater than \(N + 1\).
+Then we obtain that \(N + 1\) is an upper bound of \(\N\), since it is greater than \(s_0\).
+</p>
+
+<p>
+But, apparently, \(N + 1 < N + 2\), which means \(N + 1\) cannot be the upper bound of \(\N\).
 </p>
 
 <p>
