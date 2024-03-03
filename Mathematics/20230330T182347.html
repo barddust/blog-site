@@ -6,8 +6,10 @@
 <title> [Calculus] 4. Metric Space - Ward of Dust </title>
 <meta name="author" content="MrDust">
 <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@callmebill/lxgw-wenkai-web@latest/style.css"><link rel="stylesheet" type="text/css" href="/static/style.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<link rel="stylesheet" href="/static/Spectral/style.css">
+<link rel="stylesheet" href="/static/LXGWWenKai/style.css">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="stylesheet" href="/static/katex/katex.min.css">
 </head>
 <body>
 <div id="preamble" class="status">
@@ -32,7 +34,7 @@
 <a href="/category/Mathematics.html">$Mathematics</a>
 </div>
 </div>
-<div class="mathblock definition" id="org6efe28a">
+<div class="mathblock definition" id="orgf7448db">
 <p><span class="number">Definition 4.1 </span>
 Let \(X\) be a set. A function \(d: X\times X\to\R\) is called a <b>distance/metric</b> function on \(X\) if:
 </p>
@@ -44,13 +46,13 @@ Let \(X\) be a set. A function \(d: X\times X\to\R\) is called a <b>distance/met
 
 </div>
 
-<div class="mathblock proposition" id="orgb7ab6ed">
+<div class="mathblock proposition" id="org772f9f0">
 <p><span class="number">Proposition 4.2 </span>
 \(\forall x,y,z \in X[ |d(x,y) - d(y,z)| \le d(x,z)]\)
 </p>
 
 </div>
-<div class="mathblock proof" id="orga6cc47c">
+<div class="mathblock proof" id="orga5e95f6">
 <p><span class="number">Proof  </span>
 By definition:
 \[\begin{align*}
@@ -71,7 +73,7 @@ That is expected.
 </p>
 </div>
 
-<div class="mathblock definition" id="org00a4b53">
+<div class="mathblock definition" id="org9d932fc">
 <p><span class="number">Definition 4.3 </span>
 Let \((X,d)\) be a metric space, and \(S\sube X\).
 </p>
@@ -84,7 +86,7 @@ Let \((X,d)\) be a metric space, and \(S\sube X\).
 
 </div>
 
-<div class="mathblock proposition" id="org2ee1d9d">
+<div class="mathblock proposition" id="orgb0774e1">
 <p><span class="number">Proposition 4.4 </span>
 Let \((X,d)\) be a metric space, \(x_0\in X\), and \(r>0\).
 </p>
@@ -94,7 +96,7 @@ Let \((X,d)\) be a metric space, \(x_0\in X\), and \(r>0\).
 </ol>
 
 </div>
-<div class="mathblock proof" id="org9f001a9">
+<div class="mathblock proof" id="org6a94e48">
 <p><span class="number">Proof  </span>
 <i>Proof 1.</i>
 </p>
@@ -145,7 +147,7 @@ Therefore, \(B_{r'}(x) \sube A\).
 </p>
 </div>
 
-<div class="mathblock proposition" id="orgaa32765">
+<div class="mathblock proposition" id="org53edac6">
 <p><span class="number">Proposition 4.5 </span>
 Let (X,d) be a metric space. Then
 </p>
@@ -156,7 +158,7 @@ Let (X,d) be a metric space. Then
 </ol>
 
 </div>
-<div class="mathblock proof" id="org663f40d">
+<div class="mathblock proof" id="org6f54a26">
 <p><span class="number">Proof  </span>
 <i>Proof 1.</i> Were this false, then we <b>can</b> find an \(x_0 \in \varnothing\)&#x2026; however, there is not any elements in \(\varnothing\). Thus \(\varnothing\) is open logically.
 </p>
@@ -171,7 +173,7 @@ Let (X,d) be a metric space. Then
 </p>
 </div>
 
-<div class="mathblock proposition" id="org9dee1d4">
+<div class="mathblock proposition" id="orgab60bd5">
 <p><span class="number">Proposition 4.6 </span>
 The following two statements are equivalent:
 </p>
@@ -181,7 +183,7 @@ The following two statements are equivalent:
 </ol>
 
 </div>
-<div class="mathblock proof" id="org9446673">
+<div class="mathblock proof" id="orgeb89a0e">
 <p><span class="number">Proof  </span>
 (\(\Rarr\))
 </p>
@@ -200,20 +202,20 @@ For any real number \(\epsilon > 0\), similarly choose an open set \(U := \{u\in
 </p>
 </div>
 
-<div class="mathblock definition" id="orgce9ae2a">
+<div class="mathblock definition" id="org4475b2e">
 <p><span class="number">Definition 4.7 </span>
 We say a set \(S\sube X\) is <b>bounded</b> with respect to \(d\) if \(\exists r > 0, x_0\in X[S\sube B_r(x_0)]\).
 </p>
 
 </div>
 
-<div class="mathblock theorem" id="orgb11e0e0">
+<div class="mathblock theorem" id="orga1f95ba">
 <p><span class="number">Theorem 4.8 </span>(Bolzano-Weierstrass theorem) 
 If \(a_n\in\R^m(n\in\N)\) is bounded. Then there exists a subsequence \(a_{n(n')}(n'\in\N)\) which is convergent.
 </p>
 
 </div>
-<div class="mathblock proof" id="org23e5e41">
+<div class="mathblock proof" id="org3f38700">
 <p><span class="number">Proof  </span>
 Choose \(M > 0\), let \(Q_0 := [-M,M]\times[-M,M]\), such that \(a_n\in Q_0\) for all \(n\in\N\). This is possible since \(a_n\) is bounded.
 </p>
@@ -248,13 +250,13 @@ At last, it can be seen that \(\lim_{k\to\infty}a_{n_k} = a\). Given a radius, t
 </p>
 </div>
 
-<div class="mathblock proposition" id="orga60b0d5">
+<div class="mathblock proposition" id="orgb1cde72">
 <p><span class="number">Proposition 4.9 </span>
 Let \((X,d)\) be a metric space, \(F\sube X\). \(F\) is a closed set of \(X\) iff \(\forall a_n\in F(n\in\N)[\lim_{n\to\infty} a_n = a(\in X) \Rarr a \in F]\).
 </p>
 
 </div>
-<div class="mathblock proof" id="org30b46ab">
+<div class="mathblock proof" id="orgf971ae5">
 <p><span class="number">Proof  </span>
 (\(\Rarr\))
 </p>
@@ -309,7 +311,7 @@ However, this leads a contradiction since all the element of \(a_n\) is in \(F\)
 </p>
 </div>
 
-<div class="mathblock definition" id="org03feda4">
+<div class="mathblock definition" id="org53214c4">
 <p><span class="number">Definition 4.10 </span>
 Let \((X,d)\) be a metric space, \(S\sube X\), and \(O_\alpha\) is a seires of open sets of \(X\) where \(\alpha\in A\).
 </p>
@@ -320,13 +322,13 @@ Let \((X,d)\) be a metric space, \(S\sube X\), and \(O_\alpha\) is a seires of o
 
 </div>
 
-<div class="mathblock theorem" id="orgb340d46">
+<div class="mathblock theorem" id="org29fae06">
 <p><span class="number">Theorem 4.11 </span>(Heine-Borel theorem) 
 Let \(S\sube\R^m\). \(S\) is compact iff \(S\) is bounded and closed.
 </p>
 
 </div>
-<div class="mathblock proof" id="orgc496058">
+<div class="mathblock proof" id="org01cb13e">
 <p><span class="number">Proof  </span>
 (\(\Rarr\))
 </p>
@@ -409,7 +411,7 @@ However, all \(Q_n\) we choose can not be coverd by finitely many open sets, we 
 </p>
 </div>
 
-<div class="mathblock theorem" id="org40cc513">
+<div class="mathblock theorem" id="org8b5a390">
 <p><span class="number">Theorem 4.12 </span>(the Lebesgue number of an open cover) 
 Let \((X,d)\) be a metric space and \(K(\sube X)\) a compact set.
 </p>
@@ -419,7 +421,7 @@ Let \((X,d)\) be a metric space and \(K(\sube X)\) a compact set.
 </p>
 
 </div>
-<div class="mathblock proof" id="org771d527">
+<div class="mathblock proof" id="org0b99edb">
 <p><span class="number">Proof  </span>
 For every \(p\in K\), there exists \(\alpha(p) \in A\) such that \(p\in O_{\alpha(p)}\). \(O_{\alpha(p)}\) is open, and hence \(\exists r(p) > 0 [B_{r(p)}(p) \sube O_{\alpha(p)}]\).
 </p>
@@ -458,14 +460,14 @@ Thus, \(x'\in B_{r(p_j)}(p_j)\sube O_{\alpha(p_j)}\), i.e., \(B_\delta(x) \sube 
 </p>
 </div>
 
-<div class="mathblock remark" id="org16104da">
+<div class="mathblock remark" id="orgba6e2c8">
 <p><span class="number">Remark 4.13 </span>
 Such a \(\delta > 0\) is called a <b>Lebesgue number</b> fo the given open cover \(O_\alpha(\alpha\in A)\).
 </p>
 
 </div>
 
-<div class="mathblock definition" id="org137843f">
+<div class="mathblock definition" id="org98f131a">
 <p><span class="number">Definition 4.14 </span>
 Let (X,d) be a metric space, and \(S\sube X\). A point \(x\in X\) is called
 </p>
@@ -477,7 +479,7 @@ Let (X,d) be a metric space, and \(S\sube X\). A point \(x\in X\) is called
 
 </div>
 
-<div class="mathblock proposition" id="org0346d19">
+<div class="mathblock proposition" id="org84b04c0">
 <p><span class="number">Proposition 4.15 </span>
 Let \((X,d)\) be a metric space, \(S\sube X\). Notation: \(A(x), I(x), L(x)\) means \(x\) is an accumulation/isolation/limit point of \(S\) respectively.
 </p>
@@ -488,7 +490,7 @@ Let \((X,d)\) be a metric space, \(S\sube X\). Notation: \(A(x), I(x), L(x)\) me
 </ol>
 
 </div>
-<div class="mathblock proof" id="org63acdde">
+<div class="mathblock proof" id="orgbaf979f">
 <p><span class="number">Proof  </span>
 For convenience, let \(A := \{x \in S| A(x)\}, I := \{x \in S | I(x)\}, L := \{x \in S | L(x)\}\).
 </p>
@@ -586,7 +588,7 @@ Powered by <a href="https://orgmode.org">Org Mode</a>.
 </center>
 </div>
 <script src="/static/script.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-<script src="/static/katex.js"></script></body>
+<script defer src="/static/katex/katex.min.js"></script>
+<script defer src="/static/katex/auto-render.min.js"></script>
+<script src="/static/katex/script.js"></script></body>
 </html>
