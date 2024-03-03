@@ -5,10 +5,9 @@
 <meta name="viewport" content="width=device-width">
 <title> Arch Linux 下 Qtile 桌面管理器 - Ward of Dust </title>
 <meta name="author" content="MrDust">
-<link rel="stylesheet" href="/static/Fantasque/style.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dracula-prism@2.1.16/dist/css/dracula-prism.min.css">
 <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@callmebill/lxgw-wenkai-web@latest/style.css"><link rel="stylesheet" type="text/css" href="/static/style.css">
+<link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fantasque-sans-mono" type="text/css"/><link rel="stylesheet" href="/static/prism-one-light.css">
 </head>
 <body>
 <div id="preamble" class="status">
@@ -65,7 +64,7 @@
 
 <div id="outline-container-前言" class="outline-2">
 <h2 id="前言"><a href="#前言">前言</a></h2>
-<div class="outline-text-2" id="text-org3f655c1">
+<div class="outline-text-2" id="text-org38c75d0">
 <p>
 才折腾完 bspwm 不久（参见<a target="_blank" href="/Computer/20230628T212213.html" target="_blank">Bspwm 桌面</a> ），因为心心念念的 eaf-brower, 最后还是想换桌面。 <a target="_blank" href="https://github.com/emacs-eaf/emacs-application-framework">EAF</a> 是一个框架，允许在用户在 Emacs 中运行其他程序，比如浏览器等。我超级喜欢这个理念，所以老早就想迁移到 eaf. 但是因为浏览器需要自己调教，要花时间，就一直拖着（虽然时间花在折腾其他东西上）。终于把桌面调好后，发现 bspwm 用不了，这可难受坏了。
 </p>
@@ -78,7 +77,7 @@
 
 <div id="outline-container-安装" class="outline-2">
 <h2 id="安装"><a href="#安装">安装</a></h2>
-<div class="outline-text-2" id="text-org1e755f7">
+<div class="outline-text-2" id="text-orgcfac843">
 <p>
 对于这种轻量级的桌面非常赞，只需要： <code>yay -S qtile</code>, 又因为有 lightdm, 甚至启动项都不用配，直接就能用了。有一些额外包，如果用它提供的 widget 组件时需要。
 </p>
@@ -87,7 +86,7 @@
 
 <div id="outline-container-配置" class="outline-2">
 <h2 id="配置"><a href="#配置">配置</a></h2>
-<div class="outline-text-2" id="text-orgede8b26">
+<div class="outline-text-2" id="text-orgfdc52ed">
 <p>
 相对而言， qtile 的<a target="_blank" href="https://docs.qtile.org/en/latest/">文档</a>写得比较简陋，没有 bspwm 那么详细。
 </p>
@@ -99,7 +98,7 @@
 
 <div id="outline-container-基本概念" class="outline-3">
 <h3 id="基本概念"><a href="#基本概念">基本概念</a></h3>
-<div class="outline-text-3" id="text-orga168ece">
+<div class="outline-text-3" id="text-org52240bc">
 <p>
 在 qtile 中，显示器是 screen, 工作区是 group, 窗口是 window, 布局是 layout.
 </p>
@@ -108,7 +107,7 @@
 
 <div id="outline-container-键盘映射 Key" class="outline-3">
 <h3 id="键盘映射 Key"><a href="#键盘映射 Key">键盘映射 Key</a></h3>
-<div class="outline-text-3" id="text-org471f9fc">
+<div class="outline-text-3" id="text-orgb228555">
 <p>
 在配置文件中，变量 <code>keys</code> 记录了所有的键盘映射，它是一个列表，元素是键盘对象。样板配置里面给出了例子：
 </p>
@@ -189,7 +188,7 @@ EzKey("W-C-h", lazy.layout.grow_left())</code>
 
 <div id="outline-container-键盘启动程序" class="outline-4">
 <h4 id="键盘启动程序"><a href="#键盘启动程序">键盘启动程序</a></h4>
-<div class="outline-text-4" id="text-org35303bd">
+<div class="outline-text-4" id="text-orgecd9828">
 <p>
 用 <code>lazy.spawn("cmd")</code> 来启动程序。比如把 Win + t 映射到启动 kitty 终端模拟器：
 </p>
@@ -209,7 +208,7 @@ spawn 里面是命令行的命令，可以加参数。
 
 <div id="outline-container-键盘启动自定义程序" class="outline-4">
 <h4 id="键盘启动自定义程序"><a href="#键盘启动自定义程序">键盘启动自定义程序</a></h4>
-<div class="outline-text-4" id="text-org634b815">
+<div class="outline-text-4" id="text-orgdf0a214">
 <p>
 所有的程序都应该是 LazyCall, 所以不能直接把用户自定义的函数映射到键盘上，需要加一个修饰器：
 </p>
@@ -238,7 +237,7 @@ Key([], "k", my_function())</code>
 
 <div id="outline-container-工作区 Group" class="outline-3">
 <h3 id="工作区 Group"><a href="#工作区 Group">工作区 Group</a></h3>
-<div class="outline-text-3" id="text-org0fa965d">
+<div class="outline-text-3" id="text-orgc6c491c">
 <p>
 定义工作区：
 </p>
@@ -273,13 +272,13 @@ keys.extend(
 
 <div id="outline-container-布局排版 Layout" class="outline-3">
 <h3 id="布局排版 Layout"><a href="#布局排版 Layout">布局排版 Layout</a></h3>
-<div class="outline-text-3" id="text-orgfd280d0">
+<div class="outline-text-3" id="text-orge52ce22">
 <p>
 Qtile 支持多种布局，可以在文档的 build-in layout 那一节看到相关介绍。我采用的是 Bsp, 即 bspwm 的布局，它根据当前窗口的尺寸长边分割，也就是 bspwm 文档中的 <a target="_blank" href="https://github.com/baskerville/bspwm#longest-side-scheme">longest-side-scheme</a>:
 </p>
 
 
-<div id="orgc75282b" class="figure">
+<div id="org666dd4f" class="figure">
 <p><a href="/../assets/a996197475f9055c6672052dee7e9c2d.png" target="_blank">
 <img src="/../assets/a996197475f9055c6672052dee7e9c2d.png" alt="a996197475f9055c6672052dee7e9c2d.png" /></a>
 </p>
@@ -315,7 +314,7 @@ Qtile 支持多种布局，可以在文档的 build-in layout 那一节看到相
 
 <div id="outline-container-屏幕 Screen" class="outline-3">
 <h3 id="屏幕 Screen"><a href="#屏幕 Screen">屏幕 Screen</a></h3>
-<div class="outline-text-3" id="text-org9232b3b">
+<div class="outline-text-3" id="text-org633b19a">
 <p>
 屏幕同样可以设置多个屏幕对应多种不同的展示内容，目前我是单屏，所以实例化一个 <code>Screen</code> 即可。可以在实例化时传入 <code>wallpaper</code> 参数来设置壁纸，也可以用 wallpaper 的 widget. 我这里直接用 Screen 设置，后续可以调用类方法 <code>set_wallpaper</code> 来方便的切换壁纸。
 </p>
@@ -340,13 +339,13 @@ Qtile 支持多种布局，可以在文档的 build-in layout 那一节看到相
 
 <div id="outline-container-窗口间距" class="outline-3">
 <h3 id="窗口间距"><a href="#窗口间距">窗口间距</a></h3>
-<div class="outline-text-3" id="text-org266be49">
+<div class="outline-text-3" id="text-org117fc55">
 <p>
 在<a href="#布局排版 Layout">布局设置</a>时，传入了 <code>margin</code> 参数，它表示窗口的外边距。如此一来，分割的两个窗口之间的距离其实是两倍的 margin, 因为每个窗口都有一个。以水平分割的两个窗口为例，我更希望的是窗口到屏幕边缘与窗口之间的距离相等，如：
 </p>
 
 
-<div id="org93861af" class="figure">
+<div id="orgf10e34a" class="figure">
 <p><a href="/../assets/08cbaae799b245d1e8abe945325898a4.png" target="_blank">
 <img src="/../assets/08cbaae799b245d1e8abe945325898a4.png" alt="08cbaae799b245d1e8abe945325898a4.png" /></a>
 </p>
@@ -360,7 +359,7 @@ Qtile 支持多种布局，可以在文档的 build-in layout 那一节看到相
 
 <div id="outline-container-窗口浮动" class="outline-3">
 <h3 id="窗口浮动"><a href="#窗口浮动">窗口浮动</a></h3>
-<div class="outline-text-3" id="text-org729908c">
+<div class="outline-text-3" id="text-orgac05228">
 <p>
 如样本配置中的
 </p>
@@ -391,7 +390,7 @@ Qtile 支持多种布局，可以在文档的 build-in layout 那一节看到相
 
 <div id="outline-container-钩子 Hook" class="outline-3">
 <h3 id="钩子 Hook"><a href="#钩子 Hook">钩子 Hook</a></h3>
-<div class="outline-text-3" id="text-org894e5fe">
+<div class="outline-text-3" id="text-orga3515da">
 <p>
 Qtile 用 hook 来加入定制。比如一个简单开机自启动的例子：
 </p>
@@ -465,7 +464,7 @@ keys.extend(
 
 <div id="outline-container-命令行工具" class="outline-3">
 <h3 id="命令行工具"><a href="#命令行工具">命令行工具</a></h3>
-<div class="outline-text-3" id="text-org042c0a6">
+<div class="outline-text-3" id="text-org51fda22">
 <p>
 命令行可以用 <code>qtile cmd-obj</code> 来执行操作，完整命令 <code>qtile cmd-obj -o obj -f func</code>.
 </p>
@@ -490,7 +489,7 @@ keys.extend(
 
 <div id="outline-container-Debug" class="outline-3">
 <h3 id="Debug"><a href="#Debug">Debug</a></h3>
-<div class="outline-text-3" id="text-org9ec2d50">
+<div class="outline-text-3" id="text-org97e51b4">
 <p>
 首先，qtile 会生成一个日志，路径是 <code>~/.local/share/qtile/qtile.log</code>. 路径可以调，但我忘了在那个地方看到的，现在找不到了。
 </p>
@@ -504,7 +503,7 @@ keys.extend(
 
 <div id="outline-container-后记" class="outline-2">
 <h2 id="后记"><a href="#后记">后记</a></h2>
-<div class="outline-text-2" id="text-orgacce260">
+<div class="outline-text-2" id="text-org8fdd957">
 <p>
 没太感觉 qtile 用 Python 来写会占用多大资源或者响应多慢，用起来其实还挺 OK, 配置用我最熟悉的 Python 就写一些比较 hack 的方法去和其他比如 eww 模组联动。
 </p>

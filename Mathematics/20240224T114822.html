@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width">
 <title> [Calculus] 8. Taylor Expansion - Ward of Dust </title>
 <meta name="author" content="MrDust">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@callmebill/lxgw-wenkai-web@latest/style.css"><link rel="stylesheet" type="text/css" href="/static/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 </head>
 <body>
 <div id="preamble" class="status">
@@ -32,14 +32,14 @@
 <a href="/category/Mathematics.html">$Mathematics</a>
 </div>
 </div>
-<div class="mathblock definition" id="orgcffdd72">
+<div class="mathblock definition" id="orgc8ceac3">
 <p><span class="number">Definition 8.1 </span>(higher derivative) 
 Given \(f: S \to \R\), and \(a \in S\). We say \(f\) is k-times differentiable at \(a\) if \(f\) is differentiable at every \(x\) near \(a\), and \(f'\) is (k-1)-times differentiable at \(a\).
 </p>
 
 </div>
 
-<div class="mathblock proposition" id="org8987360">
+<div class="mathblock proposition" id="org0bb461b">
 <p><span class="number">Proposition 8.2 </span>
 Equivalently, here is another definition of higher derivatives.
 </p>
@@ -50,7 +50,7 @@ Given \(f: S \to \R\), and \(a \in S\). We say \(f\) is k-times differentiable a
 
 </div>
 
-<div class="mathblock proof" id="org6f72221">
+<div class="mathblock proof" id="orgef1bc39">
 <p><span class="number">Proof  </span>
 (\(\Rarr\))
 </p>
@@ -84,7 +84,7 @@ Repeat that, and we will obtain the answer
 </p>
 </div>
 
-<div class="mathblock lemma" id="org01bce0f">
+<div class="mathblock lemma" id="org619682a">
 <p><span class="number">Lemma 8.3 </span>
 Given \(f: I \to \R\), and \(a,b \in I, a < b\).
 </p>
@@ -96,7 +96,7 @@ Given \(f: I \to \R\), and \(a,b \in I, a < b\).
 
 </div>
 
-<div class="mathblock proof" id="orga5ea828">
+<div class="mathblock proof" id="orgbb8cb7a">
 <p><span class="number">Proof  </span>
 (1)
 </p>
@@ -143,14 +143,14 @@ As \(x \to a\) and \(y \to b\), similarly as (1), we have \(f_{-}'(a) \le f_{+}'
 </p>
 </div>
 
-<div class="mathblock proposition" id="org0a327d6">
+<div class="mathblock proposition" id="orge8cfbe2">
 <p><span class="number">Proposition 8.4 </span>(convex test by 2-times derivative) 
 If \(f: I \to \R\), where \(I\) is an open interval, is 2-times differentiable everywhere, then \(f\) is convex iff \(f''(x) \ge 0\) for all \(x \in I\).
 </p>
 
 </div>
 
-<div class="mathblock proposition" id="org61f8bfe">
+<div class="mathblock proposition" id="org60b78a2">
 <p><span class="number">Proposition 8.5 </span>
 By lemmas, we can have that for \(a < x (\in I)\),
 </p>
@@ -177,7 +177,7 @@ for any \(a \in I\).
 
 </div>
 
-<div class="mathblock definition" id="orged071a1">
+<div class="mathblock definition" id="org9f02610">
 <p><span class="number">Definition 8.6 </span>
 We say two maps \(f(x), g(x)\) is k-times close as \(x \to a\) if
 </p>
@@ -194,7 +194,7 @@ We say two maps \(f(x), g(x)\) is k-times close as \(x \to a\) if
 
 </div>
 
-<div class="mathblock proposition" id="orgfcb4181">
+<div class="mathblock proposition" id="org03a23c6">
 <p><span class="number">Proposition 8.7 </span>
 If \(P(x)\) is a k-times polynomial, then \[
 P(x) = \sum_{i=0}^{k}\frac{P^{(i)}(a)}{i!}(x-a)^i
@@ -203,14 +203,14 @@ P(x) = \sum_{i=0}^{k}\frac{P^{(i)}(a)}{i!}(x-a)^i
 
 </div>
 
-<div class="mathblock proof" id="org6c073e6">
+<div class="mathblock proof" id="org9d689ac">
 <p><span class="number">Proof  </span>
 Too hard for me. I'll give it a try another day.
 <span class="QED">□</span>
 </p>
 </div>
 
-<div class="mathblock proposition" id="org9ced267">
+<div class="mathblock proposition" id="org3486202">
 <p><span class="number">Proposition 8.8 </span>
 If \(f(x) \underset{k}{\sim} P(x)\) and \(f(x) \underset{k}{\sim} Q(x)\) as \(x \to a\), then \(P(x) \underset{k}{\sim} Q(x)\) as \(x \to a\), and \(P(a) = Q(\)), \(P^{(i)}(a) = Q^{(i)}(a)\) for \(i = 1,2,\cdots, k\).
 </p>
@@ -224,7 +224,7 @@ If \(f(x) \underset{k}{\sim} P(x)\) and \(f(x) \underset{k}{\sim} Q(x)\) as \(x 
 
 </div>
 
-<div class="mathblock proof" id="org68300be">
+<div class="mathblock proof" id="org4904eb1">
 <p><span class="number">Proof  </span>
 Let $ F(x) = P(x) - Q(x)$. Then \(\lim_{x \to a}\frac{F(x)}{(x-a)^k} = 0 \Rarr \lim_{x \to a}(P(x) - Q(x)) = 0\), i.e., \(P(a) = Q(a)\).
 </p>
@@ -251,7 +251,7 @@ Similarly, we can get the result we want.
 </p>
 </div>
 
-<div class="mathblock definition" id="org318bfd6">
+<div class="mathblock definition" id="org6324519">
 <p><span class="number">Definition 8.9 </span>
 If \(f\) is k-times differentiable at \(a\), then we call
 </p>
@@ -268,7 +268,7 @@ the k-th Taylor polynomial of \(f\) at \(a\).
 
 </div>
 
-<div class="mathblock theorem" id="orgd08e9cd">
+<div class="mathblock theorem" id="org599a3a0">
 <p><span class="number">Theorem 8.10 </span>
 Theorem 8.9 \(f: I \to \R\) is k-times differentiable at \(a\), then \(f(x) \underset{k}{\sim} T_k(x)\) as \(x \to a\).
 </p>

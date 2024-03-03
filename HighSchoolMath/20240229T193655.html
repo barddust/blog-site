@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width">
 <title> [高中数学人教版 A] 选择性必修第二册习题 - Ward of Dust </title>
 <meta name="author" content="MrDust">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@callmebill/lxgw-wenkai-web@latest/style.css"><link rel="stylesheet" type="text/css" href="/static/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 </head>
 <body>
 <div id="preamble" class="status">
@@ -43,6 +43,7 @@
 <li><a href="#导数的运算">导数的运算</a></li>
 </ul>
 </li>
+<li><a href="#复习参考题">复习参考题</a></li>
 </ul>
 </div>
 </div>
@@ -53,11 +54,11 @@
 
 <div id="outline-container-一元函数的导数及其应用" class="outline-2">
 <h2 id="一元函数的导数及其应用"><a href="#一元函数的导数及其应用">一元函数的导数及其应用</a></h2>
-<div class="outline-text-2" id="text-orgf7a00a5">
+<div class="outline-text-2" id="text-org41ed01d">
 </div>
 <div id="outline-container-导数的概念及其意义" class="outline-3">
 <h3 id="导数的概念及其意义"><a href="#导数的概念及其意义">导数的概念及其意义</a></h3>
-<div class="outline-text-3" id="text-org45601ab">
+<div class="outline-text-3" id="text-org713045b">
 <p>
 略
 </p>
@@ -66,15 +67,15 @@
 
 <div id="outline-container-导数的运算" class="outline-3">
 <h3 id="导数的运算"><a href="#导数的运算">导数的运算</a></h3>
-<div class="outline-text-3" id="text-org2df500a">
-<div class="mathblock question" id="org806f6a6">
-<span class="number">Question 1.1 </span><ol class="org-ol">
-<li>已知函数 \(f(x) = \frac{x^2}{2} + 2x - 3\ln x\) ，求$f(x)$的导数，并求出 \(f'(x) > 0\) 的解集.</li>
+<div class="outline-text-3" id="text-orge01e0d4">
+<div class="mathblock question" id="org55d3eb3">
+<span class="number">Question  </span><ol class="org-ol">
+<li>已知函数 \(f(x) = \frac{x^2}{2} + 2x - 3\ln x\) ，求 \(f(x)\) 的导数，并求出 \(f'(x) > 0\) 的解集.</li>
 </ol>
 
 </div>
 
-<div class="mathblock solution" id="orgcd4d6e7">
+<div class="mathblock solution" id="org5d7ec67">
 <p><span class="number">Solution  </span>
 
 </p>
@@ -96,6 +97,75 @@ Case II, $ x &lt; 0 \land x^2 + 2x - 3 &lt; 0$, then \(-3 < x < 0\).
 <span class="QED">□</span>
 </p>
 </div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-复习参考题" class="outline-2">
+<h2 id="复习参考题"><a href="#复习参考题">复习参考题</a></h2>
+<div class="outline-text-2" id="text-orgf97aa70">
+<div class="mathblock question" id="org2f33ea3">
+<span class="number">Question  </span><ol class="org-ol">
+<li>如图，直线 \(l\) 和圆 \(P\) ，当 \(l\) 从 \(l_0\) 开始在平面上按逆时针方向绕点 \(O\) 匀速转动（转动角度不超过 \(90\degree\) ）时，它扫过的园内阴影部分的面积 \(S\) 使时间 \(t\) 的函数. 这个函数的图像大致是什么。</li>
+</ol>
+
+</div>
+
+<div class="mathblock solution" id="org1d9a589">
+<p><span class="number">Solution  </span>
+基本的考量是，取最开始的一个小 \(\d\theta\), 夹着的面积，是要小于线扫到中间的时夹着的面积，所以说，面积的增长应该是<b>先慢，后快，再慢。</b>
+</p>
+
+<p>
+我尝试着推导一下，如下。
+</p>
+
+
+<div id="org1ee0fa0" class="figure">
+<p><a href="/../assets/91a061a9ebef896c94be0c69012facdd.png" target="_blank">
+<img src="/../assets/91a061a9ebef896c94be0c69012facdd.png" alt="91a061a9ebef896c94be0c69012facdd.png" /></a>
+</p>
+</div>
+
+<p>
+Let the equation of line be \(y=kx\), then the slope of the line is the tangent value of angle \(thete\).
+</p>
+
+<p>
+\[
+k = \tan\theta
+\]
+</p>
+
+<p>
+The distance from point \(C\) to line is \(d\) by
+</p>
+
+<p>
+\[
+d(k) = \frac{k-1}{\sqrt{1+k^2}} R
+\]
+</p>
+
+<p>
+Replaced \(k\), then
+</p>
+
+\begin{align*}
+d(\theta) &= \frac{ \tan\theta - 1 }{\sqrt{ 1 + \tan^2\theta}}R\\
+&=\frac { \tan\theta - 1 }{\sec^2\theta}R\\
+&=(\sin\theta - \cos\theta)R
+\end{align*}
+
+<p>
+By Pythagorean theorem,
+</p>
+
+\begin{align*}
+l(\theta) &= \sqrt(R^2 - d^2(\theta))\\
+&= \sqrt{\sin2\theta}R
+\end{ali<span class="QED">□</span>
+</p>
 </div>
 </div>
 </div>
