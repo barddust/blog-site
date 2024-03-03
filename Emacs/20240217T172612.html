@@ -84,7 +84,7 @@
 
 <div id="outline-container-前言" class="outline-2">
 <h2 id="前言"><a href="#前言">前言</a></h2>
-<div class="outline-text-2" id="text-org7bed2d5">
+<div class="outline-text-2" id="text-org2bced0f">
 <p>
 具有折腾和重复造轮子癖好的我反复尝试了各种各样的博客工具，挥霍时间折磨自己。
 </p>
@@ -121,7 +121,7 @@
 
 <div id="outline-container-Org Publish" class="outline-2">
 <h2 id="Org Publish"><a href="#Org Publish">Org Publish</a></h2>
-<div class="outline-text-2" id="text-orga3b25a1">
+<div class="outline-text-2" id="text-org79fcc78">
 <p>
 官方文档：<a target="_blank" href="https://orgmode.org/manual/Publishing.html">Publishing (The Org Manual)</a>, 建议先把它读完，整个过程还是比较清晰。
 </p>
@@ -129,7 +129,7 @@
 
 <div id="outline-container-基本配置和使用" class="outline-3">
 <h3 id="基本配置和使用"><a href="#基本配置和使用">基本配置和使用</a></h3>
-<div class="outline-text-3" id="text-org03ede44">
+<div class="outline-text-3" id="text-org9819e6f">
 <p>
 首先，发布 (publish) 以项目 (project) 作为单位，配置是把它记录在变量 <code>org-publish-project-alist</code> 中。一个项目至少包含源地址、目的地址，因此有：
 </p>
@@ -153,7 +153,7 @@
 
 <div id="outline-container-属性列表" class="outline-3">
 <h3 id="属性列表"><a href="#属性列表">属性列表</a></h3>
-<div class="outline-text-3" id="text-org9450a4f">
+<div class="outline-text-3" id="text-org749cef0">
 <p>
 这里给出一些重要的属性，一大部分属性在<a target="_blank" href="https://orgmode.org/manual/Publishing-options.html">文档</a>中已经给出，但是全部属性，需要在源码中去找。
 </p>
@@ -170,7 +170,7 @@
 
 <div id="outline-container-博客架构" class="outline-3">
 <h3 id="博客架构"><a href="#博客架构">博客架构</a></h3>
-<div class="outline-text-3" id="text-orgb9511bf">
+<div class="outline-text-3" id="text-orgebff7bf">
 <p>
 首先通过不同的项目来搭建博客的框架。
 </p>
@@ -178,7 +178,7 @@
 
 <div id="outline-container-基本属性列表" class="outline-4">
 <h4 id="基本属性列表"><a href="#基本属性列表">基本属性列表</a></h4>
-<div class="outline-text-4" id="text-org261cba4">
+<div class="outline-text-4" id="text-org0cd49db">
 <p>
 对于所有的页面，会有一些通用的属性需要设置，比如说 <code>&lt;head&gt;</code> 中的样式。定义一个属性函数，它提供公共属性，并把传入的属性拼接，返回拼接后的属性列表。
 </p>
@@ -191,10 +191,6 @@
    :with-toc nil
    :with-entities nil
    :html-head-include-default-style nil
-   :html-head (concat "&lt;link rel=\"shortcut icon\" href=\"/static/favicon.ico\" type=\"image/x-icon\"&gt;\n"
-                      "&lt;link rel=\"stylesheet\" href=\"/static/Slippery/style.css\"&gt;"
-                      "&lt;link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/@callmebill/lxgw-wenkai-web@latest/style.css\"&gt;"
-                      "&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"/static/style.css\"&gt;\n")
    :html-preamble 'blorg-html-preamble
    :html-postamble 'blorg-html-postamble
    :with-sub-superscript nil
@@ -210,16 +206,12 @@
 </pre>
 
 </div>
-
-<p>
-比如我给所有页面都加上了头像 favicon, 英文使用 <a target="_blank" href="https://befonts.com/slippery-font.html">Slippery</a> 字体，中文使用<a target="_blank" href="https://github.com/lxgw/LxgwWenKai/">霞鹜文楷</a>，以及一个公共的 css 样式。
-</p>
 </div>
 </div>
 
 <div id="outline-container-定义模块项目" class="outline-4">
 <h4 id="定义模块项目"><a href="#定义模块项目">定义模块项目</a></h4>
-<div class="outline-text-4" id="text-org4a687b4">
+<div class="outline-text-4" id="text-org790702b">
 <div class="org-src-container">
 <pre>
 <code class="language-elisp">(setq org-publish-project-alist
@@ -319,7 +311,7 @@
 
 <ul class="org-ul">
 <li><a id="blorg-post"></a>blorg-post<br />
-<div class="outline-text-5" id="text-orgb49af67">
+<div class="outline-text-5" id="text-org9cc64a5">
 <p>
 发布文章， <code>recursive</code> 涵盖了笔记目录下所有的的 org 文件。
 </p>
@@ -347,7 +339,7 @@
 </li>
 
 <li><a id="blorg-index/blorg-archive"></a>blorg-index/blorg-archive<br />
-<div class="outline-text-5" id="text-org5a35ded">
+<div class="outline-text-5" id="text-org611d4da">
 <p>
 这两个的功能类似极其类似，都是生成单个页面，都是一系列文章的集合。
 </p>
@@ -363,7 +355,7 @@
 </li>
 
 <li><a id="blorg-taxonomy/blorg-tag/blorg-category"></a>blorg-taxonomy/blorg-tag/blorg-category<br />
-<div class="outline-text-5" id="text-org4860276">
+<div class="outline-text-5" id="text-orgf140de6">
 <p>
 这三个项目是：
 </p>
@@ -380,7 +372,7 @@
 </li>
 
 <li><a id="blorg-asset/blorg-static"></a>blorg-asset/blorg-static<br />
-<div class="outline-text-5" id="text-orgaa57e87">
+<div class="outline-text-5" id="text-org8456dd3">
 <p>
 静态文件项目，第一个是文章中引用的图片的目录，第二个是页面的静态文件，如 css, js, 一些字体。
 </p>
@@ -401,7 +393,7 @@
 
 <div id="outline-container-Org Html" class="outline-2">
 <h2 id="Org Html"><a href="#Org Html">Org Html</a></h2>
-<div class="outline-text-2" id="text-orge6df4fb">
+<div class="outline-text-2" id="text-org6589270">
 <p>
 至此，一个完整的项目生成过程应当已经清楚了，知道发布过程怎样开始的、怎样结束的。但是有些东西需要精细化地调整，比如说，文章中对另一篇文章的引用，生成的 html 的 a 标签指向的是本地地址，这显然不能作为博客在网上发布；比如它默认的数学公示模块是 mathjax, 而我想用 katex; 再比如代码高亮、mermaid.js 的支持等等。
 </p>
@@ -413,7 +405,7 @@
 
 <div id="outline-container-Org Export" class="outline-3">
 <h3 id="Org Export"><a href="#Org Export">Org Export</a></h3>
-<div class="outline-text-3" id="text-org2d51578">
+<div class="outline-text-3" id="text-org3dfa4eb">
 <p>
 官网中提到，Org Mode 能导出多种形式的文件，包括 html, latex 等，包括之前提到 ox-hugo, 它就是把 org 导出成 md.
 </p>
@@ -446,7 +438,7 @@ Org Export 还有很多前面以及 Org Publish 没有提到的导出过程的�
 
 <div id="outline-container-发布过程链" class="outline-3">
 <h3 id="发布过程链"><a href="#发布过程链">发布过程链</a></h3>
-<div class="outline-text-3" id="text-org1d0e3ad">
+<div class="outline-text-3" id="text-org0429612">
 <p>
 Org Publish (ox-publish.el):
 </p>
@@ -476,7 +468,7 @@ Org Export (ox.el):
 
 <div id="outline-container-自定义后端" class="outline-3">
 <h3 id="自定义后端"><a href="#自定义后端">自定义后端</a></h3>
-<div class="outline-text-3" id="text-org50cd3cd">
+<div class="outline-text-3" id="text-org7da90a6">
 <p>
 使用 <code>org-export-define-derived-backend</code> 来派生出一个后端。
 </p>
@@ -523,11 +515,11 @@ Org Export (ox.el):
 
 <div id="outline-container-Tips &amp; Tricks" class="outline-2">
 <h2 id="Tips &amp; Tricks"><a href="#Tips &amp; Tricks">Tips &amp; Tricks</a></h2>
-<div class="outline-text-2" id="text-org3c58844">
+<div class="outline-text-2" id="text-org79d3366">
 </div>
 <div id="outline-container-导出过程中获取源文件名" class="outline-3">
 <h3 id="导出过程中获取源文件名"><a href="#导出过程中获取源文件名">导出过程中获取源文件名</a></h3>
-<div class="outline-text-3" id="text-org24ee547">
+<div class="outline-text-3" id="text-org6faa5b2">
 <p>
 在 info/plist 中有一个 <code>:input-file</code> 属性，它就是源文件的绝对路径，通过 <code>plist-get</code> 获取即可。
 </p>
@@ -536,7 +528,7 @@ Org Export (ox.el):
 
 <div id="outline-container-导出的文章调用另一个文章的连接是本地路径" class="outline-3">
 <h3 id="导出的文章调用另一个文章的连接是本地路径"><a href="#导出的文章调用另一个文章的连接是本地路径">导出的文章调用另一个文章的连接是本地路径</a></h3>
-<div class="outline-text-3" id="text-org675cbe8">
+<div class="outline-text-3" id="text-org9c5df18">
 <p>
 修改后端的 link 导出函数，自定义的 link 函数调用 <code>org-html-link</code> 来获取初始的 <code>&lt;a&gt;</code>, 然后做通过正则匹配 <code>href</code>, 调整后再通过正则替换。参考如下：
 </p>
@@ -581,7 +573,7 @@ Org Export (ox.el):
 
 <div id="outline-container-第三方插件" class="outline-3">
 <h3 id="第三方插件"><a href="#第三方插件">第三方插件</a></h3>
-<div class="outline-text-3" id="text-org165bc51">
+<div class="outline-text-3" id="text-orga32297f">
 <p>
 每个页面导出时，设置一个列表变量 <code>blorg-extra-pkgs</code>. 比如当前文章用到了数学导出，那么在导出数学公式的时候往 <code>blorg-extra-pkgs</code> 里添加一个 <code>math</code>. 因为导出过程是从下到上，所以在最终拼装整个 HTML <code>template</code> 的时候，去索引 <code>blorg-extra-pkgs</code> 里面的符号，比如有 <code>math</code>, 那么就在 HTML 的头和尾加上相应的 css 样式和 js 脚本即可。
 </p>
@@ -594,7 +586,7 @@ Org Export (ox.el):
 
 <div id="outline-container-样式" class="outline-3">
 <h3 id="样式"><a href="#样式">样式</a></h3>
-<div class="outline-text-3" id="text-orgc33183a">
+<div class="outline-text-3" id="text-org6b76625">
 <p>
 至于导出之后的 HTML, 怎么配置一个好看的主题呢？最后是去网上找现成的，有一些项目是 Org Publish 的主题，不过可能需要调整。
 </p>
@@ -608,7 +600,7 @@ Org Export (ox.el):
 
 <div id="outline-container-GitHub Action 自动部署" class="outline-2">
 <h2 id="GitHub Action 自动部署"><a href="#GitHub Action 自动部署">GitHub Action 自动部署</a></h2>
-<div class="outline-text-2" id="text-org3cdd872">
+<div class="outline-text-2" id="text-org95d95bb">
 <p>
 传统的部署方式是，在本地跑了 org-publish, 整个博客站点在本地生成，然后通过 git 上传到仓库。
 </p>
@@ -624,7 +616,7 @@ Org Export (ox.el):
 
 <div id="outline-container-Action 脚本" class="outline-3">
 <h3 id="Action 脚本"><a href="#Action 脚本">Action 脚本</a></h3>
-<div class="outline-text-3" id="text-org6932c73">
+<div class="outline-text-3" id="text-org6423c3a">
 <p>
 在笔记仓库的目录下新建一个文件夹 <code>.github/workflows</code> ， <code>workflows</code> 也是一个文件夹，就是自动化脚本。
 </p>
@@ -695,7 +687,7 @@ jobs:
 
 <div id="outline-container-actions/checkout" class="outline-4">
 <h4 id="actions/checkout"><a href="#actions/checkout">actions/checkout</a></h4>
-<div class="outline-text-4" id="text-orgeb6af31">
+<div class="outline-text-4" id="text-orged32685">
 <p>
 自动部署本质就是它那边的设备跑程序，所以 checkout 就是把当前的仓库下载到虚拟机上。
 </p>
@@ -704,7 +696,7 @@ jobs:
 
 <div id="outline-container-purcell/setup-emacs@master" class="outline-4">
 <h4 id="purcell/setup-emacs@master"><a href="#purcell/setup-emacs@master">purcell/setup-emacs@master</a></h4>
-<div class="outline-text-4" id="text-org1fa4864">
+<div class="outline-text-4" id="text-orgc5787a1">
 <p>
 人家的虚拟机是不能乱装东西的，所以它没有 Emacs. 根据参考文章，Purcell 大神维护了一个 action 的仓库，就是用来安装 Emacs.
 </p>
@@ -724,7 +716,7 @@ jobs:
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
-(dolist (pkg '(denote dash f s ht))
+(dolist (pkg '(denote dash f s ht ts))
   (unless (package-installed-p pkg)
     (package-install pkg)))
 
@@ -733,6 +725,27 @@ jobs:
 
 (require 'denote)
 (require 'blorg)
+
+(plist-put blorg-base-plist
+           :html-head
+           (concat "&lt;link rel=\"shortcut icon\" href=\"/static/favicon.ico\" type=\"image/x-icon\"&gt;\n"
+                   "&lt;link rel=\"stylesheet\" href=\"/static/Spectral/style.css\"&gt;\n"
+                   "&lt;link rel=\"stylesheet\" href=\"/static/LXGWWenKai/style.css\"&gt;\n"
+                   "&lt;link rel=\"stylesheet\" href=\"/static/style.css\"&gt;\n"))
+
+(setq blorg-html-extra-head
+      `((mermaid . "")
+        (math . "&lt;link rel=\"stylesheet\" href=\"/static/katex/katex.min.css\"&gt;\n")
+        (highlight . ,(concat "&lt;link rel=\"stylesheet\" href=\"/static/FantasqueSansMono/style.css\"/&gt;\n"
+                              "&lt;link rel=\"stylesheet\" href=\"/static/prism/style.css\"&gt;\n")))
+
+      blorg-html-extra-foot
+      `((mermaid . ,(concat "&lt;script defer src=\"/static/mermaid/mermaid.min.js\"&gt;&lt;/script&gt;"
+                            "&lt;script src=\"/static/mermaid/script.js\"&gt;&lt;/script&gt;"))
+        (math . ,(concat "&lt;script defer src=\"/static/katex/katex.min.js\"&gt;&lt;/script&gt;\n"
+                         "&lt;script defer src=\"/static/katex/auto-render.min.js\"&gt;&lt;/script&gt;\n"
+                         "&lt;script src=\"/static/katex/script.js\"&gt;&lt;/script&gt;"))
+        (highlight . "&lt;script src=\"/static/prism/script.js\"&gt;&lt;/script&gt;\n")))
 
 (setq denote-directory "/home/runner/work/Note/Note"
       denote-excluded-directories-regexp "^assets\\|^static\\|^doc"
@@ -755,7 +768,7 @@ jobs:
 
 <div id="outline-container-peaceiris/actions-gh-pages@v3" class="outline-4">
 <h4 id="peaceiris/actions-gh-pages@v3"><a href="#peaceiris/actions-gh-pages@v3">peaceiris/actions-gh-pages@v3</a></h4>
-<div class="outline-text-4" id="text-org6d211a4">
+<div class="outline-text-4" id="text-org66b88b8">
 <p>
 将生成的博客，部署到另外一个仓库。理论上也可以上传到本地仓库（会不会出现 pull 触发导致循环呢？），但是两个仓库，笔记仓库不公开，仅自己可见；博客仓库公开，所有人可见，这诚然是一种好策略。
 </p>
@@ -774,7 +787,7 @@ jobs:
 
 <div id="outline-container-Deploy Key 的配置" class="outline-4">
 <h4 id="Deploy Key 的配置"><a href="#Deploy Key 的配置">Deploy Key 的配置</a></h4>
-<div class="outline-text-4" id="text-org931430f">
+<div class="outline-text-4" id="text-org72a2ed1">
 <p>
 本地生成密钥对： <code>ssh-keygen -t rsa -b 4096 -C "$(git config user.email)" -f gh-pages -N ""</code> ，在当前目录下会得到公钥 <code>gh-pages.pub</code> 和私钥 <code>gh-pages</code>.
 </p>
@@ -796,7 +809,7 @@ jobs:
 
 <div id="outline-container-自动化部署" class="outline-3">
 <h3 id="自动化部署"><a href="#自动化部署">自动化部署</a></h3>
-<div class="outline-text-3" id="text-orgb559c6d">
+<div class="outline-text-3" id="text-org7791630">
 <p>
 至此，都 push 笔记之后，action 就会重建博客，根据 <code>peaceiris/actions-gh-pages</code> 的说明，它默认会把目标仓库先清空，在重新生成，可以通过加 <code>keep_files: true</code> 来保存原有文件，通过覆盖放方式进行部署。所以其实用了 GitHub Action 之后就不需要考虑增量部署，反正压力都在云端，我本地无所谓，最多也就是一分钟不到就搞定了。
 </p>
@@ -806,7 +819,7 @@ jobs:
 
 <div id="outline-container-Cloudflare Pages" class="outline-2">
 <h2 id="Cloudflare Pages"><a href="#Cloudflare Pages">Cloudflare Pages</a></h2>
-<div class="outline-text-2" id="text-org2847169">
+<div class="outline-text-2" id="text-org06340c7">
 <p>
 至此，可以通过 GitHub Page 来配置仓库，博客也就搞定了。但是听说 Cloudflare Page 要快一点，刚好手上有个域名，所以就是试试。
 </p>
@@ -843,9 +856,6 @@ Powered by <a href="https://orgmode.org">Org Mode</a>.
 </center>
 </div>
 <script src="/static/script.js"></script>
-<script type="module">
-import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
-mermaid.initialize({ startOnLoad: true, securityLevel: 'loose' });
-</script><script src="/static/prism.js"></script>
+<script src="static/mermaid.min.js"></script><script src="static/mermaid.js"></script><script src="/static/prism.js"></script>
 </body>
 </html>
