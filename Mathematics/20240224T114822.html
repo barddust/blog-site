@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<title> [Calculus] 8. Taylor Expansion - Ward of Dust </title>
-<meta name="author" content="MrDust">
+<title> [Calculus] 8. Taylor Expansion - Ward of Bardust </title>
+<meta name="author" content="Bardust">
 <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="/static/Spectral/style.css">
 <link rel="stylesheet" href="/static/LXGWWenKai/style.css">
@@ -15,7 +15,7 @@
 <div id="preamble" class="status">
 <div class="header">
 <div class="title">
-<a href="/">Ward of Dust</a>
+<a href="/">Ward of Bardust</a>
 </div>
 <div class="navigation">
 <a class="item" href="/archive.html">Archives</a>
@@ -34,14 +34,14 @@
 <a href="/category/Mathematics.html">$Mathematics</a>
 </div>
 </div>
-<div class="mathblock definition" id="org00fd554">
+<div class="mathblock definition" id="orga910582">
 <p><span class="number">Definition 8.1 </span>(higher derivative) 
 Given \(f: S \to \R\), and \(a \in S\). We say \(f\) is k-times differentiable at \(a\) if \(f\) is differentiable at every \(x\) near \(a\), and \(f'\) is (k-1)-times differentiable at \(a\).
 </p>
 
 </div>
 
-<div class="mathblock proposition" id="orga709703">
+<div class="mathblock proposition" id="org1fdb861">
 <p><span class="number">Proposition 8.2 </span>
 Equivalently, here is another definition of higher derivatives.
 </p>
@@ -52,7 +52,7 @@ Given \(f: S \to \R\), and \(a \in S\). We say \(f\) is k-times differentiable a
 
 </div>
 
-<div class="mathblock proof" id="orgfec566b">
+<div class="mathblock proof" id="org31289d7">
 <p><span class="number">Proof  </span>
 (\(\Rarr\))
 </p>
@@ -86,7 +86,7 @@ Repeat that, and we will obtain the answer
 </p>
 </div>
 
-<div class="mathblock lemma" id="org86d9f41">
+<div class="mathblock lemma" id="org8eb47db">
 <p><span class="number">Lemma 8.3 </span>
 Given \(f: I \to \R\), and \(a,b \in I, a < b\).
 </p>
@@ -98,7 +98,7 @@ Given \(f: I \to \R\), and \(a,b \in I, a < b\).
 
 </div>
 
-<div class="mathblock proof" id="orgd7cc5f2">
+<div class="mathblock proof" id="orga46ad66">
 <p><span class="number">Proof  </span>
 (1)
 </p>
@@ -145,14 +145,14 @@ As \(x \to a\) and \(y \to b\), similarly as (1), we have \(f_{-}'(a) \le f_{+}'
 </p>
 </div>
 
-<div class="mathblock proposition" id="org0d8fe25">
+<div class="mathblock proposition" id="org8dbc3ea">
 <p><span class="number">Proposition 8.4 </span>(convex test by 2-times derivative) 
 If \(f: I \to \R\), where \(I\) is an open interval, is 2-times differentiable everywhere, then \(f\) is convex iff \(f''(x) \ge 0\) for all \(x \in I\).
 </p>
 
 </div>
 
-<div class="mathblock proposition" id="org2806b9f">
+<div class="mathblock proposition" id="orgaa0bb8a">
 <p><span class="number">Proposition 8.5 </span>
 By lemmas, we can have that for \(a < x (\in I)\),
 </p>
@@ -179,7 +179,7 @@ for any \(a \in I\).
 
 </div>
 
-<div class="mathblock definition" id="org8b2857e">
+<div class="mathblock definition" id="orga64ff7d">
 <p><span class="number">Definition 8.6 </span>
 We say two maps \(f(x), g(x)\) is k-times close as \(x \to a\) if
 </p>
@@ -196,7 +196,7 @@ We say two maps \(f(x), g(x)\) is k-times close as \(x \to a\) if
 
 </div>
 
-<div class="mathblock proposition" id="org0eb0116">
+<div class="mathblock proposition" id="orgabcb32f">
 <p><span class="number">Proposition 8.7 </span>
 If \(P(x)\) is a k-times polynomial, then \[
 P(x) = \sum_{i=0}^{k}\frac{P^{(i)}(a)}{i!}(x-a)^i
@@ -205,14 +205,14 @@ P(x) = \sum_{i=0}^{k}\frac{P^{(i)}(a)}{i!}(x-a)^i
 
 </div>
 
-<div class="mathblock proof" id="orga69eeb3">
+<div class="mathblock proof" id="orge0be7b9">
 <p><span class="number">Proof  </span>
 Too hard for me. I'll give it a try another day.
 <span class="QED">□</span>
 </p>
 </div>
 
-<div class="mathblock proposition" id="org07ecb3d">
+<div class="mathblock proposition" id="org04974f1">
 <p><span class="number">Proposition 8.8 </span>
 If \(f(x) \underset{k}{\sim} P(x)\) and \(f(x) \underset{k}{\sim} Q(x)\) as \(x \to a\), then \(P(x) \underset{k}{\sim} Q(x)\) as \(x \to a\), and \(P(a) = Q(\)), \(P^{(i)}(a) = Q^{(i)}(a)\) for \(i = 1,2,\cdots, k\).
 </p>
@@ -226,7 +226,7 @@ If \(f(x) \underset{k}{\sim} P(x)\) and \(f(x) \underset{k}{\sim} Q(x)\) as \(x 
 
 </div>
 
-<div class="mathblock proof" id="orgdf2ba75">
+<div class="mathblock proof" id="org1756078">
 <p><span class="number">Proof  </span>
 Let $ F(x) = P(x) - Q(x)$. Then \(\lim_{x \to a}\frac{F(x)}{(x-a)^k} = 0 \Rarr \lim_{x \to a}(P(x) - Q(x)) = 0\), i.e., \(P(a) = Q(a)\).
 </p>
@@ -253,7 +253,7 @@ Similarly, we can get the result we want.
 </p>
 </div>
 
-<div class="mathblock definition" id="org4b029d8">
+<div class="mathblock definition" id="org1724848">
 <p><span class="number">Definition 8.9 </span>
 If \(f\) is k-times differentiable at \(a\), then we call
 </p>
@@ -270,7 +270,7 @@ the k-th Taylor polynomial of \(f\) at \(a\).
 
 </div>
 
-<div class="mathblock theorem" id="org0b4e690">
+<div class="mathblock theorem" id="org3278997">
 <p><span class="number">Theorem 8.10 </span>
 Theorem 8.9 \(f: I \to \R\) is k-times differentiable at \(a\), then \(f(x) \underset{k}{\sim} T_k(x)\) as \(x \to a\).
 </p>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<title> [Calculus] 2. Sequences - Ward of Dust </title>
-<meta name="author" content="MrDust">
+<title> [Calculus] 2. Sequences - Ward of Bardust </title>
+<meta name="author" content="Bardust">
 <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="/static/Spectral/style.css">
 <link rel="stylesheet" href="/static/LXGWWenKai/style.css">
@@ -15,7 +15,7 @@
 <div id="preamble" class="status">
 <div class="header">
 <div class="title">
-<a href="/">Ward of Dust</a>
+<a href="/">Ward of Bardust</a>
 </div>
 <div class="navigation">
 <a class="item" href="/archive.html">Archives</a>
@@ -34,7 +34,7 @@
 <a href="/category/Mathematics.html">$Mathematics</a>
 </div>
 </div>
-<div class="mathblock definition" id="orgc4360dc">
+<div class="mathblock definition" id="org055344a">
 <p><span class="number">Definition 2.1 </span>
 Let \(a_n(n\in\N)\) be a sequence in \(\R\) and \(L\in\R\). We say that \(a_n\) converges to \(L\) (as \(n\to\infty\)) if \(\forall \epsilon > 0 \exists n\in\N [n\ge N \Rarr |a_n - L| < \epsilon]\). If such \(L\) exists, we call it the limit of \(a_n\) and call \(a_n(n\in\N)\) a <b>convergent sequence</b>, and denoted as \(\lim_{n\to\infty} a_n = L\). If such \(L\) doesn't, then this sequence \(a_n\) is divergent.
 </p>
@@ -49,7 +49,7 @@ Besides, there are some sequences, which neither converge to a number nor infini
 
 </div>
 
-<div class="mathblock proposition" id="org9d402f6">
+<div class="mathblock proposition" id="org6158f3d">
 <span class="number">Proposition 2.2 </span><ol class="org-ol">
 <li>\(\lim_{n\to\infty} a_n = L \land \lim_{n\to\infty} a_n = M \Rarr L=M\)</li>
 <li>\(a_n\) is convergent \(\Rarr\{a_n|n\in\N\}\) is bounded.</li>
@@ -57,7 +57,7 @@ Besides, there are some sequences, which neither converge to a number nor infini
 </ol>
 
 </div>
-<div class="mathblock proof" id="org3600602">
+<div class="mathblock proof" id="org834d5ca">
 <p><span class="number">Proof  </span>
 <i>Proof 1.</i> Suppose that \(L\ne M\), and \(|L-M|=r\) where \(r\) is a positive real number. And let \(\epsilon=\frac{r}{3}=\frac{|L-M|}{3}\).
 </p>
@@ -104,14 +104,14 @@ If \(\le\) is replaced \(<\), the proposition is false. Here is the example. Let
 </p>
 </div>
 
-<div class="mathblock remark" id="org59f81a9">
+<div class="mathblock remark" id="org92150ef">
 <p><span class="number">Remark 2.3 </span>
 Changing or removing finitely many terms in \(a_n\) does not effect \(a_n\)'s being convergent and its limit, or divergent.
 </p>
 
 </div>
 
-<div class="mathblock proposition" id="org1b88ee4">
+<div class="mathblock proposition" id="org3a3193b">
 <p><span class="number">Proposition 2.4 </span>
 If \(\lim_{n\to\infty} a_n = L \land \lim_{n\to\infty} b_n = M\), then
 </p>
@@ -123,7 +123,7 @@ If \(\lim_{n\to\infty} a_n = L \land \lim_{n\to\infty} b_n = M\), then
 
 </div>
 
-<div class="mathblock proof" id="orgf712342">
+<div class="mathblock proof" id="org75eb6b6">
 <p><span class="number">Proof  </span>
 <i>Proof 1.</i> \(|(a_n\pm b_n) - (L\pm M)| = |(a_n - L) \pm (b_n - M)| \le |a_n - L| + |b_n - M| < 2\epsilon\). (There are some skips)
 </p>
@@ -159,13 +159,13 @@ Firstly, let \(\epsilon = \frac{|M|}{2}\). Then \(|M| - |b_n| \le |b_n - M| < \e
 </p>
 </div>
 
-<div class="mathblock proposition" id="orgc8bf0a7">
+<div class="mathblock proposition" id="orgd2fc663">
 <p><span class="number">Proposition 2.5 </span>(Squeeze test) 
 If \(a_n \le c_n \le b_n (n\in\N)\), \(\lim_{n\to\infty} a_n = L\) and \(\lim_{n\to\infty} b_n = L\), then \(\lim_{n\to\infty} c_n = L\).
 </p>
 
 </div>
-<div class="mathblock proof" id="org3a8307c">
+<div class="mathblock proof" id="orgbc28785">
 <p><span class="number">Proof  </span>
 \(\forall \epsilon > 0 \exists N_1, N_2 \in\N [n \ge N_1 \Rarr |a_n - L| < \epsilon \land m \ge N_2 \Rarr |b_m - L| <\epsilon]\).
 </p>
@@ -176,7 +176,7 @@ Let \(N = \max\{N_1, N_2\}\). Then \(n \ge N \Rarr L - \epsilon < a_n \le c_n \l
 </p>
 </div>
 
-<div class="mathblock definition" id="org851bcbf">
+<div class="mathblock definition" id="org6448cea">
 <p><span class="number">Definition 2.6 </span>
 A sequence \(a_n\) in \(\R\) is:
 </p>
@@ -187,13 +187,13 @@ A sequence \(a_n\) in \(\R\) is:
 
 </div>
 
-<div class="mathblock theorem" id="orgfb59ea2">
+<div class="mathblock theorem" id="org93da9a8">
 <p><span class="number">Theorem 2.7 </span>
 If \(a_n\) is nondecreasingly monotone, and \(\{a_n|n\in\N\}\) has an upper bound, then \(a_n\) converges to \(\sup{a_n|n\in\N}\).
 </p>
 
 </div>
-<div class="mathblock proof" id="org80568d3">
+<div class="mathblock proof" id="orgbfae9ef">
 <p><span class="number">Proof  </span>
 \(\{a_n|n\in\N\}\) has an upper bound, then \(L:=\sup\{a_n|n\in\N\}\) exists.
 </p>
@@ -216,20 +216,20 @@ We obtain: \(L-\epsilon < a_N \le a_n \le L < L-\epsilon \Rarr |a_n - L| < \epsi
 </p>
 </div>
 
-<div class="mathblock definition" id="org1b991b4">
+<div class="mathblock definition" id="orgd7fa2df">
 <p><span class="number">Definition 2.8 </span>
 A sequence of interavls \(I_n(n\in\N)\) is nested if \(I_n\ne\varnothing\) ans \(I_{n+1}\sube I_n\) for all \(n\in\N\).
 </p>
 
 </div>
 
-<div class="mathblock theorem" id="org46d1947">
+<div class="mathblock theorem" id="org7fac9e9">
 <p><span class="number">Theorem 2.9 </span>(Theorem of nested intervals) 
 If \(I_n(n\in\N)\) is a sequence of <b>bounded closed</b> nested internals, then \(\bigcap_{n\in\N} I_n\ne\varnothing\). 
 </p>
 
 </div>
-<div class="mathblock proof" id="org828c0c4">
+<div class="mathblock proof" id="org8a9d454">
 <p><span class="number">Proof  </span>
 Write \(I_n = [a_n, b_n] (n\in\N)\). Then \(I_n\) is nested iff \(a_n \le b_n\), \(a_n\) is nondecreasing and \(b_n\) is nonincreasing.
 </p>
@@ -252,7 +252,7 @@ Thus, \(\forall n\in\N[a_n \le c \le b_n]\), i.e., \(c\in\bigcap_{n\in\N}I_n\).
 </p>
 </div>
 
-<div class="mathblock proposition" id="orgf6c59cf">
+<div class="mathblock proposition" id="org8dbd5da">
 <p><span class="number">Proposition 2.10 </span>
 The theorem of nested intervals both holds in the following cases: 
 </p>
@@ -262,7 +262,7 @@ The theorem of nested intervals both holds in the following cases:
 </ol>
 
 </div>
-<div class="mathblock proof" id="org5c64b60">
+<div class="mathblock proof" id="orgfc8627b">
 <p><span class="number">Proof  </span>
 <i>Proof 1.</i> Same as the theorem's proof.
 </p>
@@ -277,21 +277,21 @@ Therefore, \(\forall n\in\N[a_n\le c]\). Consider \(c+1\), \(\forall n\in\N[a_n 
 </p>
 </div>
 
-<div class="mathblock definition" id="org20c0391">
+<div class="mathblock definition" id="org5317cee">
 <p><span class="number">Definition 2.11 </span>(Cauchy sequence) 
 A sequence \(a_n(n\in\N)\) in \(\R\) is a Cauchy sequence if \(\forall\epsilon > 0 \exists N\in\N[n,m\ge N\Rarr |a_n - a_m| < \epsilon]\)
 </p>
 
 </div>
 
-<div class="mathblock proposition" id="org9cd7190">
+<div class="mathblock proposition" id="orgf4c01df">
 <span class="number">Proposition 2.12 </span><ol class="org-ol">
 <li>If a sequence is convergent, then it is Cauchy.</li>
 <li>If a sequence if Cauchy, then it is bounded.</li>
 </ol>
 
 </div>
-<div class="mathblock proof" id="orgd11f264">
+<div class="mathblock proof" id="orgbf32f13">
 <p><span class="number">Proof  </span>
 <i>Proof 1.</i> Let a sequence \(a_n\) be convergent. Then \(\forall\epsilon > 0 \exists N\in\N[n,m\ge N \Rarr |a_n - L| < \epsilon \land |a_m - L| < \epsilon]\). Therefore, \(|a_n - a_m| < 2\epsilon\).
 </p>
@@ -306,7 +306,7 @@ Then \(|a_n| = |(a_n - a_N) + a_N| \le |a_n - a_N| + |a_N| < |a_N| + \epsilon\),
 </p>
 </div>
 
-<div class="mathblock definition" id="org40bee72">
+<div class="mathblock definition" id="orga85d483">
 <p><span class="number">Definition 2.13 </span>
 Let \(a_n(n\in\N)\) be a bounded sequence in \(\R\). Define:
 </p>
@@ -317,14 +317,14 @@ Let \(a_n(n\in\N)\) be a bounded sequence in \(\R\). Define:
 
 </div>
 
-<div class="mathblock proposition" id="orgbbaa870">
+<div class="mathblock proposition" id="orgbacf237">
 <span class="number">Proposition 2.14 </span><ul class="org-ul">
 <li>\(\forall n\in\N[l_n \le a_n \le u_n]\)</li>
 <li>\(l_n\) is nondecreasing, and \(u_n\) is nonincreasing.</li>
 </ul>
 
 </div>
-<div class="mathblock proof" id="org6c90b41">
+<div class="mathblock proof" id="org8f46f29">
 <p><span class="number">Proof  </span>
 Let \(A_n = \{a_m| m\ge n\}\).
 <i>Proof 1.</i> Since \(a_n \in A_n\), by definition, \(\inf A_n \le a_n \le \sup A_n\). Then \(l_n \le a_n \le u_n\) for all \(n\in\N\).
@@ -340,14 +340,14 @@ The proof of \(u_n\) is similar.
 </p>
 </div>
 
-<div class="mathblock definition" id="org3083b13">
+<div class="mathblock definition" id="org0f21602">
 <p><span class="number">Definition 2.15 </span>
 Define \(\varlimsup_{n\to\infty} a_n := \lim_{n\to\infty} u_n, \varliminf_{n\to\infty} a_n := \lim_{n\to\infty} l_n\). We say the former the limit superior, and the later limit inferior.
 </p>
 
 </div>
 
-<div class="mathblock proposition" id="orga60d3f3">
+<div class="mathblock proposition" id="orgb7aa0c7">
 <p><span class="number">Proposition 2.16 </span>
 Let \(a_n,b_n (n\in\N)\) be bounded sequences. Then
 </p>
@@ -357,7 +357,7 @@ Let \(a_n,b_n (n\in\N)\) be bounded sequences. Then
 </ul>
 
 </div>
-<div class="mathblock proof" id="org0f33e71">
+<div class="mathblock proof" id="orgb442d42">
 <p><span class="number">Proof  </span>
 Let \(A_n = \{a_m|m\ge n\}, B_n = \{b_m|m\ge n\}, C_n = \{a_m + b_m|m\ge n\}\).
 </p>
@@ -372,13 +372,13 @@ Therefore, \(\varlimsup_{n\to\infty}(a_n + b_n) = \lim_{n\to\infty} C_n \le \lim
 </p>
 </div>
 
-<div class="mathblock proposition" id="org292a722">
+<div class="mathblock proposition" id="orgca70081">
 <p><span class="number">Proposition 2.17 </span>
 \(a_n\) converges iff \(\varlimsup_{n\to\infty} a_n = \varliminf_{n\to\infty} a_n\), and if any of both sides holds, then \(\varlimsup_{n\to\infty} a_n = \varliminf_{n\to\infty} a_n = \lim_{n\to\infty} a_n\).
 </p>
 
 </div>
-<div class="mathblock proof" id="org251c182">
+<div class="mathblock proof" id="org0f06e3b">
 <p><span class="number">Proof  </span>
 Let \(A_n = \{a_m| m\ge n\}\).
 </p>
@@ -417,13 +417,13 @@ It is obviously true by the squeeze test.
 </p>
 </div>
 
-<div class="mathblock theorem" id="org4683619">
+<div class="mathblock theorem" id="org7f4e039">
 <p><span class="number">Theorem 2.18 </span>
 Let \(a_n(n\in\N)\) be a sequence in \(\R\). Then \(a_n\) is convergent iff it is Cauchy.
 </p>
 
 </div>
-<div class="mathblock proof" id="orgd335996">
+<div class="mathblock proof" id="orgde2f34e">
 <p><span class="number">Proof  </span>
 (\(\Rarr\)). Already proved.
 </p>
@@ -451,7 +451,7 @@ n \ge N & \Rarr a_N - \epsilon < a_n < a_N +\epsilon\\
 </p>
 </div>
 
-<div class="mathblock proposition" id="orgd564f0d">
+<div class="mathblock proposition" id="org8da59fa">
 <p><span class="number">Proposition 2.19 </span>
 Let \(S\sube \R\). For any \(\epsilon > 0\), if \(|s-s'| \le \epsilon\) for all \(s,s'\in S\), then
 </p>
@@ -461,7 +461,7 @@ Let \(S\sube \R\). For any \(\epsilon > 0\), if \(|s-s'| \le \epsilon\) for all 
 </ol>
 
 </div>
-<div class="mathblock proof" id="org16eacd3">
+<div class="mathblock proof" id="orgd4aac6e">
 <p><span class="number">Proof  </span>
 <i>Proof 1.</i> \(\forall s, s_1\in S[|s - s_1| \le \epsilon \Rarr s_1 - \epsilon \le s \le s_1 + \epsilon]\).
 </p>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<title> GoldenDict 终极配置 - Ward of Dust </title>
-<meta name="author" content="MrDust">
+<title> GoldenDict 终极配置 - Ward of Bardust </title>
+<meta name="author" content="Bardust">
 <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="/static/Spectral/style.css">
 <link rel="stylesheet" href="/static/LXGWWenKai/style.css">
@@ -16,7 +16,7 @@
 <div id="preamble" class="status">
 <div class="header">
 <div class="title">
-<a href="/">Ward of Dust</a>
+<a href="/">Ward of Bardust</a>
 </div>
 <div class="navigation">
 <a class="item" href="/archive.html">Archives</a>
@@ -56,7 +56,7 @@
 
 <div id="outline-container-前言" class="outline-2">
 <h2 id="前言"><a href="#前言">前言</a></h2>
-<div class="outline-text-2" id="text-orgdc5d40f">
+<div class="outline-text-2" id="text-org2716b76">
 <p>
 这两天先是折腾了自己写的词典，我想的是用 C/S 模式，奈何前端 pyqt 启动得还是太慢，兜兜转转又想用回 goldendict. 之前不用是因为自己的错误判断：
 </p>
@@ -69,7 +69,7 @@
 
 <div id="outline-container-安装" class="outline-2">
 <h2 id="安装"><a href="#安装">安装</a></h2>
-<div class="outline-text-2" id="text-org14fa7ef">
+<div class="outline-text-2" id="text-orgf5747af">
 <div class="org-src-container">
 <pre>
 <code class="language-shell">pacman -S goldendict-git espeak</code>
@@ -85,7 +85,7 @@
 
 <div id="outline-container-配置" class="outline-2">
 <h2 id="配置"><a href="#配置">配置</a></h2>
-<div class="outline-text-2" id="text-org79abd87">
+<div class="outline-text-2" id="text-orgfb68706">
 <p>
 需要配置的四个内容：
 </p>
@@ -99,7 +99,7 @@
 
 <div id="outline-container-发音" class="outline-3">
 <h3 id="发音"><a href="#发音">发音</a></h3>
-<div class="outline-text-3" id="text-orgfe95b9d">
+<div class="outline-text-3" id="text-org9ac7775">
 <p>
 在 Goldendict 的配置用，词典里添加一个程序 Audio <code>espeak %GDOWORD%</code> （默认就有）。更多的选项查看 <code>espeak --help</code> （比如一些口音，默认是英音）。
 </p>
@@ -108,7 +108,7 @@
 
 <div id="outline-container-离线词典" class="outline-3">
 <h3 id="离线词典"><a href="#离线词典">离线词典</a></h3>
-<div class="outline-text-3" id="text-org50bd23c">
+<div class="outline-text-3" id="text-org32e0323">
 <p>
 到 <a target="_blank" href="https://github.com/skywind3000/ECDICT-ultimate/releases">Release</a> 下载 mdx 版本的词典，导入即可。
 </p>
@@ -121,7 +121,7 @@
 
 <div id="outline-container-在线中文词典" class="outline-3">
 <h3 id="在线中文词典"><a href="#在线中文词典">在线中文词典</a></h3>
-<div class="outline-text-3" id="text-orge1a0e2a">
+<div class="outline-text-3" id="text-orgb4bf340">
 <p>
 我会用到的两个：
 </p>
@@ -138,7 +138,7 @@
 
 <div id="outline-container-在线英文词典" class="outline-3">
 <h3 id="在线英文词典"><a href="#在线英文词典">在线英文词典</a></h3>
-<div class="outline-text-3" id="text-orgd64c8b3">
+<div class="outline-text-3" id="text-org8849df9">
 <p>
 直接用 DICT server. 配一个 <code>dict.org</code>, 地址 <code>dict://dict.org</code>, 数据类型 <code>wn</code>. 默认也有。
 </p>
@@ -148,7 +148,7 @@
 
 <div id="outline-container-后记" class="outline-2">
 <h2 id="后记"><a href="#后记">后记</a></h2>
-<div class="outline-text-2" id="text-org43ba16d">
+<div class="outline-text-2" id="text-org8c6d22e">
 <p>
 足够简单，但又不失功力。
 </p>
