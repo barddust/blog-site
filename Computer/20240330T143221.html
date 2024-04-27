@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title> sing-box - Ward of Bardust </title>
+<meta name="author" content="Bardust">
+<link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/static/Spectral/style.css">
+<link rel="stylesheet" href="/static/LXGWWenKai/style.css">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="stylesheet" href="/static/FantasqueSansMono/style.css"/>
+<link rel="stylesheet" href="/static/prism/style.css">
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header">
+<div class="title">
+<a href="/">Ward of Bardust</a>
+</div>
+<div class="navigation">
+<a class="item" href="/archive.html">Archives</a>
+<a class="item" href="/taxonomy.html">Taxonomy</a>
+<a class="item" href="/about.html">About</a></div>
+</div>
+</div>
+<div id="content" class="content">
+<div class="post">
+<h1 class="title">sing-box</h1>
+<div class="metadata">
+<div class="date"><span>2024-03-30</span></div>
+<div class="tags">
+<a class="tag" href="/tag/clash.html">#clash</a> <a class="tag" href="/tag/post.html">#post</a> <a class="tag" href="/tag/proxy.html">#proxy</a> <a class="tag" href="/tag/singbox.html">#singbox</a></div>
+<div class="category">
+<a href="/category/Computer.html">$Computer</a>
+</div>
+</div>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#安装">安装</a></li>
+<li><a href="#启动服务">启动服务</a></li>
+<li><a href="#配置">配置</a></li>
+<li><a href="#Issues">Issues</a>
+<ul>
+<li><a href="#Tun">Tun</a></li>
+<li><a href="#ssh port">ssh port</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-安装" class="outline-2">
+<h2 id="安装"><a href="#安装">安装</a></h2>
+<div class="outline-text-2" id="text-orgc940b2f">
+<div class="org-src-container">
+<pre>
+<code class="language-bash">yay -S sing-box</code>
+</pre>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-启动服务" class="outline-2">
+<h2 id="启动服务"><a href="#启动服务">启动服务</a></h2>
+<div class="outline-text-2" id="text-orgeb463b2">
+<div class="org-src-container">
+<pre>
+<code class="language-bas">systemctl enable --now sing-box</code>
+</pre>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-配置" class="outline-2">
+<h2 id="配置"><a href="#配置">配置</a></h2>
+<div class="outline-text-2" id="text-orgf5bf4a1">
+<p>
+配置文件是 <code>/etc/sing-box/config.json</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-Issues" class="outline-2">
+<h2 id="Issues"><a href="#Issues">Issues</a></h2>
+<div class="outline-text-2" id="text-org14117c5">
+</div>
+<div id="outline-container-Tun" class="outline-3">
+<h3 id="Tun"><a href="#Tun">Tun</a></h3>
+<div class="outline-text-3" id="text-org6df48ea">
+<p>
+如果有相关 <code>/dev/net/tun: No such device</code> 的报错，重启系统<sup class="fsup"><a id="fnr.1.1" class="footref" href="#fn.1" role="doc-backlink">[1]</a></sup>。
+</p>
+</div>
+</div>
+
+<div id="outline-container-ssh port" class="outline-3">
+<h3 id="ssh port"><a href="#ssh port">ssh port</a></h3>
+<div class="outline-text-3" id="text-orge662360">
+<p>
+有些 provider 给的配置里面对于 ssh 的 22 端口处理不好，可以单独写一个 <code>cofig-22.json</code>
+</p>
+
+<div class="org-src-container">
+<pre>
+<code class="language-json">{
+  "route": {
+    "rules": [
+      {
+        "port": [
+          22
+        ],
+        "outbound": "direct"
+      }
+    ]
+  }
+}</code>
+</pre>
+
+</div>
+
+<p>
+表示 22 端口的出口使用直连。
+</p>
+
+<p>
+然后在 <code>/etc/sing-box</code> 下，使用 <code>sing-box merge config.json -c config.json -c config-22.json</code> 即可。
+</p>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div id="fn.1" class="footdef"><span class="footnum"> (1) </span><a class="foot2ref" href="#fnr.1.1" role="doc-backlink"> ⇑ </a>
+ <div class="footpara" role="doc-footnote"><p class="footpara">
+<a target="_blank" href="https://serverfault.com/a/1126444/1082787">linux - Cannot open TUN/TAP dev /dev/net/tun: No such device - Server Fault</a>
+</p></div></div>
+
+
+</div>
+</div></div>
+</div>
+<div id="postamble" class="status">
+<center>
+Powered by <a href="https://orgmode.org">Org Mode</a>.
+</center>
+</div>
+<script src="/static/script.js"></script>
+<script src="/static/prism/script.js"></script>
+</body>
+</html>
