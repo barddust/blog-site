@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title> 终极桌面环境 - Ward of Bardust </title>
+<meta name="author" content="Bardust">
+<link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/static/Spectral/style.css">
+<link rel="stylesheet" href="/static/LXGWWenKai/style.css">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="stylesheet" href="/static/FantasqueSansMono/style.css"/>
+<link rel="stylesheet" href="/static/prism/style.css">
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header">
+<div class="title">
+<a href="/">Ward of Bardust</a>
+</div>
+<div class="navigation">
+<a class="item" href="/archive.html">Archives</a>
+<a class="item" href="/taxonomy.html">Taxonomy</a>
+<a class="item" href="/about.html">About</a></div>
+</div>
+</div>
+<div id="content" class="content">
+<div class="post">
+<h1 class="title">终极桌面环境</h1>
+<div class="metadata">
+<div class="date"><span>2024-05-27</span></div>
+<div class="tags">
+<a class="tag" href="/tag/archlinux.html">#archlinux</a> <a class="tag" href="/tag/post.html">#post</a> <a class="tag" href="/tag/qtile.html">#qtile</a> <a class="tag" href="/tag/wm.html">#wm</a></div>
+<div class="category">
+<a href="/category/Computer.html">$Computer</a>
+</div>
+</div>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#操作系统">操作系统</a></li>
+<li><a href="#桌面环境">桌面环境</a>
+<ul>
+<li><a href="#窗口管理">窗口管理</a>
+<ul>
+<li><a href="#Qtile">Qtile</a></li>
+</ul>
+</li>
+<li><a href="#登录管理">登录管理</a>
+<ul>
+<li><a href="#LightDM">LightDM</a></li>
+</ul>
+</li>
+<li><a href="#终端">终端</a>
+<ul>
+<li><a href="#st">st</a></li>
+</ul>
+</li>
+<li><a href="#文件管理">文件管理</a></li>
+<li><a href="#文件编辑">文件编辑</a></li>
+<li><a href="#混成器">混成器</a></li>
+<li><a href="#任务栏">任务栏</a>
+<ul>
+<li><a href="#Qtile Widgets">Qtile Widgets</a></li>
+</ul>
+</li>
+<li><a href="#通知进程">通知进程</a>
+<ul>
+<li><a href="#dunst">dunst</a></li>
+<li><a href="#graphical_notifications.py">graphical_notifications.py</a></li>
+</ul>
+</li>
+<li><a href="#锁屏">锁屏</a>
+<ul>
+<li><a href="#light-locker">light-locker</a></li>
+</ul>
+</li>
+<li><a href="#程序启动器">程序启动器</a>
+<ul>
+<li><a href="#Rofi">Rofi</a></li>
+</ul>
+</li>
+<li><a href="#图形认证">图形认证</a>
+<ul>
+<li><a href="#lxqt-policykit">lxqt-policykit</a></li>
+</ul>
+</li>
+<li><a href="#截图">截图</a>
+<ul>
+<li><a href="#flameshot">flameshot</a></li>
+</ul>
+</li>
+<li><a href="#桌面壁纸">桌面壁纸</a>
+<ul>
+<li><a href="#Qtile Wallpaper">Qtile Wallpaper</a></li>
+</ul>
+</li>
+<li><a href="#关机界面">关机界面</a></li>
+<li><a href="#音频管理">音频管理</a></li>
+<li><a href="#背光管理">背光管理</a></li>
+<li><a href="#媒体管理">媒体管理</a></li>
+<li><a href="#电源管理">电源管理</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-操作系统" class="outline-2">
+<h2 id="操作系统"><a href="#操作系统">操作系统</a></h2>
+<div class="outline-text-2" id="text-orgd62fe6c">
+<p>
+Arch Linux, 无需多言，纯粹的系统；优秀的包管理系统使得我可以减少应用安装时各种依赖和建构的麻烦。
+</p>
+
+<p>
+参见：《<a target="_blank" href="/Computer/20240527T070312.html" target="_blank">Arch Linux 系统安装</a>》
+</p>
+</div>
+</div>
+
+<div id="outline-container-桌面环境" class="outline-2">
+<h2 id="桌面环境"><a href="#桌面环境">桌面环境</a></h2>
+<div class="outline-text-2" id="text-org885fff5">
+<p>
+桌面环境提供了整套完整的图形环境，包含了各式各样的基础性的工具。自定义桌面环境的过程中，可以针对不同的模块，可以选择自己喜欢的应用，因此可以随时更换，保持折腾的状态。这部分内容参考的是 Arch Wiki 上关于桌面环境提供的帮助。详见：<a target="_blank" href="https://wiki.archlinux.org/title/Desktop_environment#Custom_environments">Desktop environment - ArchWiki</a>.
+</p>
+
+<p>
+我的桌面环境讲求实用，不追求华丽的装饰，大道至简。
+</p>
+</div>
+
+<div id="outline-container-窗口管理" class="outline-3">
+<h3 id="窗口管理"><a href="#窗口管理">窗口管理</a></h3>
+<div class="outline-text-3" id="text-org21f4fdf">
+<p>
+控制窗口的布局，主要分三类：堆叠、平铺和动态。
+</p>
+<ul class="org-ul">
+<li>堆叠，就是 Windows 默认的窗口管理，各窗口之间可以相互覆盖，窗口尺寸需要用户手动控制。</li>
+<li>平铺，通过算法控制，窗口会自动铺满整个屏幕，且各窗口之间不会交叠覆盖。</li>
+<li>动态，平铺和堆叠（浮动）的混合，即后台确定哪些窗口是平铺状态，哪些窗口可以浮动在其他窗口前。</li>
+</ul>
+
+<p>
+详见：<a target="_blank" href="https://wiki.archlinux.org/title/Window_manager">Window manager - ArchWiki</a>.
+</p>
+</div>
+
+<div id="outline-container-Qtile" class="outline-4">
+<h4 id="Qtile"><a href="#Qtile">Qtile</a></h4>
+<div class="outline-text-4" id="text-orgd31d675">
+<p>
+目前用的是动态窗口管理 <a target="_blank" href="https://qtile.org/">Qtile</a>, 它是用 Python 写成，支持多种平铺方式。
+</p>
+
+<p>
+参见：《<a target="_blank" href="/Computer/20230731T190227.html" target="_blank">Arch Linux 下 Qtile 桌面管理器</a>》
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-登录管理" class="outline-3">
+<h3 id="登录管理"><a href="#登录管理">登录管理</a></h3>
+<div class="outline-text-3" id="text-org13b50d0">
+<p>
+登录界面，用于管理登录的用户和选择桌面环境。详见：<a target="_blank" href="https://wiki.archlinux.org/title/Display_manager#List_of_display_managers">Display manager - ArchWiki</a>.
+</p>
+</div>
+
+<div id="outline-container-LightDM" class="outline-4">
+<h4 id="LightDM"><a href="#LightDM">LightDM</a></h4>
+<div class="outline-text-4" id="text-org660dd6a">
+<p>
+目前使用的是 <a target="_blank" href="https://github.com/canonical/lightdm/">LightDM</a>, 理由：轻量，且可以搭配 light-locker 来锁屏（见<a href="#锁屏">锁屏</a>）。
+</p>
+
+<p>
+lightdm 有两个部分，后台进程和前端（greeter），不同的前端由不同的样式和功能。目前使用的前端是简单的 GTK.
+</p>
+
+<p>
+安装：
+</p>
+
+<div class="org-src-container">
+<pre>
+<code class="language-bash">yay -S lightdm lightdm-gtk-greeter
+# 安装前端图形工具，方便设置
+yay -S lightdm-gtk-greeter-settings</code>
+</pre>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-终端" class="outline-3">
+<h3 id="终端"><a href="#终端">终端</a></h3>
+<div class="outline-text-3" id="text-org3812e39">
+</div>
+<div id="outline-container-st" class="outline-4">
+<h4 id="st"><a href="#st">st</a></h4>
+<div class="outline-text-4" id="text-orge1ac9af">
+<p>
+轻量，秒开，不带任何卡顿。我更喜欢多开终端，不用内部分割窗口。
+</p>
+
+<p>
+美中不足是对中文字体的支持并不太友好，不过勉强能用。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-文件管理" class="outline-3">
+<h3 id="文件管理"><a href="#文件管理">文件管理</a></h3>
+<div class="outline-text-3" id="text-org947dba8">
+<p>
+其实用的并不多，大部分使用的是终端的 <code>cp, mv, rm</code>, 或者是 Emacs 的 Dirvish （更好用的 Dired）。
+</p>
+
+<p>
+<a target="_blank" href="https://www.spacedrive.com/">Spacedrive</a> 是一个比较期待的项目，它可以把各种网盘云盘集成到一个管理器中。不过目前在 Arch Linux 上的安装不太得行，且它本身还是各新项目。保持观望态度。
+</p>
+
+<p>
+更多应用详见：<a target="_blank" href="https://wiki.archlinux.org/title/List_of_applications/Utilities#File_managers">File managers - ArchWiki</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-文件编辑" class="outline-3">
+<h3 id="文件编辑"><a href="#文件编辑">文件编辑</a></h3>
+<div class="outline-text-3" id="text-org4c4a6d0">
+<p>
+Emacs is the best!
+</p>
+</div>
+</div>
+
+<div id="outline-container-混成器" class="outline-3">
+<h3 id="混成器"><a href="#混成器">混成器</a></h3>
+<div class="outline-text-3" id="text-org22b3b4a">
+<p>
+用来增加一些可选图形的设置，比如背景透明图、切换窗口时的淡入淡出。之前用的 <a target="_blank" href="https://github.com/yshui/picom">Picom</a>, 后来发现花里胡哨没啥必要，就不用混成器了。
+</p>
+
+<p>
+详见：<a target="_blank" href="https://wiki.archlinux.org/title/Xorg#Composite">Composite - ArchWiki</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-任务栏" class="outline-3">
+<h3 id="任务栏"><a href="#任务栏">任务栏</a></h3>
+<div class="outline-text-3" id="text-org8a077b0">
+<p>
+或者状态栏，用来显示有用的信息，以及可以做一些快捷的交互。
+</p>
+
+<p>
+之前用了几个主流的都挺好用，比如 eww, polybar. 更多详见：<a target="_blank" href="https://wiki.archlinux.org/title/List_of_applications/Other#Taskbars">Taskbars</a>.
+</p>
+</div>
+
+<div id="outline-container-Qtile Widgets" class="outline-4">
+<h4 id="Qtile Widgets"><a href="#Qtile Widgets">Qtile Widgets</a></h4>
+<div class="outline-text-4" id="text-orgbc0d03b">
+<p>
+目前用的是 Qtile 带的 widget 功能设计的一个状态栏，显示一些诸如时间、音量等信息即可。之前也跟风，想搞得炫酷一点，于是什么 CPU 温度、内存情况都放上去，结果发现我根本就不看一眼。所以现在走简约风格，最多就是有个当前正在播放的音乐。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-通知进程" class="outline-3">
+<h3 id="通知进程"><a href="#通知进程">通知进程</a></h3>
+<div class="outline-text-3" id="text-org5eb4427">
+<p>
+监听系统通知，收到信号后生成图形窗口。详见：<a target="_blank" href="https://wiki.archlinux.org/title/Desktop_notifications#Standalone">Desktop notifications - ArchWiki</a>.
+</p>
+</div>
+
+<div id="outline-container-dunst" class="outline-4">
+<h4 id="dunst"><a href="#dunst">dunst</a></h4>
+<div class="outline-text-4" id="text-org793a0b1">
+<p>
+挺好用的，项目主页 <a target="_blank" href="https://dunst-project.org/">Dunst</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-graphical_notifications.py" class="outline-4">
+<h4 id="graphical_notifications.py"><a href="#graphical_notifications.py">graphical_notifications.py</a></h4>
+<div class="outline-text-4" id="text-org7279874">
+<p>
+Qtile 内置了一个通知进程，它只是缺少一个前端。在官网的例子中给了一个前端的例子，<a target="_blank" href="https://github.com/qtile/qtile-examples/blob/master/graphical_notifications.py">地址</a>，把这个下载放到 Qtile 的配置目录。配置中添加：
+</p>
+
+<div class="org-src-container">
+<pre>
+<code class="language-python">from graphical_notifications import Notifier
+
+notifier = Notifier(
+    font="LXGW WenKai",
+    width=300,
+    height=100,
+    y=50,
+    x=1600,
+    max_windows=4,
+    gap=10,
+    actions=False,
+    background=Color.Black,
+    foreground=(Color.White, Color.Yellow, Color.Red),
+    border=(Color.White, Color.Yellow, Color.Red),
+    border_width=2,
+    timeout=(3000, 5000, 0)
+)</code>
+</pre>
+
+</div>
+
+<p>
+里面的配置看一下注释就知道什么意思了。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-锁屏" class="outline-3">
+<h3 id="锁屏"><a href="#锁屏">锁屏</a></h3>
+<div class="outline-text-3" id="text-org7381690">
+<p>
+<a target="_blank" href="https://wiki.archlinux.org/title/List_of_applications/Security#Screen_lockers">Screen lockers - ArchWiki</a>.
+</p>
+</div>
+
+<div id="outline-container-light-locker" class="outline-4">
+<h4 id="light-locker"><a href="#light-locker">light-locker</a></h4>
+<div class="outline-text-4" id="text-orga303959">
+<p>
+配合 lightdm 使用，它自己不提供锁屏界面，它把锁屏引导到 lightdm greeter 的界面，不需要单独配置一个锁屏界面。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-程序启动器" class="outline-3">
+<h3 id="程序启动器"><a href="#程序启动器">程序启动器</a></h3>
+<div class="outline-text-3" id="text-orgf24377b">
+<p>
+详见：<a target="_blank" href="https://wiki.archlinux.org/title/List_of_applications/Other#Application_launchers">Application launchers - ArchWiki</a>.
+</p>
+</div>
+
+<div id="outline-container-Rofi" class="outline-4">
+<h4 id="Rofi"><a href="#Rofi">Rofi</a></h4>
+<div class="outline-text-4" id="text-orgc1bc252">
+<p>
+足够美观和轻量，且功能强大。用得不多，常用程序已经绑定快捷键。地址：<a target="_blank" href="https://github.com/davatorium/rofi/">Rofi</a>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-图形认证" class="outline-3">
+<h3 id="图形认证"><a href="#图形认证">图形认证</a></h3>
+<div class="outline-text-3" id="text-orgbc3a35c">
+<p>
+就是非 root 用户要执行一些 root 权限的操作时需要输入密码认证，在终端下直接输入密码得了，如果是点击某个图形界面的按钮时需要认证，那么就需要另一个图形窗口来输入密码，这个就是 Polkit.
+</p>
+</div>
+
+<div id="outline-container-lxqt-policykit" class="outline-4">
+<h4 id="lxqt-policykit"><a href="#lxqt-policykit">lxqt-policykit</a></h4>
+<div class="outline-text-4" id="text-org95ffb6f">
+<p>
+足够轻量。
+</p>
+
+<div class="org-src-container">
+<pre>
+<code class="language-bash">yay -S lxqt-policykit</code>
+</pre>
+
+</div>
+
+<p>
+在启动脚本添加 <code>pgrep -f lxqt-policykit-agent &gt; /dev/null || lxqt-policykit-agent &amp;</code> 即可。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-截图" class="outline-3">
+<h3 id="截图"><a href="#截图">截图</a></h3>
+<div class="outline-text-3" id="text-org22c9310">
+<p>
+详见：<a target="_blank" href="https://wiki.archlinux.org/title/Screen_capture">Screen capture - ArchWiki</a>.
+</p>
+</div>
+
+<div id="outline-container-flameshot" class="outline-4">
+<h4 id="flameshot"><a href="#flameshot">flameshot</a></h4>
+<div class="outline-text-4" id="text-orga9f65d9">
+<p>
+功能丰富，对标 Windows 下的 Snipaste.
+</p>
+
+<div class="org-src-container">
+<pre>
+<code class="language-bash">yay -S flameshot</code>
+</pre>
+
+</div>
+
+<p>
+添加启动项 <code>flameshot &amp;</code>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-桌面壁纸" class="outline-3">
+<h3 id="桌面壁纸"><a href="#桌面壁纸">桌面壁纸</a></h3>
+<div class="outline-text-3" id="text-orgb20f9d0">
+<p>
+可以选择幻灯片或者动态的桌面壁纸，一开始配合混成器的透明窗口搭配好看的壁纸的确赏心悦目。现在不搞这种了，讲求实用。
+</p>
+</div>
+
+<div id="outline-container-Qtile Wallpaper" class="outline-4">
+<h4 id="Qtile Wallpaper"><a href="#Qtile Wallpaper">Qtile Wallpaper</a></h4>
+<div class="outline-text-4" id="text-org1e5f238">
+<p>
+Qtile 可以设置壁纸，因此不需要其他工具。
+</p>
+
+<p>
+详见：<a target="_blank" href="https://wiki.archlinux.org/title/List_of_applications/Other#Wallpaper_setters">Wallpaper setters</a>.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-关机界面" class="outline-3">
+<h3 id="关机界面"><a href="#关机界面">关机界面</a></h3>
+<div class="outline-text-3" id="text-org29d53a9">
+<p>
+关机按钮界面。有用但不多，直接 <code>reboot</code> 或 <code>shutdown 0</code>.
+</p>
+
+<p>
+详见：<a target="_blank" href="https://wiki.archlinux.org/title/List_of_applications/Other#Logout_UI">Logout UI</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-音频管理" class="outline-3">
+<h3 id="音频管理"><a href="#音频管理">音频管理</a></h3>
+<div class="outline-text-3" id="text-org6d45053">
+<p>
+事实上只需一个简单的命令行工具，能够用键盘去控制即可。
+</p>
+
+<p>
+键盘使用的是 Qtile Widget 中的 Python 关于 PluseAudio 的模块。命令行装一个 <code>pulseaudio-ctl</code>.
+</p>
+
+<p>
+<a target="_blank" href="https://wiki.archlinux.org/title/List_of_applications/Multimedia#Volume_control">Volume control - ArchWiki</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-背光管理" class="outline-3">
+<h3 id="背光管理"><a href="#背光管理">背光管理</a></h3>
+<div class="outline-text-3" id="text-orgbc4cbde">
+<p>
+一个简单的命令行工具即可。目前使用的是 <code>brightnessctl</code>.
+</p>
+
+<p>
+<a target="_blank" href="https://wiki.archlinux.org/title/Backlight#Backlight_utilities">Backlight - ArchWiki</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-媒体管理" class="outline-3">
+<h3 id="媒体管理"><a href="#媒体管理">媒体管理</a></h3>
+<div class="outline-text-3" id="text-org2ecf1f0">
+<p>
+没什么实际作用，所以没装。
+</p>
+
+<p>
+<a target="_blank" href="https://wiki.archlinux.org/title/MPRIS#Control_utilities">MPRIS - ArchWiki</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-电源管理" class="outline-3">
+<h3 id="电源管理"><a href="#电源管理">电源管理</a></h3>
+<div class="outline-text-3" id="text-org9ed11ad">
+<p>
+在状态栏显示电量就差不多了。
+</p>
+
+<p>
+要调整一些如休眠等设置，可以安装一个 <a target="_blank" href="https://github.com/rodlie/powerkit">powerkit</a>.
+</p>
+
+<div class="org-src-container">
+<pre>
+<code class="language-bash">yay -S powerkit</code>
+</pre>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<center>
+Powered by <a href="https://orgmode.org">Org Mode</a>.
+</center>
+</div>
+<script src="/static/script.js"></script>
+<script src="/static/prism/script.js"></script>
+</body>
+</html>
