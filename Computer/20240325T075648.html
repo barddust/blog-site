@@ -77,7 +77,7 @@
 
 <div id="outline-container-前言" class="outline-2">
 <h2 id="前言"><a href="#前言">前言</a></h2>
-<div class="outline-text-2" id="text-org433d770">
+<div class="outline-text-2" id="text-org6849115">
 <p>
 <a target="_blank" href="https://github.com/typst/typst">Typst</a> 是一个基于标记语言的排版系统，它的追求是和 Latex 一样强大，但是设计上更加易用。与 Latex 相比，优点是标记语言的语法更简单，不会出现一大堆的 <code>\function{}</code>, 整体界面看上去十分简洁；其次是配置起来也比 Latex 要方便不少，把整个文档分为各种模块，很便捷地可以对各个模块进行调整；最后是编译速度快，同时支持增量更新，在 Emacs 上使用十分良好。当然，缺点目前我自己道听途说，当然是因为这是新项目，生态没有那么完善，各种插件、第三方库、模板肯定没有 Latex 那么齐全。
 </p>
@@ -90,7 +90,7 @@
 
 <div id="outline-container-安装和命令行" class="outline-2">
 <h2 id="安装和命令行"><a href="#安装和命令行">安装和命令行</a></h2>
-<div class="outline-text-2" id="text-orgdce04b5">
+<div class="outline-text-2" id="text-org15f7b02">
 <div class="org-src-container">
 <pre>
 <code class="language-bash">sudo pacman -S typst</code>
@@ -105,7 +105,7 @@
 
 <div id="outline-container-文件后缀" class="outline-3">
 <h3 id="文件后缀"><a href="#文件后缀">文件后缀</a></h3>
-<div class="outline-text-3" id="text-org2974d30">
+<div class="outline-text-3" id="text-orgfa729d7">
 <p>
 文件后缀是 <code>.typ</code>, 即 typst 的前三个字母。
 </p>
@@ -114,7 +114,7 @@
 
 <div id="outline-container-编译" class="outline-3">
 <h3 id="编译"><a href="#编译">编译</a></h3>
-<div class="outline-text-3" id="text-org305fb10">
+<div class="outline-text-3" id="text-org3648539">
 <div class="org-src-container">
 <pre>
 <code class="language-bsah">typst compile input.typ [output.pdf]</code>
@@ -130,7 +130,7 @@
 
 <div id="outline-container-增量更新" class="outline-3">
 <h3 id="增量更新"><a href="#增量更新">增量更新</a></h3>
-<div class="outline-text-3" id="text-org557f474">
+<div class="outline-text-3" id="text-org3c692b2">
 <div class="org-src-container">
 <pre>
 <code class="language-bash">typst watch input.typ --open</code>
@@ -151,7 +151,7 @@
 
 <div id="outline-container-&#x2013;root" class="outline-3">
 <h3 id="&#x2013;root"><a href="#&#x2013;root">&#x2013;root</a></h3>
-<div class="outline-text-3" id="text-org7137f05">
+<div class="outline-text-3" id="text-orgf2b8303">
 <p>
 用于指定工作目录，之后调用包的时候，根目录就是这个指定的 root 目录。
 </p>
@@ -161,11 +161,11 @@
 
 <div id="outline-container-标记语法" class="outline-2">
 <h2 id="标记语法"><a href="#标记语法">标记语法</a></h2>
-<div class="outline-text-2" id="text-org2f20ec1">
+<div class="outline-text-2" id="text-orga0f2a06">
 </div>
 <div id="outline-container-块元素" class="outline-3">
 <h3 id="块元素"><a href="#块元素">块元素</a></h3>
-<div class="outline-text-3" id="text-org1492ba2">
+<div class="outline-text-3" id="text-orgb799e2f">
 <ul class="org-ul">
 <li>文本块：标记块元素被一对方括号 <code>[...]</code> 包裹，在其内部可以使用<a href="#标记">标记语言</a>。默认情况下，整个页面就是在一个标记块下。</li>
 <li>代码块： <code>#function()</code> or <code>#{...}</code>, 用于执行代码、调用函数。在块元素内部，需要在前面加 <code>#</code> 来表示执行函数，不然会被解析为普通文本</li>
@@ -180,7 +180,7 @@
 
 <div id="outline-container-标记" class="outline-3">
 <h3 id="标记"><a href="#标记">标记</a></h3>
-<div class="outline-text-3" id="text-org95d3fb1">
+<div class="outline-text-3" id="text-org6da9b05">
 <p>
 本质上调用的还是函数，只是因为常用，所以做了一些缩写。
 </p>
@@ -201,7 +201,7 @@
 
 <div id="outline-container-断行" class="outline-4">
 <h4 id="断行"><a href="#断行">断行</a></h4>
-<div class="outline-text-4" id="text-org5031da7">
+<div class="outline-text-4" id="text-org1d3dacc">
 <ul class="org-ul">
 <li>段落：两段之间用一个空行分隔</li>
 <li>断行：用一个反斜杠 <code>\</code> 表示断行</li>
@@ -211,7 +211,7 @@
 
 <div id="outline-container-强调" class="outline-4">
 <h4 id="强调"><a href="#强调">强调</a></h4>
-<div class="outline-text-4" id="text-org25f14ae">
+<div class="outline-text-4" id="text-org503a4c3">
 <ul class="org-ul">
 <li><code>*strong*</code> 加粗文本</li>
 <li><code>_emphasis_</code> 下划线</li>
@@ -221,7 +221,7 @@
 
 <div id="outline-container-注释" class="outline-4">
 <h4 id="注释"><a href="#注释">注释</a></h4>
-<div class="outline-text-4" id="text-orgf15287e">
+<div class="outline-text-4" id="text-orgf9cf302">
 <ul class="org-ul">
 <li><code>/* block */</code> 块注释</li>
 <li><code>//</code> 行注释</li>
@@ -231,7 +231,7 @@
 
 <div id="outline-container-标注 label" class="outline-4">
 <h4 id="标注 label"><a href="#标注 label">标注 label</a></h4>
-<div class="outline-text-4" id="text-org7bba2e8">
+<div class="outline-text-4" id="text-orgbd31d48">
 <p>
 在元素的后面使用 <code>&lt;name&gt;</code> 来创建一个名为 name 的 label, 可以用于链接和跳转，也可以对指定名称的 label 修改样式。
 </p>
@@ -240,7 +240,7 @@
 
 <div id="outline-container-链接" class="outline-4">
 <h4 id="链接"><a href="#链接">链接</a></h4>
-<div class="outline-text-4" id="text-orgb31058b">
+<div class="outline-text-4" id="text-org1ff7b8d">
 <p>
 可以直接是一个 url, 它会被识别为连接，或者用函数 <code>link(target, content)</code> 或 <code>#link(target)[content]</code>, 其中 target 是链接的目的地，可以是 label, 可以是 location, 也可以是一个字典包含页面的页码（从 1 开始）和 x,y 偏移（相对于页面上边和左边）。
 </p>
@@ -254,7 +254,7 @@
 
 <div id="outline-container-列表" class="outline-4">
 <h4 id="列表"><a href="#列表">列表</a></h4>
-<div class="outline-text-4" id="text-orgdf22490">
+<div class="outline-text-4" id="text-org198e62e">
 <ul class="org-ul">
 <li><code>- item</code> 表示无序列表</li>
 <li><code>+ item</code> 表示有序列表，它会自动编号</li>
@@ -265,7 +265,7 @@
 
 <div id="outline-container-术语" class="outline-4">
 <h4 id="术语"><a href="#术语">术语</a></h4>
-<div class="outline-text-4" id="text-orgae632d7">
+<div class="outline-text-4" id="text-org6803866">
 <p>
 语法： <code>/ Term: description</code>, 它类似于数学材料中的“定义”、“定理”等字眼。首先必须以斜杠开头，一个空格，加上术语的名字，一个冒号，后面是叙述。渲染出来的效果是： Term 会加粗，然后一段间距，然后是描述。如果描述是多行的，那么第二行开始都会有一个缩进。
 </p>

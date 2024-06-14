@@ -34,14 +34,14 @@
 <a href="/category/Mathematics.html">$Mathematics</a>
 </div>
 </div>
-<div class="mathblock definition" id="org50d351b">
+<div class="mathblock definition" id="org73fd9f2">
 <p><span class="number">Definition 5.1 </span>
 Let \(X,Y\), and let \(P(x,y)\) be a property pertaining to two objects \(x\in X, y\in Y\), such that for every \(x\in X\), there is exactly one \(y\in Y\) for which \(P(x,y)\) is true. We define the <b>function</b> \(f: X\to Y\) defined by \(P\) on the domain \(X\) and range \(Y\) to be the object which, given any input \(x\in X\), assigns an output \(f(x)\in Y\), defined to be the unique object \(f(x)\) for which \(P(x,f(x))\) is true.<sup class="fsup"><a id="fnr.1.1" class="footref" href="#fn.1" role="doc-backlink">[1]</a></sup>
 </p>
 
 </div>
 
-<div class="mathblock definition" id="org06c69b5">
+<div class="mathblock definition" id="orge6b401b">
 <p><span class="number">Definition 5.2 </span>
 Let \(a\in X\) and \(b\in Y\). We say that \(\lim_{x\to a} f(x) = b\) if
 </p>
@@ -52,20 +52,20 @@ Let \(a\in X\) and \(b\in Y\). We say that \(\lim_{x\to a} f(x) = b\) if
 
 </div>
 
-<div class="mathblock remark" id="org1b974cc">
+<div class="mathblock remark" id="org1a653a5">
 <p><span class="number">Remark 5.3 </span>
 If there exists \(r > 0\) such that \(B_r(a) \cap S = \varnothing\), then \(\lim_{x\to a}f(x) = b\) holds for every \(b\in Y\).
 </p>
 
 </div>
 
-<div class="mathblock proposition" id="org118d162">
+<div class="mathblock proposition" id="org8659a0a">
 <p><span class="number">Proposition 5.4 </span>
 If \(a\) is a limit point of \(S\), and \(\lim_{x\to a}f(x) = b, \lim_{x\to a} f(x) = b'\), then \(b=b'\).
 </p>
 
 </div>
-<div class="mathblock proof" id="org5172bc7">
+<div class="mathblock proof" id="org9f2eafe">
 <p><span class="number">Proof  </span>
 Suppose \(b\ne b'\), and \(d(b,b') = 3\epsilon\) where \(\epsilon\) is a positive real.
 </p>
@@ -85,13 +85,13 @@ Let \(\delta = \min\{\delta_1,\delta_2\}\). Then \(0 < d(x,a) < \delta \Rarr d(b
 </p>
 </div>
 
-<div class="mathblock lemma" id="org740f0bb">
+<div class="mathblock lemma" id="org3f08b0d">
 <p><span class="number">Lemma 5.5 </span>
 Let \(f:X\to\R\) be a function. If \(f\) is convergent at some point, then \(f\) is bounded.
 </p>
 
 </div>
-<div class="mathblock proof" id="org8acb3a5">
+<div class="mathblock proof" id="orgabd00e1">
 <p><span class="number">Proof  </span>
 Suppose that \(f\) is not bounded, i.e., \(\forall M > 0 \exists x\in X[|f(x)| > M]\).
 </p>
@@ -118,7 +118,7 @@ this is a contradiction. And hence \(f\) is bounded.
 </p>
 </div>
 
-<div class="mathblock proposition" id="org3c433c8">
+<div class="mathblock proposition" id="org641bf22">
 <p><span class="number">Proposition 5.6 </span>
 Let \((Y,d_y) = (\R^m, d_2)\) and \(f,g: S\to Y\), and let \(\lim_{x\to a} f(x) = b\) and \(\lim_{x\to a} g(x) = c\)
 </p>
@@ -129,7 +129,7 @@ Let \((Y,d_y) = (\R^m, d_2)\) and \(f,g: S\to Y\), and let \(\lim_{x\to a} f(x) 
 </ol>
 
 </div>
-<div class="mathblock proof" id="org5962220">
+<div class="mathblock proof" id="orgd37cc7c">
 <p><span class="number">Proof  </span>
 (for short)
 </p>
@@ -201,13 +201,13 @@ for some \(M_1,M_2 > 0\) since \(f,g\) are both bounded (by Lemma 5.5)
 </p>
 </div>
 
-<div class="mathblock proposition" id="org03c6ef5">
+<div class="mathblock proposition" id="org6e21db0">
 <p><span class="number">Proposition 5.7 </span>
 Let \(X,Y,Z\) be metric spaces, \(S \sube X, T \sube Y\), and \(f: S\to T, g: T\to Z\). If \(\lim_{x\to a} f(x) = b\), \(\lim_{y\to b} g(y) = c\) and \(b\notin f(S)\), then \(\lim_{x\to a} (g\circ f) (x) = c\).
 </p>
 
 </div>
-<div class="mathblock proof" id="org380d2cc">
+<div class="mathblock proof" id="org83906e2">
 <p><span class="number">Proof  </span>
 \[\forall \epsilon > 0 \exists \delta' > 0 \forall y \in T[d(y,b) < \delta' \Rarr d(g(y), c) < \epsilon]\]
 </p>
@@ -222,7 +222,7 @@ For this \(\delta' >0\), there exists a \(\delta >0\), such that for all \(x\in 
 </p>
 </div>
 
-<div class="mathblock remark" id="orgb055927">
+<div class="mathblock remark" id="orgfadac66">
 <p><span class="number">Remark 5.8 </span>
 If '\(b\notin f(S)\)' is not guaranteed, then the conclusion may be false. Here is an example.
 </p>
@@ -237,14 +237,14 @@ However, let \(h(x) = (g\circ f)(x) = 3x\) from \(\R\) to \([0, +\infty]\), then
 
 </div>
 
-<div class="mathblock definition" id="org4aa4c47">
+<div class="mathblock definition" id="org9590ee8">
 <p><span class="number">Definition 5.9 </span>(continuous functions) 
 Give a function \(f: S \to Y\), and \(a\in S\). We say that \(f\) is continuous at \(a\) if \(\lim_{x\to a} f(x) = f(a)\). Furthermore, we say \(f\) is a continuous function if it is continuous at <b>every</b> \(a\in S\).
 </p>
 
 </div>
 
-<div class="mathblock proposition" id="orgab4a172">
+<div class="mathblock proposition" id="orgf02592d">
 <p><span class="number">Proposition 5.10 </span>
 The following statements are equivalent:
 </p>
@@ -255,7 +255,7 @@ The following statements are equivalent:
 </ol>
 
 </div>
-<div class="mathblock proof" id="org954ee8b">
+<div class="mathblock proof" id="org47f495f">
 <p><span class="number">Proof  </span>
 <b>Proof 1-2</b>
 </p>
@@ -346,26 +346,26 @@ Thus \(f\) is continuous
 </p>
 </div>
 
-<div class="mathblock proposition" id="org78434d5">
+<div class="mathblock proposition" id="orga057b92">
 <p><span class="number">Proposition 5.11 </span>
 Let \(f: X\to Y, g: Y \to Z\) be functions. If \(f\) is continuous at \(a\) and \(g\) is continuous at \(f(a)\), then \(g\circ f\) is continuous at \(a\).
 </p>
 
 </div>
-<div class="mathblock proof" id="orga75539e">
+<div class="mathblock proof" id="orgc3ae9f2">
 <p><span class="number">Proof  </span>
 Similar as Proposition 5.7
 <span class="QED">□</span>
 </p>
 </div>
 
-<div class="mathblock lemma" id="orgedc40a0">
+<div class="mathblock lemma" id="org412d448">
 <p><span class="number">Lemma 5.12 </span>
 If \(f: X \to Y\), and \(A\sube B \sube Y\), then \(f^{-1}(A) \sube f^{-1}(B)\).
 </p>
 
 </div>
-<div class="mathblock proof" id="org4674e36">
+<div class="mathblock proof" id="orgd1e30dd">
 <p><span class="number">Proof  </span>
 Were this false, \(\exists x\in f^{-1}(A)[x\notin f^{-1}(B) \Lrarr f(x) \notin B]\).
 </p>
@@ -376,13 +376,13 @@ However, \(f(x)\sube A\sube B\), which makes a contradiction.
 </p>
 </div>
 
-<div class="mathblock proposition" id="org7e0b33c">
+<div class="mathblock proposition" id="org766d3a3">
 <p><span class="number">Proposition 5.13 </span>
 If \(f:X\to Y\) is continuous, \(K(\sube X)\) is compact, then \(f(K)(\sube Y)\) is also compact.
 </p>
 
 </div>
-<div class="mathblock proof" id="orgecda583">
+<div class="mathblock proof" id="org5e64e59">
 <p><span class="number">Proof  </span>
 For any given open cover \(V_\alpha(\alpha\in A)\) of \(f(K)\), i.e., \(f(K)\sube \bigcup_{\alpha\in A}V_\alpha}\).
 </p>
@@ -401,13 +401,13 @@ And hence, \(f(K) \sube \bigcup_{i = 1}^m V_{\alpha_i}\), which means \(f(K)\) i
 </p>
 </div>
 
-<div class="mathblock theorem" id="org00f2a57">
+<div class="mathblock theorem" id="orga0715cc">
 <p><span class="number">Theorem 5.14 </span>
 Given \(f:K(\sube X) \to \R\). If \(K\) is compact, then \(\max\{f(x)|x\in K\}\) and \(\min\{f(x)|x\in K\}\) exist.
 </p>
 
 </div>
-<div class="mathblock proof" id="org53ae4c7">
+<div class="mathblock proof" id="org78fcb2a">
 <p><span class="number">Proof  </span>
 By Proposition 5.13, \(f(K)\) is a compact set in \(\R\). By Heine-Borel theorem, \(f(K)\) is bounded and closed.
 </p>
@@ -430,13 +430,13 @@ i.e., \(\max f(K) = \sup f(K),\min f(K) = \inf f(K)\).
 </p>
 </div>
 
-<div class="mathblock theorem" id="orgc6f57b7">
+<div class="mathblock theorem" id="orgee1fa84">
 <p><span class="number">Theorem 5.15 </span>(the intermediate value theorem) 
 Let \(f:[a,b] \to \R\) be a continuous function. \(\forall L\in(f(a),f(b))\exists c\in [a,b][L=f(c)]\).
 </p>
 
 </div>
-<div class="mathblock proof" id="orgf686dcc">
+<div class="mathblock proof" id="orgc1ae341">
 <p><span class="number">Proof  </span>
 Without loss of generality, suppose that \(f(a) < f(b)\).
 </p>

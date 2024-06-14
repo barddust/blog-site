@@ -87,7 +87,7 @@
 
 <div id="outline-container-简介" class="outline-2">
 <h2 id="简介"><a href="#简介">简介</a></h2>
-<div class="outline-text-2" id="text-orgb6548a7">
+<div class="outline-text-2" id="text-org137b5bd">
 <p>
 在之前公司转正答辩做 PPT 的时候就已经萌生了这种想法了：<b>通过写代码来做 PPT</b> 。这种想法起源很简单， Latex 就是一个典型的例子嘛，丢弃鼠标，完全通过代码控制排版。当时想的是这种东西应该有很多成熟的项目，而后来没怎么做 PPT 也就忘了。直到前段时间刷到一个视频，它介绍了如何通过 Markdown 来做 PPT, 于是死灰复燃，开始折腾起来。跟 Org Mode 相关的项目也有，我试了几个：
 </p>
@@ -100,7 +100,7 @@
 
 <div id="outline-container-reveal.js vs spectacle.js" class="outline-3">
 <h3 id="reveal.js vs spectacle.js"><a href="#reveal.js vs spectacle.js">reveal.js vs spectacle.js</a></h3>
-<div class="outline-text-3" id="text-orgb769a9b">
+<div class="outline-text-3" id="text-orgf324e16">
 <p>
 reveal.js 把每个 frame 放到 section 下，具体可以去看官网。 spectacle.js 就类似传统的幻灯片。
 </p>
@@ -117,7 +117,7 @@ reveal.js 把每个 frame 放到 section 下，具体可以去看官网。 spect
 
 <div id="outline-container-Beamer" class="outline-3">
 <h3 id="Beamer"><a href="#Beamer">Beamer</a></h3>
-<div class="outline-text-3" id="text-org9b6647e">
+<div class="outline-text-3" id="text-org45236ef">
 <p>
 <a target="_blank" href="https://latex-beamer.com">Beamer</a> 属于 Latex 的一个库，通过 latex 文档生成幻灯片。我想的是它是 org mode 内置的，使用起来应该比较简单，事实上也很简单 -&#x2013;&#x2014; 如果你使用别人的样式的话。
 </p>
@@ -127,7 +127,7 @@ reveal.js 把每个 frame 放到 section 下，具体可以去看官网。 spect
 
 <div id="outline-container-安装" class="outline-2">
 <h2 id="安装"><a href="#安装">安装</a></h2>
-<div class="outline-text-2" id="text-orgb7a4e81">
+<div class="outline-text-2" id="text-org6951f10">
 <p>
 org-beamer 是 Org Mode 自带的，因此只需要安装 Beamer 相关的环境就行了。
 </p>
@@ -146,7 +146,7 @@ org-beamer 是 Org Mode 自带的，因此只需要安装 Beamer 相关的环境
 
 <div id="outline-container-Emacs 配置" class="outline-2">
 <h2 id="Emacs 配置"><a href="#Emacs 配置">Emacs 配置</a></h2>
-<div class="outline-text-2" id="text-org83ce940">
+<div class="outline-text-2" id="text-org785f802">
 <p>
 Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup class="fsup"><a id="fnr.1.1" class="footref" href="#fn.1" role="doc-backlink">[1]</a></sup> ：
 </p>
@@ -176,13 +176,13 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 
 <div id="outline-container-基本概念" class="outline-2">
 <h2 id="基本概念"><a href="#基本概念">基本概念</a></h2>
-<div class="outline-text-2" id="text-orgd37e1d0">
+<div class="outline-text-2" id="text-orgc49f687">
 <p>
 在 Beamer 中，架构如下所示：
 </p>
 
 
-<div id="orgcd26afb" class="figure">
+<div id="org1bd91ef" class="figure">
 <p><a href="/../assets/74ea50c747f593a18352f1b28ea40297.png" target="_blank">
 <img src="/../assets/74ea50c747f593a18352f1b28ea40297.png" alt="74ea50c747f593a18352f1b28ea40297.png" /></a>
 </p>
@@ -198,7 +198,7 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 
 <div id="outline-container-org-beamer 使用" class="outline-2">
 <h2 id="org-beamer 使用"><a href="#org-beamer 使用">org-beamer 使用</a></h2>
-<div class="outline-text-2" id="text-orge7b226a">
+<div class="outline-text-2" id="text-orgaf9aef5">
 <p>
 官方文档：《<a target="_blank" href="https://orgmode.org/org.html#Beamer-Export">The Org Manual</a>》
 </p>
@@ -206,7 +206,7 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 
 <div id="outline-container-编辑增强" class="outline-3">
 <h3 id="编辑增强"><a href="#编辑增强">编辑增强</a></h3>
-<div class="outline-text-3" id="text-org0d37bae">
+<div class="outline-text-3" id="text-orge15748e">
 <p>
 在 <code>.org</code> 里面加上头： <code>#+startup: beamer</code>, 可以提供额外的编辑帮助，比如补全标签、补全属性等。
 </p>
@@ -215,7 +215,7 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 
 <div id="outline-container-org-beamer-frame-level" class="outline-3">
 <h3 id="org-beamer-frame-level"><a href="#org-beamer-frame-level">org-beamer-frame-level</a></h3>
-<div class="outline-text-3" id="text-org0a7e896">
+<div class="outline-text-3" id="text-orgc342894">
 <p>
 首先要关注的是一个变量： <code>org-beamer-frame-level</code>, 在配置那里给它设成了 2 ，它的含义是：
 </p>
@@ -255,7 +255,7 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 </p>
 
 
-<div id="org8a1de0e" class="figure">
+<div id="orgd101420" class="figure">
 <p><a href="/../assets/bb4329ae061bdc2be8a07c77da6e5398.png" target="_blank">
 <img src="/../assets/bb4329ae061bdc2be8a07c77da6e5398.png" alt="bb4329ae061bdc2be8a07c77da6e5398.png" /></a>
 </p>
@@ -263,7 +263,7 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 </div>
 
 
-<div id="org06b9a10" class="figure">
+<div id="orgbee5ee1" class="figure">
 <p><a href="/../assets/4e7d7db91a0253da4f8719abd913695c.png" target="_blank">
 <img src="/../assets/4e7d7db91a0253da4f8719abd913695c.png" alt="4e7d7db91a0253da4f8719abd913695c.png" /></a>
 </p>
@@ -284,7 +284,7 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 
 <div id="outline-container-头信息" class="outline-3">
 <h3 id="头信息"><a href="#头信息">头信息</a></h3>
-<div class="outline-text-3" id="text-org0fd34e7">
+<div class="outline-text-3" id="text-org6bbba93">
 <p>
 文件设置头消息，然后 org-beamer 会根据模板为我们生成封面、页眉、页脚、侧边栏等。
 </p>
@@ -310,7 +310,7 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 </p>
 
 
-<div id="org2993f1b" class="figure">
+<div id="org56670cc" class="figure">
 <p><a href="/../assets/7f959236ee84bb4002de291819b86ddb.png" target="_blank">
 <img src="/../assets/7f959236ee84bb4002de291819b86ddb.png" alt="7f959236ee84bb4002de291819b86ddb.png" /></a>
 </p>
@@ -320,7 +320,7 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 
 <div id="outline-container-富文本" class="outline-3">
 <h3 id="富文本"><a href="#富文本">富文本</a></h3>
-<div class="outline-text-3" id="text-org98b881e">
+<div class="outline-text-3" id="text-orgf969925">
 <p>
 <b>强调</b>， <i>倾斜</i> 等富文本正常使用。
 </p>
@@ -329,7 +329,7 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 
 <div id="outline-container-Block 块" class="outline-3">
 <h3 id="Block 块"><a href="#Block 块">Block 块</a></h3>
-<div class="outline-text-3" id="text-orgdb64030">
+<div class="outline-text-3" id="text-org0673969">
 <p>
 根据前面的配置， 3 级标题及以上会被视作块，也就是每张 Frame 里面的小框框。
 </p>
@@ -337,7 +337,7 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 
 <div id="outline-container-类型" class="outline-4">
 <h4 id="类型"><a href="#类型">类型</a></h4>
-<div class="outline-text-4" id="text-org7f41040">
+<div class="outline-text-4" id="text-orgb2e48df">
 <p>
 在 Beamer 中有三种不同类型的 Block: 普通、警告和示例。通过设置标题的属性 <code>BEAMER_ENV</code> 来实现，三者分别对应的是 <code>block</code>, <code>alertblock</code>, <code>example</code>.
 </p>
@@ -366,7 +366,7 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 </div>
 
 
-<div id="org02daec8" class="figure">
+<div id="orge4eb9d5" class="figure">
 <p><a href="/../assets/1e31a03c15421b347c3f1c6754f676ae.png" target="_blank">
 <img src="/../assets/1e31a03c15421b347c3f1c6754f676ae.png" alt="1e31a03c15421b347c3f1c6754f676ae.png" /></a>
 </p>
@@ -384,7 +384,7 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 
 <div id="outline-container-宽度" class="outline-4">
 <h4 id="宽度"><a href="#宽度">宽度</a></h4>
-<div class="outline-text-4" id="text-org8605652">
+<div class="outline-text-4" id="text-orgd864a6d">
 <p>
 通过标题属性 <code>BEAMER_COL</code> 来设置列宽。它是一个 [0,1] 区间上的一个小数，表示当前块宽度占整个 Frame 宽度的比例。如果相邻两个快的宽度之和小于 1 ，就可以实现两个并排的块。
 </p>
@@ -411,7 +411,7 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 
 <div id="outline-container-单行 columns" class="outline-3">
 <h3 id="单行 columns"><a href="#单行 columns">单行 columns</a></h3>
-<div class="outline-text-3" id="text-org8ad7961">
+<div class="outline-text-3" id="text-org5218731">
 <p>
 有一个 <code>BEAMER_ENV</code> 的值 <code>columns</code>, 它用于把它下面的标题变成块，使得它们都限定在当前行内。因此它可以做到无视块之间的间距，尽管它们可能会重合 <sup class="fsup"><a id="fnr.2.2" class="footref" href="#fn.2" role="doc-backlink">[2]</a></sup> 。
 </p>
@@ -455,7 +455,7 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 </div>
 
 
-<div id="org387a2f7" class="figure">
+<div id="org0eace2a" class="figure">
 <p><a href="/../assets/4e49a651e9b27359b329383945e8ffa4.png" target="_blank">
 <img src="/../assets/4e49a651e9b27359b329383945e8ffa4.png" alt="4e49a651e9b27359b329383945e8ffa4.png" /></a>
 </p>
@@ -465,7 +465,7 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 
 <div id="outline-container-动画" class="outline-3">
 <h3 id="动画"><a href="#动画">动画</a></h3>
-<div class="outline-text-3" id="text-orgb9d0ae2">
+<div class="outline-text-3" id="text-org47def33">
 <p>
 “动画”是给伪概念， PDF 哪来的动画一说，只能说是简单的通过重叠重复的方式来实现块元素的出现和消失。
 </p>
@@ -473,7 +473,7 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 
 <div id="outline-container-\pause" class="outline-4">
 <h4 id="\pause"><a href="#\pause">\pause</a></h4>
-<div class="outline-text-4" id="text-org3899691">
+<div class="outline-text-4" id="text-org9960a31">
 <p>
 \pause 就像断点一样，在当前处放了之后，演示到这里时会“停下”，即后续内容先不展示，下一页开始出现。
 </p>
@@ -486,7 +486,7 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 
 <div id="outline-container-块的动画" class="outline-4">
 <h4 id="块的动画"><a href="#块的动画">块的动画</a></h4>
-<div class="outline-text-4" id="text-org7ce4a9d">
+<div class="outline-text-4" id="text-org45673c3">
 <p>
 通过设置 <code>BEAMER_ACT</code> 属性来控制动画，其值用一对尖括号 <code>&lt;N&gt;</code> 包裹，其中 <code>N</code> 表示出现的位置。
 </p>
@@ -524,7 +524,7 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 </p>
 
 
-<div id="orgf788e57" class="figure">
+<div id="org56e6ad7" class="figure">
 <p><a href="/../assets/9f106b25006ed68d74bc2c1ef4d5c55c.png" target="_blank">
 <img src="/../assets/9f106b25006ed68d74bc2c1ef4d5c55c.png" alt="9f106b25006ed68d74bc2c1ef4d5c55c.png" /></a>
 </p>
@@ -569,7 +569,7 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 </div>
 
 
-<div id="org4c99e70" class="figure">
+<div id="orgd6a3337" class="figure">
 <p><a href="/../assets/4e83670e09f0b085287bd6405eaf91b9.png" target="_blank">
 <img src="/../assets/4e83670e09f0b085287bd6405eaf91b9.png" alt="4e83670e09f0b085287bd6405eaf91b9.png" /></a>
 </p>
@@ -584,7 +584,7 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 
 <div id="outline-container-文本强调" class="outline-4">
 <h4 id="文本强调"><a href="#文本强调">文本强调</a></h4>
-<div class="outline-text-4" id="text-orgf028b9c">
+<div class="outline-text-4" id="text-org5787f67">
 <p>
 给一段文本加上强调，在到达位置时会变色。先用 <code>*</code> 把文本包裹，然后在文本前加上命令： <code>*@@beamer:&lt;N&gt;@@要强调的文本*</code> 。
 </p>
@@ -601,7 +601,7 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 
 <div id="outline-container-列表" class="outline-4">
 <h4 id="列表"><a href="#列表">列表</a></h4>
-<div class="outline-text-4" id="text-orgd8367a2">
+<div class="outline-text-4" id="text-org312019b">
 <p>
 在列表前添加属性 <code>#+attr_beamer: :overlay &lt;+-&gt;</code> ，接下来列表的各项会依次出现，且出现过的一次出现。对于某一项，可以在其对应行开头使用 <code>@@beamer:&lt;N&gt;@@</code> 单独设置。
 </p>
@@ -620,7 +620,7 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 </div>
 
 
-<div id="orgb58c1a7" class="figure">
+<div id="orgcb50391" class="figure">
 <p><a href="/../assets/1d663688f2f7426fb92b9e9b2a16d862.png" target="_blank">
 <img src="/../assets/1d663688f2f7426fb92b9e9b2a16d862.png" alt="1d663688f2f7426fb92b9e9b2a16d862.png" /></a>
 </p>
@@ -631,7 +631,7 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 
 <div id="outline-container-图片" class="outline-3">
 <h3 id="图片"><a href="#图片">图片</a></h3>
-<div class="outline-text-3" id="text-org16135b7">
+<div class="outline-text-3" id="text-orga55bbd3">
 <p>
 直接通过 Org Mode 的链接插入即可，通过 <code>#+attr_latex:</code> 来设置属性，比如常用的宽度 <code>:width .6\textwidth</code> , 或者是缩放 <code>:scale 0.5</code> ，标题 <code>:caption Title</code> 等等
 </p>
@@ -640,7 +640,7 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 
 <div id="outline-container-重复页面" class="outline-3">
 <h3 id="重复页面"><a href="#重复页面">重复页面</a></h3>
-<div class="outline-text-3" id="text-orgf08d7d0">
+<div class="outline-text-3" id="text-org549cc8c">
 <p>
 重复页面简单说就是复制之前的某个页面，比如讲到后面的内容，需要回顾前面的某些页面 <sup class="fsup"><a id="fnr.3.1" class="footref" href="#fn.3" role="doc-backlink">[3]</a></sup> 。
 </p>
@@ -666,7 +666,7 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 
 <div id="outline-container-其他 Latex 命令" class="outline-3">
 <h3 id="其他 Latex 命令"><a href="#其他 Latex 命令">其他 Latex 命令</a></h3>
-<div class="outline-text-3" id="text-orgdd9353a">
+<div class="outline-text-3" id="text-orgd5dab6d">
 <p>
 想使用额外的 Latex 命令，用 <code>@@beamer:code@@</code> 来执行。
 </p>
@@ -675,7 +675,7 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 
 <div id="outline-container-目录" class="outline-3">
 <h3 id="目录"><a href="#目录">目录</a></h3>
-<div class="outline-text-3" id="text-org171e34c">
+<div class="outline-text-3" id="text-org894be16">
 <p>
 开启目录： <code>#+options: toc: t</code>, 便会在封面首页之后插入一页目录页。
 </p>
@@ -697,7 +697,7 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 
 <div id="outline-container-自定义样式" class="outline-2">
 <h2 id="自定义样式"><a href="#自定义样式">自定义样式</a></h2>
-<div class="outline-text-2" id="text-orgec2fa34">
+<div class="outline-text-2" id="text-org42403c8">
 <p>
 这里给一个博主的博文，有很大帮助：《<a target="_blank" href="https://www.cnblogs.com/nangongergou/category/1840504.html">Latex - 随笔分类 - 南宫二狗 - 博客园</a>》，找到 Beamer 相关文章即可。
 </p>
@@ -705,7 +705,7 @@ Emacs 这边不需要太多配置，主要是解决中文相关的问题 <sup cl
 
 <div id="outline-container-结构" class="outline-3">
 <h3 id="结构"><a href="#结构">结构</a></h3>
-<div class="outline-text-3" id="text-org97da838">
+<div class="outline-text-3" id="text-org41408d8">
 <p>
 Beamer 将样式分为 4 块：
 </p>
