@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title> 轴对称且中心对称得周期性 - Ward of Bardust </title>
+<meta name="author" content="Bardust">
+<link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/static/Spectral/style.css">
+<link rel="stylesheet" href="/static/LXGWWenKai/style.css">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="stylesheet" href="/static/katex/katex.min.css">
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header">
+<div class="title">
+<a href="/">Ward of Bardust</a>
+</div>
+<div class="navigation">
+<a class="item" href="/archive.html">Archives</a>
+<a class="item" href="/taxonomy.html">Taxonomy</a>
+<a class="item" href="/about.html">About</a></div>
+</div>
+</div>
+<div id="content" class="content">
+<div class="post">
+<h1 class="title">轴对称且中心对称得周期性</h1>
+<div class="metadata">
+<div class="date"><span>2024-06-24</span></div>
+<div class="tags">
+<a class="tag" href="/tag/highschoolmath.html">#highschoolmath</a> <a class="tag" href="/tag/math.html">#math</a> <a class="tag" href="/tag/post.html">#post</a></div>
+<div class="category">
+<a href="/category/HMath.html">$HMath</a>
+</div>
+</div>
+<div class="mathblock proposition" id="org099e9d3">
+<p><span class="number">Proposition 1.1 </span>
+给定函数 \(f(x),x \in \R\). 若 \(f(x)\) 关于 \(x = x_0\) 轴对称，且 \(f(x)\) 关于 \((a,b)\) 中心对称，则 \(f(x)\) 为周期函数，且周期为 \(4|x_0 -a|\).
+</p>
+
+</div>
+
+<div class="mathblock proof" id="org56e76f7">
+<p><span class="number">Proof  </span>
+关于 \(x = x_0\) 轴对称，则 \(f(x + x_0)\) 为偶函数，有
+</p>
+
+
+\begin{equation}
+f(-x + x_0) = f(x+x_0)
+\end{equation}
+
+<p>
+关于 \((a,b)\) 中心对称，则 \(f(x + a) - b\) 为奇函数，有
+</p>
+
+\begin{equation}
+f(-x + a) - b = -f(x+a) + b
+\end{equation}
+
+<p>
+令 \(t + a = x + x_0 (*)\), 则 \(x = t + a - x_0\), 代入 (1) 得
+</p>
+
+\begin{equation}
+f( - t -a + 2x_0) = f(t + a)
+\end{equation}
+
+<p>
+联立 (2) 和 (3)，替换 (3) 中的 \(t\) 为 \(x\) ，得
+</p>
+
+<p>
+\[
+f( - x + a) = - f(-x - a + 2x_0) + 2b
+\]
+</p>
+
+<p>
+再换元，把负号换掉
+</p>
+
+<p>
+\[
+f(x + a) = - f(x - a + 2x_0) + 2b
+\]
+</p>
+
+<p>
+换元 \(t = x - a + 2x_0\) ，有
+</p>
+
+<p>
+\[
+f(t + 2(a - x_0)) = - f(t) + 2b
+\]
+</p>
+
+<p>
+最后换元 \(t = x + 2(a - x_0)\) ，于是
+</p>
+
+\begin{align*}
+f(x + 4(a - x_0)) &= - f(x + 2(a - x_0)) + 2b\\
+&= - (- f(x) + 2b) + 2b\\
+&= f(x)
+\end{align*}
+
+<p>
+即， \(f(x)\) 为周期函数，周期为 \(4(a_x_0)\).
+</p>
+
+<p>
+若在 \((*)\) 处针对另外一个方程换元，即令 \(t + x_0 = x + a\) 然后代入到 (2) 中，同样的操作会得到
+</p>
+
+<p>
+\[
+f(x + 4(x_0 - a)) = f(x)
+\]
+</p>
+
+<p>
+故，有
+</p>
+
+<p>
+\[
+f(x + 4|x_0 - a|) = f(x)
+\]
+</p>
+
+<p>
+即 \(f(x)\) 的周期为 \(4|x_0 - a|\).
+<span class="QED">□</span>
+</p>
+</div>
+
+<div class="mathblock question" id="orga4a5549">
+<p><span class="number">Question  </span>
+已知函数 \(f(x)\) 是 \(\R\) 上的偶函数，且 \(f(x)\) 的图像关于点 \((1,0)\) 对称，当 \(x\in[0,1]\) 时， \(f(x) = 2-2^x\) ，则 \(\sum_{i=0}^{2024}f(i)\) 的值为多少？
+</p>
+
+</div>
+
+<div class="mathblock solution" id="orge64391b">
+<p><span class="number">Solution  </span>
+由题可知，\(f(x)\) 关于 \(x = 0\) 轴对称，又关于 \((1,0)\) 中心对称，根据命题可得，\(f(x)\) 为周期函数，且周期 \(T = 4|0-1| = 4\).
+</p>
+
+<p>
+既知周期为 4，那么 \(\sum_{i=0}^{2024}f(i) = 506 times (f(0) + f(1) + f(2) + f(3)) + f(2024)\), 代入计算即可（实在懒得打了）。
+</p>
+
+<p>
+最后答案是 1.
+<span class="QED">□</span>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<center>
+Powered by <a href="https://orgmode.org">Org Mode</a>.
+</center>
+</div>
+<script src="/static/script.js"></script>
+<script defer src="/static/katex/katex.min.js"></script>
+<script defer src="/static/katex/auto-render.min.js"></script>
+<script src="/static/katex/script.js"></script></body>
+</html>
