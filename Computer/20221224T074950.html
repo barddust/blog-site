@@ -88,7 +88,7 @@
 
 <div id="outline-container-RIME 简介" class="outline-2">
 <h2 id="RIME 简介"><a href="#RIME 简介">RIME 简介</a></h2>
-<div class="outline-text-2" id="text-org775c1c7">
+<div class="outline-text-2" id="text-org8654b5d">
 <p>
 RIME, RIME Input Method Engine ，一个开源<b>输入法</b>项目，全平台，高度自定义。官网：<a target="_blank" href="https://rime.im">RIME | 中州韻輸入法引擎</a>。
 </p>
@@ -152,7 +152,7 @@ RIME, RIME Input Method Engine ，一个开源<b>输入法</b>项目，全平台
 
 <div id="outline-container-RIME 安装" class="outline-2">
 <h2 id="RIME 安装"><a href="#RIME 安装">RIME 安装</a></h2>
-<div class="outline-text-2" id="text-org622fd78">
+<div class="outline-text-2" id="text-org9f8a02d">
 <p>
 在 Arch Linux 下直接用包管理工具安装即可<sup class="fsup"><a id="fnr.1.1" class="footref" href="#fn.1" role="doc-backlink">[1]</a></sup>：
 </p>
@@ -175,7 +175,7 @@ RIME, RIME Input Method Engine ，一个开源<b>输入法</b>项目，全平台
 
 <div id="outline-container-安装双拼方案" class="outline-2">
 <h2 id="安装双拼方案"><a href="#安装双拼方案">安装双拼方案</a></h2>
-<div class="outline-text-2" id="text-org45bcb54">
+<div class="outline-text-2" id="text-org58c9b70">
 <p>
 rime 的输入方案是独立维护的，一些发行版可能以 librime 或者类似的包提供输入方案的下载<sup class="fsup"><a id="fnr.2.1" class="footref" href="#fn.2" role="doc-backlink">[2]</a></sup>。默认下 rime 并没有提供双拼的输入法，需要自己安装。
 </p>
@@ -183,7 +183,7 @@ rime 的输入方案是独立维护的，一些发行版可能以 librime 或者
 
 <div id="outline-container-东风破" class="outline-3">
 <h3 id="东风破"><a href="#东风破">东风破</a></h3>
-<div class="outline-text-3" id="text-org2fc51e1">
+<div class="outline-text-3" id="text-org457f161">
 <p>
 又一个花哨的名字，<a target="_blank" href="https://github.com/rime/plum">东风破</a>（plum）是 rime 的配置管理工具，用以安装输入方案。使用方法是在一个目录下安装东风破，不要求在 rime 配置目录下。
 </p>
@@ -235,7 +235,7 @@ cd plum
 
 <div id="outline-container-RIME 配置" class="outline-2">
 <h2 id="RIME 配置"><a href="#RIME 配置">RIME 配置</a></h2>
-<div class="outline-text-2" id="text-orgeba89ed">
+<div class="outline-text-2" id="text-orge98ad8c">
 <p>
 先来看一下目前为止我们的配置文件目录结构<sup class="fsup"><a id="fnr.3.1" class="footref" href="#fn.3" role="doc-backlink">[3]</a></sup>：
 </p>
@@ -263,7 +263,7 @@ cd plum
 
 <div id="outline-container-自定义配置" class="outline-3">
 <h3 id="自定义配置"><a href="#自定义配置">自定义配置</a></h3>
-<div class="outline-text-3" id="text-org1617361">
+<div class="outline-text-3" id="text-orgb84a94d">
 <p>
 <code>&lt;输入法&gt;.schema.yaml</code> 是默认的输入方案，它是最原始的，且不应该配修改。如果我们要对其进行配置，新建一个配置文件，名字 <code>&lt;输入法&gt;.custom.yaml</code> ，这就是对原配置的补充。当然也可以直接改 <code>schema.yaml</code> ，但建议是把补充写到 <code>custom.yaml</code> 下，所有的输入方案都是如此。
 </p>
@@ -276,7 +276,7 @@ cd plum
 
 <div id="outline-container-工作流" class="outline-3">
 <h3 id="工作流"><a href="#工作流">工作流</a></h3>
-<div class="outline-text-3" id="text-orgef62edb">
+<div class="outline-text-3" id="text-orgabcc986">
 <p>
 来简单看一下 rime 的配置信息传输流程
 </p>
@@ -296,7 +296,7 @@ B --&gt; |输入法补充配置| C(.custom.yaml)</pre>
 
 <div id="outline-container-全局配置" class="outline-3">
 <h3 id="全局配置"><a href="#全局配置">全局配置</a></h3>
-<div class="outline-text-3" id="text-orgfa4c614">
+<div class="outline-text-3" id="text-org2ee5c88">
 <p>
 来看一下我的全局配置 <code>default.custom.yaml</code> ，我将介绍这些配置的作用，至于更多、更详细的配置，需要移步到官网《<a target="_blank" href="https://github.com/rime/home/wiki/CustomizationGuide">Rime 定製指南</a>》。
 </p>
@@ -339,7 +339,7 @@ B --&gt; |输入法补充配置| C(.custom.yaml)</pre>
 
 <div id="outline-container-patch" class="outline-4">
 <h4 id="patch"><a href="#patch">patch</a></h4>
-<div class="outline-text-4" id="text-org792fb4a">
+<div class="outline-text-4" id="text-org1924d7c">
 <p>
 整个 <code>custom.yaml</code> 只有这一个根项 <code>patch</code> ，同样，输入法的 <code>custom.yaml</code> 也是由这个 <code>patch</code> 组成。可见它是作为补丁打到原方案上的，这是一种更优雅的方式。
 </p>
@@ -348,7 +348,7 @@ B --&gt; |输入法补充配置| C(.custom.yaml)</pre>
 
 <div id="outline-container-schema_list" class="outline-4">
 <h4 id="schema_list"><a href="#schema_list">schema_list</a></h4>
-<div class="outline-text-4" id="text-org4b3f57d">
+<div class="outline-text-4" id="text-org4d8cf2c">
 <p>
 输入方案列表，它会以配置文件作为根目录，向下去寻找方案。
 </p>
@@ -365,7 +365,7 @@ B --&gt; |输入法补充配置| C(.custom.yaml)</pre>
 
 <div id="outline-container-switcher" class="outline-4">
 <h4 id="switcher"><a href="#switcher">switcher</a></h4>
-<div class="outline-text-4" id="text-org0df402d">
+<div class="outline-text-4" id="text-org2253843">
 <p>
 切换器，定义输入法的切换行为。
 </p>
@@ -386,7 +386,7 @@ B --&gt; |输入法补充配置| C(.custom.yaml)</pre>
 
 <div id="outline-container-menu/page_size" class="outline-4">
 <h4 id="menu/page_size"><a href="#menu/page_size">menu/page_size</a></h4>
-<div class="outline-text-4" id="text-orge5ff3ab">
+<div class="outline-text-4" id="text-org77176ea">
 <p>
 指定候选词个数
 </p>
@@ -395,7 +395,7 @@ B --&gt; |输入法补充配置| C(.custom.yaml)</pre>
 
 <div id="outline-container-ascii_composer" class="outline-4">
 <h4 id="ascii_composer"><a href="#ascii_composer">ascii_composer</a></h4>
-<div class="outline-text-4" id="text-orgae6108c">
+<div class="outline-text-4" id="text-org19b5420">
 <p>
 指定特殊键的作用，参考的前辈的配置<sup class="fsup"><a id="fnr.4.1" class="footref" href="#fn.4" role="doc-backlink">[4]</a></sup>。
 </p>
@@ -405,7 +405,7 @@ B --&gt; |输入法补充配置| C(.custom.yaml)</pre>
 </p>
 
 
-<div id="org242dfbe" class="figure">
+<div id="org867c45d" class="figure">
 <p><a href="/../assets/178bd9fa3eabd186376bb8d19a4936ce.gif" target="_blank">
 <img src="/../assets/178bd9fa3eabd186376bb8d19a4936ce.gif" alt="178bd9fa3eabd186376bb8d19a4936ce.gif" /></a>
 </p>
@@ -419,7 +419,7 @@ B --&gt; |输入法补充配置| C(.custom.yaml)</pre>
 
 <div id="outline-container-key_binder/bindings" class="outline-4">
 <h4 id="key_binder/bindings"><a href="#key_binder/bindings">key_binder/bindings</a></h4>
-<div class="outline-text-4" id="text-org23fce30">
+<div class="outline-text-4" id="text-orga76ca33">
 <p>
 热键绑定，这里绑定的是 <code>-</code> <code>=</code> 用来翻页，也就是平时用的模式。然后加一个 <code>Ctrl+g</code> 不上屏直接退出，也就是 <code>clear</code> 。
 </p>
@@ -433,7 +433,7 @@ B --&gt; |输入法补充配置| C(.custom.yaml)</pre>
 
 <div id="outline-container-输入方案配置" class="outline-3">
 <h3 id="输入方案配置"><a href="#输入方案配置">输入方案配置</a></h3>
-<div class="outline-text-3" id="text-org07617ff">
+<div class="outline-text-3" id="text-orga4ce825">
 <p>
 接下来看具体的输入方案 <code>double_pinyin_flypy.custom.yaml</code> 的配置。
 </p>
@@ -497,7 +497,7 @@ B --&gt; |输入法补充配置| C(.custom.yaml)</pre>
 
 <div id="outline-container-switchers" class="outline-4">
 <h4 id="switchers"><a href="#switchers">switchers</a></h4>
-<div class="outline-text-4" id="text-org0f8457f">
+<div class="outline-text-4" id="text-org100743b">
 <p>
 这个对应的是初始化方案。
 </p>
@@ -514,7 +514,7 @@ B --&gt; |输入法补充配置| C(.custom.yaml)</pre>
 
 <div id="outline-container-translator/dictionary" class="outline-4">
 <h4 id="translator/dictionary"><a href="#translator/dictionary">translator/dictionary</a></h4>
-<div class="outline-text-4" id="text-orgd5aad9d">
+<div class="outline-text-4" id="text-org3066a20">
 <p>
 这个表示要添加的词典，后面会介绍（详见<a href="#词典配置">词典配置</a>）。
 </p>
@@ -523,7 +523,7 @@ B --&gt; |输入法补充配置| C(.custom.yaml)</pre>
 
 <div id="outline-container-punctuator/half_shape" class="outline-4">
 <h4 id="punctuator/half_shape"><a href="#punctuator/half_shape">punctuator/half_shape</a></h4>
-<div class="outline-text-4" id="text-org831271c">
+<div class="outline-text-4" id="text-org91a014b">
 <p>
 定义了“全角状态”（即中文输入状态）下的特殊符号的行为。
 </p>
@@ -560,7 +560,7 @@ B --&gt; |输入法补充配置| C(.custom.yaml)</pre>
 
 <div id="outline-container-custom_phrase" class="outline-4">
 <h4 id="custom_phrase"><a href="#custom_phrase">custom_phrase</a></h4>
-<div class="outline-text-4" id="text-org759bd45">
+<div class="outline-text-4" id="text-orgb0888c7">
 <p>
 这个才是真正意义上的自定义词典， 前面的 <code>translator/dictionary</code> 指的是外部的、人家写好的词典，而 <code>custom_phrase</code> 是我们自己去修订的词典。同样在后续介绍（详见）。
 </p>
@@ -574,7 +574,7 @@ B --&gt; |输入法补充配置| C(.custom.yaml)</pre>
 
 <div id="outline-container-外观定制" class="outline-3">
 <h3 id="外观定制"><a href="#外观定制">外观定制</a></h3>
-<div class="outline-text-3" id="text-org3540420">
+<div class="outline-text-3" id="text-org38d5476">
 <p>
 在 windows 和 macOS 下可以很好配置， ibus 也稍微能配置。这里指路：<a target="_blank" href="https://github.com/rime/home/wiki/CustomizationGuide#%E5%B0%8F%E7%8B%BC%E6%AF%AB%E5%A4%96%E8%A7%80%E8%A8%AD%E5%AE%9A">CustomizationGuide · rime/home Wiki · GitHub</a> 。
 </p>
@@ -596,7 +596,7 @@ B --&gt; |输入法补充配置| C(.custom.yaml)</pre>
 
 <div id="outline-container-词典配置" class="outline-3">
 <h3 id="词典配置"><a href="#词典配置">词典配置</a></h3>
-<div class="outline-text-3" id="text-org2b41c49">
+<div class="outline-text-3" id="text-org7d6be99">
 <p>
 我会把词典分为<b>外部词典</b>和<b>自定义词典</b>来讲，虽然说二者几乎是等价的 —— 虽然我的确说不出个一二三四，但分开的好处前面也提到了，就是后续管理方便。
 </p>
@@ -604,7 +604,7 @@ B --&gt; |输入法补充配置| C(.custom.yaml)</pre>
 
 <div id="outline-container-词典格式" class="outline-4">
 <h4 id="词典格式"><a href="#词典格式">词典格式</a></h4>
-<div class="outline-text-4" id="text-orgcf1f973">
+<div class="outline-text-4" id="text-org6ced662">
 <p>
 词典格式如下所示<sup class="fsup"><a id="fnr.5.1" class="footref" href="#fn.5" role="doc-backlink">[5]</a></sup>，字典总共有三列，分别是<b>字词</b>，<b>编码</b>（可选），<b>读音权重</b>（可选）：
 </p>
@@ -637,7 +637,7 @@ B --&gt; |输入法补充配置| C(.custom.yaml)</pre>
 
 <ul class="org-ul">
 <li><a id="字词"></a>字词<br />
-<div class="outline-text-5" id="text-org06302f3">
+<div class="outline-text-5" id="text-org9cf4a17">
 <p>
 字面意思，就是要输入的字（单字）或词组（多字）
 </p>
@@ -645,7 +645,7 @@ B --&gt; |输入法补充配置| C(.custom.yaml)</pre>
 </li>
 
 <li><a id="读音权重"></a>读音权重<br />
-<div class="outline-text-5" id="text-orgc664402">
+<div class="outline-text-5" id="text-orgce89977">
 <p>
 可以是非负整数，也可是是浮点数的百分比，用于纠正多音字的词组。
 </p>
@@ -653,7 +653,7 @@ B --&gt; |输入法补充配置| C(.custom.yaml)</pre>
 </li>
 
 <li><a id="编码"></a>编码<br />
-<div class="outline-text-5" id="text-orgbba1a90">
+<div class="outline-text-5" id="text-org085363c">
 <p>
 就是键盘按那些键会出现对应的字词，多个字用<b>空格</b>隔开。
 </p>
@@ -684,7 +684,7 @@ B --&gt; |输入法补充配置| C(.custom.yaml)</pre>
 
 <div id="outline-container-外部词典" class="outline-4">
 <h4 id="外部词典"><a href="#外部词典">外部词典</a></h4>
-<div class="outline-text-4" id="text-orga30db32">
+<div class="outline-text-4" id="text-org05dcefe">
 <p>
 形如 <code>&lt;Name&gt;.dict.yaml</code> 的配置文件，需要加入头配置<sup class="fsup"><a id="fnr.5.2" class="footref" href="#fn.5" role="doc-backlink">[5]</a></sup>：
 </p>
@@ -789,7 +789,7 @@ import_tables:
 
 <div id="outline-container-自定义词典" class="outline-4">
 <h4 id="自定义词典"><a href="#自定义词典">自定义词典</a></h4>
-<div class="outline-text-4" id="text-orgcfe20ef">
+<div class="outline-text-4" id="text-org3b1a080">
 <p>
 自定义词典是配置目录下的 <code>custom_phrase.txt</code> ，它不用写头信息，定义个编码即可（也算头信息把）：
 </p>
@@ -817,7 +817,7 @@ http://rime.im/	rime	1</code>
 
 <div id="outline-container-词典导入导出同步" class="outline-4">
 <h4 id="词典导入导出同步"><a href="#词典导入导出同步">词典导入导出同步</a></h4>
-<div class="outline-text-4" id="text-org5402d8f">
+<div class="outline-text-4" id="text-org728929a">
 <p>
 用 <code>librime</code> 编译出的工具 <code>rime_dict_manager</code> 来实现<sup class="fsup"><a id="fnr.3.2" class="footref" href="#fn.3" role="doc-backlink">[3]</a></sup>：
 </p>
@@ -843,7 +843,7 @@ options:
 
 <div id="outline-container-词典同步" class="outline-4">
 <h4 id="词典同步"><a href="#词典同步">词典同步</a></h4>
-<div class="outline-text-4" id="text-org61c344d">
+<div class="outline-text-4" id="text-orgf7f9a37">
 <p>
 设置 <code>installation.yaml</code> 里的 <code>sync_dir</code> 比如
 </p>
@@ -866,7 +866,7 @@ options:
 
 <div id="outline-container-部署" class="outline-3">
 <h3 id="部署"><a href="#部署">部署</a></h3>
-<div class="outline-text-3" id="text-org052cb36">
+<div class="outline-text-3" id="text-orga505017">
 <p>
 别忘了重新部署。因为添加了字典，部署时会花一点儿时间。
 </p>
@@ -876,7 +876,7 @@ options:
 
 <div id="outline-container-后记" class="outline-2">
 <h2 id="后记"><a href="#后记">后记</a></h2>
-<div class="outline-text-2" id="text-org635e099">
+<div class="outline-text-2" id="text-orga2a4f10">
 <p>
 呼，这也是给我折腾麻了。虽然用了 rime 一段时间了，但是一直没集中活力弄它，抄得官网和前辈大佬的配置得过且过。为了写这篇博客去学习了很多，输出倒逼输入真的可以。
 </p>
