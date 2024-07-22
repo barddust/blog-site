@@ -59,7 +59,7 @@
 
 <div id="outline-container-简介" class="outline-2">
 <h2 id="简介"><a href="#简介">简介</a></h2>
-<div class="outline-text-2" id="text-org98a6797">
+<div class="outline-text-2" id="text-org4cff70f">
 <p>
 目前博客已经搭建好了，下一步是要搭一个教程的站点。但是一个 GitHub 帐号只能有一个 Page 站点，而博客用到站点模板和教程用的模板是不一样的。博客是文集，因此文章的目录是随机杂乱的，即使是同一个标签，文章之间也不一定会有关联；教程是一系列文章的集合，顺序是固定的，前后具有很强的因果关系，不能打乱。
 </p>
@@ -72,7 +72,7 @@
 
 <div id="outline-container-多项目" class="outline-2">
 <h2 id="多项目"><a href="#多项目">多项目</a></h2>
-<div class="outline-text-2" id="text-orgf9723b2">
+<div class="outline-text-2" id="text-orga74208e">
 <p>
 以我为例，我的 GitHub 账户名是 <code>fingerknight</code> ，且我已经建了一个 GitHub Page （如果不会建，可以参考我写的《<a target="_blank" href="/Computer/20221223T144635.html#*Github Page 配置" target="_blank">基于 Hugo + Org Mode + Github Page 的静态站点搭建</a>》），仓库名是 <code>fingerknight.github.io</code> 。
 </p>
@@ -85,7 +85,7 @@
 
 <div id="outline-container-Hugo 配置" class="outline-2">
 <h2 id="Hugo 配置"><a href="#Hugo 配置">Hugo 配置</a></h2>
-<div class="outline-text-2" id="text-orgd863649">
+<div class="outline-text-2" id="text-org7687be3">
 <p>
 首先就是把配置文件里面的 <code>baseURL</code> 改成对应的 url ，比如前面说的 <code>https://fingerknight.github.io/math</code> 。<b>要注意的点来了</b>。
 </p>
@@ -93,7 +93,7 @@
 
 <div id="outline-container-配置文件里的路径" class="outline-3">
 <h3 id="配置文件里的路径"><a href="#配置文件里的路径">配置文件里的路径</a></h3>
-<div class="outline-text-3" id="text-org5f3e193">
+<div class="outline-text-3" id="text-org7a1fb2a">
 <p>
 这个要具体实测，跟主题的制作有关。比如我用的 <a target="_blank" href="https://github.com/dillonzq/LoveIt">LoveIt</a> 主题，在设置站点顶部目录的时候：
 </p>
@@ -127,7 +127,7 @@
 
 <div id="outline-container-静态资源的路径" class="outline-3">
 <h3 id="静态资源的路径"><a href="#静态资源的路径">静态资源的路径</a></h3>
-<div class="outline-text-3" id="text-org40c601f">
+<div class="outline-text-3" id="text-orga723076">
 <p>
 这个一定要加。原本所有静态资源都放在 <code>static</code> 目录下即可，现在多了一个子目录，因此要把静态资源移动到 <code>static/math</code> 目录下才正常能找到。而 <code>assets</code> 目录下又不用，里面的东西还是放到 <code>assets</code> 就可以。
 </p>
@@ -141,7 +141,7 @@
 
 <div id="outline-container-子域名" class="outline-2">
 <h2 id="子域名"><a href="#子域名">子域名</a></h2>
-<div class="outline-text-2" id="text-orgba93360">
+<div class="outline-text-2" id="text-orgfeee3b4">
 <p>
 子域名的话使用起来其实更简单，不过各个项目之前是子域名的关系，因此没办法在<b>当前子域名内通过简单的相对路径来跳转，只能写全 url</b> ，带来的问题就是不好维护，后续要改的话不简单。
 </p>
@@ -181,7 +181,7 @@ CNAME    @(www)    fingerknight.github.io</code>
 
 <div id="outline-container-子域名中 Hugo 配置文件里的路径" class="outline-3">
 <h3 id="子域名中 Hugo 配置文件里的路径"><a href="#子域名中 Hugo 配置文件里的路径">子域名中 Hugo 配置文件里的路径</a></h3>
-<div class="outline-text-3" id="text-org60d8bfe">
+<div class="outline-text-3" id="text-org10f66ca">
 <p>
 配置文件里面的 <code>baseURL</code> 改成对应的 url ， <code>https://math.fingerknight.icu/</code> 。其余的则都是<b>以根目录开始</b>。
 </p>
@@ -190,7 +190,7 @@ CNAME    @(www)    fingerknight.github.io</code>
 
 <div id="outline-container-子域名下静态资源的路径" class="outline-3">
 <h3 id="子域名下静态资源的路径"><a href="#子域名下静态资源的路径">子域名下静态资源的路径</a></h3>
-<div class="outline-text-3" id="text-orga90294c">
+<div class="outline-text-3" id="text-orgfd1c058">
 <p>
 <b>所有静态资源都以根目录出发</b>，因为已经是不同的域名、不同的地址了。
 </p>
