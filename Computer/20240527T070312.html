@@ -85,7 +85,7 @@
 
 <div id="outline-container-前言" class="outline-2">
 <h2 id="前言"><a href="#前言">前言</a></h2>
-<div class="outline-text-2" id="text-org4b8cb3e">
+<div class="outline-text-2" id="text-orgcba28e0">
 <p>
 我安装一直参考的是《<a target="_blank" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/">Arch Linux 安装使用教程 - ArchTutorial - Arch Linux Studio</a>》的教程。这里做一些精简，同时为了防止因为墙太厚访问不到教程。
 </p>
@@ -98,7 +98,7 @@
 
 <div id="outline-container-禁用 Reflector" class="outline-2">
 <h2 id="禁用 Reflector"><a href="#禁用 Reflector">禁用 Reflector</a></h2>
-<div class="outline-text-2" id="text-org226b283">
+<div class="outline-text-2" id="text-org1173b45">
 <div class="org-src-container">
 <pre>
 <code class="language-bash">systemctl stop reflector</code>
@@ -110,7 +110,7 @@
 
 <div id="outline-container-连接网络" class="outline-2">
 <h2 id="连接网络"><a href="#连接网络">连接网络</a></h2>
-<div class="outline-text-2" id="text-orge54d2f9">
+<div class="outline-text-2" id="text-org0d47868">
 <div class="org-src-container">
 <pre>
 <code class="language-bash">#执行iwctl命令，进入交互式命令行
@@ -134,7 +134,7 @@ exit</code>
 
 <div id="outline-container-更新系统时钟" class="outline-2">
 <h2 id="更新系统时钟"><a href="#更新系统时钟">更新系统时钟</a></h2>
-<div class="outline-text-2" id="text-orgc84e6f5">
+<div class="outline-text-2" id="text-orgc3f3cf0">
 <div class="org-src-container">
 <pre>
 <code class="language-bash">#将系统时间与网络时间进行同步
@@ -147,7 +147,7 @@ timedatectl set-ntp true</code>
 
 <div id="outline-container-分区" class="outline-2">
 <h2 id="分区"><a href="#分区">分区</a></h2>
-<div class="outline-text-2" id="text-orgfcb61e7">
+<div class="outline-text-2" id="text-org257c07c">
 <p>
 分三个区（一定要把 root 和 home 分开，下次再装系统的时候只用格式化 root, home 下的配置文件全部保留）：
 </p>
@@ -160,7 +160,7 @@ timedatectl set-ntp true</code>
 
 <div id="outline-container-磁盘类型转换" class="outline-3">
 <h3 id="磁盘类型转换"><a href="#磁盘类型转换">磁盘类型转换</a></h3>
-<div class="outline-text-3" id="text-org3cd559f">
+<div class="outline-text-3" id="text-org6b8f025">
 <div class="org-src-container">
 <pre>
 <code class="language-bash">#显示分区情况
@@ -183,7 +183,7 @@ parted /dev/sdx
 
 <div id="outline-container-分区操作" class="outline-3">
 <h3 id="分区操作"><a href="#分区操作">分区操作</a></h3>
-<div class="outline-text-3" id="text-orgd29f19b">
+<div class="outline-text-3" id="text-org769512d">
 <div class="org-src-container">
 <pre>
 <code class="language-bash"># 使用 cfdisk 执行分区操作,分配各个分区大小、类型
@@ -202,7 +202,7 @@ fdisk -l</code>
 
 <div id="outline-container-格式化" class="outline-3">
 <h3 id="格式化"><a href="#格式化">格式化</a></h3>
-<div class="outline-text-3" id="text-org2ac6f24">
+<div class="outline-text-3" id="text-org8dd50ba">
 <div class="org-src-container">
 <pre>
 <code class="language-bash">mkfs.ext4  /dev/sdax            #格式化根目录和home目录的两个分区
@@ -215,7 +215,7 @@ mkfs.vfat  /dev/sdax            #格式化efi分区</code>
 
 <div id="outline-container-挂载" class="outline-3">
 <h3 id="挂载"><a href="#挂载">挂载</a></h3>
-<div class="outline-text-3" id="text-org229cbb5">
+<div class="outline-text-3" id="text-org346a703">
 <div class="org-src-container">
 <pre>
 <code class="language-bash">mount /dev/sdax  /mnt
@@ -232,11 +232,11 @@ mount /dev/sdax /mnt/home</code>
 
 <div id="outline-container-安装系统" class="outline-2">
 <h2 id="安装系统"><a href="#安装系统">安装系统</a></h2>
-<div class="outline-text-2" id="text-org6259f4b">
+<div class="outline-text-2" id="text-org7f0958c">
 </div>
 <div id="outline-container-更新镜像源" class="outline-3">
 <h3 id="更新镜像源"><a href="#更新镜像源">更新镜像源</a></h3>
-<div class="outline-text-3" id="text-org0fb98bb">
+<div class="outline-text-3" id="text-orgdf2ce9a">
 <div class="org-src-container">
 <pre>
 <code class="language-bash"># /etc/pacman.d/mirrorlist
@@ -259,7 +259,7 @@ Server = https://mirrors.cat.net/archlinux/$repo/os/$arch</code>
 
 <div id="outline-container-安装必需包" class="outline-3">
 <h3 id="安装必需包"><a href="#安装必需包">安装必需包</a></h3>
-<div class="outline-text-3" id="text-org9f90260">
+<div class="outline-text-3" id="text-orga9c3ee8">
 <div class="org-src-container">
 <pre>
 <code class="language-bash">pacstrap /mnt base base-devel linux linux-headers linux-firmware</code>
@@ -271,7 +271,7 @@ Server = https://mirrors.cat.net/archlinux/$repo/os/$arch</code>
 
 <div id="outline-container-安装功能性包" class="outline-3">
 <h3 id="安装功能性包"><a href="#安装功能性包">安装功能性包</a></h3>
-<div class="outline-text-3" id="text-org2db5afe">
+<div class="outline-text-3" id="text-orge312e4e">
 <div class="org-src-container">
 <pre>
 <code class="language-bash">pacstrap /mnt dhcpcd iwd vim bash-completion</code>
@@ -283,7 +283,7 @@ Server = https://mirrors.cat.net/archlinux/$repo/os/$arch</code>
 
 <div id="outline-container-生成磁盘 fstab 文件" class="outline-3">
 <h3 id="生成磁盘 fstab 文件"><a href="#生成磁盘 fstab 文件">生成磁盘 fstab 文件</a></h3>
-<div class="outline-text-3" id="text-org6f7d3c1">
+<div class="outline-text-3" id="text-org4a2c69a">
 <div class="org-src-container">
 <pre>
 <code class="language-bash">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</code>
@@ -295,7 +295,7 @@ Server = https://mirrors.cat.net/archlinux/$repo/os/$arch</code>
 
 <div id="outline-container-系统基本设置" class="outline-3">
 <h3 id="系统基本设置"><a href="#系统基本设置">系统基本设置</a></h3>
-<div class="outline-text-3" id="text-orgea59498">
+<div class="outline-text-3" id="text-org904953e">
 <div class="org-src-container">
 <pre>
 <code class="language-bash"># 切换环境到新系统下
@@ -308,7 +308,7 @@ arch-chroot /mnt</code>
 
 <div id="outline-container-时区设置" class="outline-3">
 <h3 id="时区设置"><a href="#时区设置">时区设置</a></h3>
-<div class="outline-text-3" id="text-orgbb793a3">
+<div class="outline-text-3" id="text-orgab91110">
 <div class="org-src-container">
 <pre>
 <code class="language-bash">ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
@@ -321,7 +321,7 @@ hwclock --systohc</code>
 
 <div id="outline-container-本地化设置" class="outline-3">
 <h3 id="本地化设置"><a href="#本地化设置">本地化设置</a></h3>
-<div class="outline-text-3" id="text-orgf49a4f3">
+<div class="outline-text-3" id="text-orgcd25efd">
 <p>
 编辑 <code>/etc/locale.gen</code>, 去掉 <code>en_US.UTF-8</code> 所在行以及 <code>zh_CN.UTF-8</code> 所在行的注释。然后：
 </p>
@@ -337,7 +337,7 @@ echo 'LANG=en_US.UTF-8'  &gt; /etc/locale.conf</code>
 
 <div id="outline-container-设置主机名" class="outline-3">
 <h3 id="设置主机名"><a href="#设置主机名">设置主机名</a></h3>
-<div class="outline-text-3" id="text-org1098c2e">
+<div class="outline-text-3" id="text-orgc97ec79">
 <div class="org-src-container">
 <pre>
 <code class="language-bash"># write HOST-NAME to /etc/hostname
@@ -357,7 +357,7 @@ passwd root</code>
 
 <div id="outline-container-安装微码" class="outline-3">
 <h3 id="安装微码"><a href="#安装微码">安装微码</a></h3>
-<div class="outline-text-3" id="text-orgb08c18d">
+<div class="outline-text-3" id="text-org4c7fe2f">
 <div class="org-src-container">
 <pre>
 <code class="language-bash">pacman -S intel-ucode   #Intel
@@ -370,7 +370,7 @@ pacman -S amd-ucode     #AMD</code>
 
 <div id="outline-container-安装引导程序" class="outline-3">
 <h3 id="安装引导程序"><a href="#安装引导程序">安装引导程序</a></h3>
-<div class="outline-text-3" id="text-org645404b">
+<div class="outline-text-3" id="text-org21f1b67">
 <div class="org-src-container">
 <pre>
 <code class="language-bash">pacman -S grub efibootmgr
@@ -395,7 +395,7 @@ grub-mkconfig -o /boot/grub/grub.cfg</code>
 
 <div id="outline-container-基础安装完成" class="outline-3">
 <h3 id="基础安装完成"><a href="#基础安装完成">基础安装完成</a></h3>
-<div class="outline-text-3" id="text-orgd310592">
+<div class="outline-text-3" id="text-org4ca5bdb">
 <div class="org-src-container">
 <pre>
 <code class="language-bash"># 退回安装环境
@@ -418,7 +418,7 @@ systemctl start iwd</code>
 
 <div id="outline-container-系统基础设置" class="outline-2">
 <h2 id="系统基础设置"><a href="#系统基础设置">系统基础设置</a></h2>
-<div class="outline-text-2" id="text-orge9666d9">
+<div class="outline-text-2" id="text-orgdfeb8f7">
 <p>
 先升级一遍系统包
 </p>
@@ -433,7 +433,7 @@ systemctl start iwd</code>
 
 <div id="outline-container-新建非 root 用户" class="outline-2">
 <h2 id="新建非 root 用户"><a href="#新建非 root 用户">新建非 root 用户</a></h2>
-<div class="outline-text-2" id="text-org9078299">
+<div class="outline-text-2" id="text-orgf594119">
 <div class="org-src-container">
 <pre>
 <code class="language-bash">useradd -m -G wheel -s /bin/bash USER
@@ -451,7 +451,7 @@ EDITOR=vim visudo
 
 <div id="outline-container-设置交换文件 swap" class="outline-2">
 <h2 id="设置交换文件 swap"><a href="#设置交换文件 swap">设置交换文件 swap</a></h2>
-<div class="outline-text-2" id="text-org6e60365">
+<div class="outline-text-2" id="text-org4abaecd">
 <div class="org-src-container">
 <pre>
 <code class="language-bash"># 创建4G的交换空间 大小根据需要自定
@@ -472,11 +472,11 @@ swapon /swapfile
 
 <div id="outline-container-安装 yay" class="outline-2">
 <h2 id="安装 yay"><a href="#安装 yay">安装 yay</a></h2>
-<div class="outline-text-2" id="text-orgf9291d5">
+<div class="outline-text-2" id="text-org2ed0eec">
 </div>
 <div id="outline-container-Original Source" class="outline-3">
 <h3 id="Original Source"><a href="#Original Source">Original Source</a></h3>
-<div class="outline-text-3" id="text-org3c6110c">
+<div class="outline-text-3" id="text-org4865554">
 <div class="org-src-container">
 <pre>
 <code class="language-bash">pacman -S --needed git base-devel
@@ -490,7 +490,7 @@ makepkg -si</code>
 </div>
 <div id="outline-container-Arch Linux Studio Source" class="outline-3">
 <h3 id="Arch Linux Studio Source"><a href="#Arch Linux Studio Source">Arch Linux Studio Source</a></h3>
-<div class="outline-text-3" id="text-orgf28ccb0">
+<div class="outline-text-3" id="text-orgb4cea66">
 <div class="org-src-container">
 <pre>
 <code class="language-bash">wget https://raw.githubusercontent.com/ArchLinuxStudio/ArchLinuxTutorial/master/docs/res/yay-bin-11.1.2-1-x86_64.pkg.tar.zst
@@ -504,7 +504,7 @@ sudo pacman -U yay-bin-11.1.2-1-x86_64.pkg.tar.zst</code>
 
 <div id="outline-container-基础性工具" class="outline-2">
 <h2 id="基础性工具"><a href="#基础性工具">基础性工具</a></h2>
-<div class="outline-text-2" id="text-org748b7b0">
+<div class="outline-text-2" id="text-org2756936">
 <div class="org-src-container">
 <pre>
 <code class="language-bash"># 声音固件
@@ -531,7 +531,7 @@ yay -S git wget networkmanager</code>
 
 <div id="outline-container-DNS 配置" class="outline-2">
 <h2 id="DNS 配置"><a href="#DNS 配置">DNS 配置</a></h2>
-<div class="outline-text-2" id="text-org7c8bbb2">
+<div class="outline-text-2" id="text-org219cf0d">
 <div class="org-src-container">
 <pre>
 <code class="language-bash"># /etc/resolv.conf
@@ -549,7 +549,7 @@ chattr +i /etc/resolv.conf</code>
 
 <div id="outline-container-开启 32 位库支持" class="outline-2">
 <h2 id="开启 32 位库支持"><a href="#开启 32 位库支持">开启 32 位库支持</a></h2>
-<div class="outline-text-2" id="text-org6b7a1c4">
+<div class="outline-text-2" id="text-org3e033ce">
 <div class="org-src-container">
 <pre>
 <code class="language-bash">vim /etc/pacman.conf
@@ -563,7 +563,7 @@ yay -Syyu</code>
 
 <div id="outline-container-以非 root 用户登录" class="outline-2">
 <h2 id="以非 root 用户登录"><a href="#以非 root 用户登录">以非 root 用户登录</a></h2>
-<div class="outline-text-2" id="text-org567e023">
+<div class="outline-text-2" id="text-org298efdc">
 <p>
 至此， Arch Linux 的安装基本完成，后续便是以非 root 用户启动，安装应用程序，配置 Hyprland.
 </p>
