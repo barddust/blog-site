@@ -65,7 +65,7 @@
 
 <div id="outline-container-起因" class="outline-2">
 <h2 id="起因"><a href="#起因">起因</a></h2>
-<div class="outline-text-2" id="text-org888729f">
+<div class="outline-text-2" id="text-org298a0c8">
 <p>
 最开始用的是 <a target="_blank" href="https://kde.org">KDE</a> 桌面，有一说一，它的 UI 真的很漂亮，自定义起来也很方便，很多东西都是可以直接用鼠标调的，不用真的去改配置文件。但是它最大的问题是<b>不稳定</b>，这也是我替换它的主要原因。时不时会遇到标题栏卡住、任务栏卡住的情况，鼠标键盘还能动，视频音乐也继续放着，但是鼠标关不掉窗口，只能重启解决。偶尔出现几次还能接受，但它最近频发让我有点难顶，因此打算换一个桌面 &#x2013; 等到后面如果 kde 6 优化起飞的话还是会换会 KDE, 用着真的爽。
 </p>
@@ -78,7 +78,7 @@
 
 <div id="outline-container-安装" class="outline-2">
 <h2 id="安装"><a href="#安装">安装</a></h2>
-<div class="outline-text-2" id="text-org398b764">
+<div class="outline-text-2" id="text-orgf245371">
 <div class="org-src-container">
 <pre>
 <code class="language-bash">sudo pacman -S gnome gdm gnome-tweaks gnome-browser-connector</code>
@@ -111,7 +111,7 @@ sudo systemctl disable gdm --now</code>
 
 <div id="outline-container-基本配置" class="outline-2">
 <h2 id="基本配置"><a href="#基本配置">基本配置</a></h2>
-<div class="outline-text-2" id="text-orgf914c96">
+<div class="outline-text-2" id="text-org2cbf8db">
 <p>
 这里不过多解释，通过 <code>系统设置</code> 和 <code>gnome-tweaks</code> 配置就行了。
 </p>
@@ -119,7 +119,7 @@ sudo systemctl disable gdm --now</code>
 
 <div id="outline-container-快捷键" class="outline-3">
 <h3 id="快捷键"><a href="#快捷键">快捷键</a></h3>
-<div class="outline-text-3" id="text-orgf956331">
+<div class="outline-text-3" id="text-org23e2838">
 <p>
 <code>系统设置</code> &gt; <code>键盘</code> 里面修改
 </p>
@@ -129,11 +129,11 @@ sudo systemctl disable gdm --now</code>
 
 <div id="outline-container-插件安装" class="outline-2">
 <h2 id="插件安装"><a href="#插件安装">插件安装</a></h2>
-<div class="outline-text-2" id="text-org74da8bb">
+<div class="outline-text-2" id="text-org9e45331">
 </div>
 <div id="outline-container-准备" class="outline-3">
 <h3 id="准备"><a href="#准备">准备</a></h3>
-<div class="outline-text-3" id="text-org7f9ea61">
+<div class="outline-text-3" id="text-org5092629">
 <p>
 过程可参见：<a target="_blank" href="https://wiki.gnome.org/action/show/Projects/GnomeShellIntegration/Installation">Projects/GnomeShellIntegration/Installation - GNOME Wiki!</a>
 </p>
@@ -147,7 +147,7 @@ sudo systemctl disable gdm --now</code>
 
 <div id="outline-container-使用" class="outline-3">
 <h3 id="使用"><a href="#使用">使用</a></h3>
-<div class="outline-text-3" id="text-org2896f53">
+<div class="outline-text-3" id="text-org05ecf26">
 <p>
 通过点击浏览器插件，或者直接访问 <a target="_blank" href="https://extensions.gnome.org">https://extensions.gnome.org</a> 进入插件管理界面。进入 <code>Installed entensions</code> 或者 <a target="_blank" href="https://extensions.gnome.org/local/">https://extensions.gnome.org/local/</a> 查看本地已安装的插件。注意要把 <code>Disable all extensions</code> 置为 <code>Off</code>
 </p>
@@ -156,7 +156,7 @@ sudo systemctl disable gdm --now</code>
 
 <div id="outline-container-插件列表" class="outline-3">
 <h3 id="插件列表"><a href="#插件列表">插件列表</a></h3>
-<div class="outline-text-3" id="text-orgcb4c0c8">
+<div class="outline-text-3" id="text-orgeab68c7">
 <ul class="org-ul">
 <li><a target="_blank" href="https://extensions.gnome.org/extension/779/clipboard-indicator/">Clipboard Indicator</a>: 任务栏添加剪切板托盘</li>
 <li><a target="_blank" href="https://extensions.gnome.org/extension/307/dash-to-dock/">Dash to Dock</a>: Dock 配置</li>
@@ -178,11 +178,11 @@ sudo systemctl disable gdm --now</code>
 
 <div id="outline-container-Miscellaneous" class="outline-2">
 <h2 id="Miscellaneous"><a href="#Miscellaneous">Miscellaneous</a></h2>
-<div class="outline-text-2" id="text-org1c18313">
+<div class="outline-text-2" id="text-orgdd9271a">
 </div>
 <div id="outline-container-修改 Alt + Tab 的行为" class="outline-3">
 <h3 id="修改 Alt + Tab 的行为"><a href="#修改 Alt + Tab 的行为">修改 Alt + Tab 的行为</a></h3>
-<div class="outline-text-3" id="text-orgab7b97e">
+<div class="outline-text-3" id="text-orge08e370">
 <p>
 gnome 的 <code>Alt+Tab</code> 默认是切换应用，如果一个应用开了多个窗口，只能转到最近使用的一个，或者在使用方向键控制。在设置里将 <code>Alt+Tab</code> 绑定到 <code>交换窗口</code> 即可 <sup class="fsup"><a id="fnr.1.1" class="footref" href="#fn.1" role="doc-backlink">[1]</a></sup>。
 </p>
@@ -191,7 +191,7 @@ gnome 的 <code>Alt+Tab</code> 默认是切换应用，如果一个应用开了�
 
 <div id="outline-container-卸除 KDE" class="outline-3">
 <h3 id="卸除 KDE"><a href="#卸除 KDE">卸除 KDE</a></h3>
-<div class="outline-text-3" id="text-org27095d6">
+<div class="outline-text-3" id="text-org0d3b7ae">
 <p>
 先把基本的东西卸除 <sup class="fsup"><a id="fnr.2.1" class="footref" href="#fn.2" role="doc-backlink">[2]</a></sup>：
 </p>
