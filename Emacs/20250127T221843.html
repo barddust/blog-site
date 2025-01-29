@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="/static/Spectral/style.css">
 <link rel="stylesheet" href="/static/LXGWWenKai/style.css">
 <link rel="stylesheet" href="/static/style.css">
+<link rel="stylesheet" href="/static/FantasqueSansMono/style.css"/>
+<link rel="stylesheet" href="/static/prism/style.css">
 </head>
 <body>
 <div id="preamble" class="status">
@@ -38,14 +40,30 @@
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
 <li><a href="#前言">前言</a></li>
+<li><a href="#准备">准备</a></li>
 <li><a href="#安装">安装</a></li>
+<li><a href="#使用">使用</a>
+<ul>
+<li><a href="#视图">视图</a></li>
+<li><a href="#笔记本">笔记本</a></li>
+<li><a href="#小组件">小组件</a></li>
+<li><a href="#不足">不足</a></li>
+</ul>
+</li>
+<li><a href="#PC 上的 Emacs">PC 上的 Emacs</a></li>
+<li><a href="#同步">同步</a>
+<ul>
+<li><a href="#手机端">手机端</a></li>
+<li><a href="#电脑端">电脑端</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 
 <div id="outline-container-前言" class="outline-2">
 <h2 id="前言"><a href="#前言">前言</a></h2>
-<div class="outline-text-2" id="text-org5a9cfd1">
+<div class="outline-text-2" id="text-org20b3e98">
 <p>
 我总是在自我的懒惰和散漫中尝试寻找秩序感，希望能用上 GTD(Getting Things Done) ，列出待办清单，重新掌控自己的生活。我现在已经是重度 Org Mode 的使用者，自然便想着用它来做任务管理。事实上更方便的操作自然是移动端，即手机上操作，方便快捷，随时记录。
 </p>
@@ -53,22 +71,242 @@
 <p>
 <a target="_blank" href="https://orgmode.org/tools.html">官方</a>给出了相关的工具，可以用来在移动端操作。之前用的 iPhone, 其平台支持的是 <a target="_blank" href="https://mobileorg.github.io/features/">OrgMobile</a>, 说实话，并不太好用，功能少，界面丑，交互性差。后来换了安卓机，下了个 Orgzly 来试试，发现效果出奇的好，于是写下这篇博客。
 </p>
+
+<p>
+Orgzly 的官网：<a target="_blank" href="https://www.orgzly.com/">Orgzly | Notes &amp; To-Do Lists</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-准备" class="outline-2">
+<h2 id="准备"><a href="#准备">准备</a></h2>
+<div class="outline-text-2" id="text-org2d4fa93">
+<p>
+Orgzly 目前只支持本地文件和 WebDav, 所以需要<b>自己准备一个服务器</b>。目前从阿里云迁移到京东云， WebDav 的搭建我会记录到另一篇博文上。
+</p>
 </div>
 </div>
 
 <div id="outline-container-安装" class="outline-2">
 <h2 id="安装"><a href="#安装">安装</a></h2>
-<div class="outline-text-2" id="text-org28f1995">
+<div class="outline-text-2" id="text-org1d8ea52">
+<ul class="org-ul">
+<li>手机上安装 Orgzly, 从<a target="_blank" href="https://github.com/orgzly/orgzly-android/releases">仓库</a>直接下载，或者在 <a target="_blank" href="https://f-droid.org/en/packages/com.orgzlyrevived/">F-droid</a> 下载。</li>
+<li>Web 服务器安装好，安装教程可以参加我的另一篇博文。</li>
+<li>电脑上 Emacs （废话）和 <a target="_blank" href="https://rsync.samba.org/">rsync</a> （用于同步）</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-使用" class="outline-2">
+<h2 id="使用"><a href="#使用">使用</a></h2>
+<div class="outline-text-2" id="text-orgcc2b377">
 <p>
-<a target="_blank" href="https://www.cnblogs.com/surplus/p/14238778.html">https://www.cnblogs.com/surplus/p/14238778.html</a>
+侧边栏有两个模块：视图模块，笔记本模块。
+</p>
+
+
+<div id="orgd88caba" class="figure">
+<p><a href="/../assets/fe1331673b224b81e14120328a87fb31.jpg" target="_blank">
+<img src="/../assets/fe1331673b224b81e14120328a87fb31.jpg" alt="fe1331673b224b81e14120328a87fb31.jpg" /></a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-视图" class="outline-3">
+<h3 id="视图"><a href="#视图">视图</a></h3>
+<div class="outline-text-3" id="text-org5687c8f">
+<p>
+就是 Agenda, 用来展示特定的代办事项，它自带了四个：
+</p>
+<ul class="org-ul">
+<li>Agenda: 一周之内所有未完成的项目</li>
+<li>Next 3 days: 接下来三天内未完成的项目</li>
+<li>Scheduled: 今天之内未完成的项目</li>
+<li>To Do: 所有未完成的项目</li>
+</ul>
+
+
+<div id="orgeec5983" class="figure">
+<p><a href="/../assets/24a8298eea852d7744e4a944dcbbac02.jpg" target="_blank">
+<img src="/../assets/24a8298eea852d7744e4a944dcbbac02.jpg" alt="24a8298eea852d7744e4a944dcbbac02.jpg" /></a>
+</p>
+</div>
+
+<p>
+它的真正名字叫搜索，可以快速找到相应的分类项目。可以点击侧边栏的“搜索”，会列出所有的视图，可以自定义。语法在<a target="_blank" href="https://www.orgzly.com/docs#search">官网</a>上有详细的介绍。目前来说基本够用，后续需要再添加。
+</p>
+</div>
+</div>
+
+<div id="outline-container-笔记本" class="outline-3">
+<h3 id="笔记本"><a href="#笔记本">笔记本</a></h3>
+<div class="outline-text-3" id="text-org1febe71">
+<p>
+每个笔记本就是一个 <code>org</code> 文件，点击打开之后显示所有项目。右侧加减号可以展开和折叠内容。
+</p>
+
+
+<div id="org21d83b9" class="figure">
+<p><a href="/../assets/fd4ae6b1ce886838233038e66e0e7b44.jpg" target="_blank">
+<img src="/../assets/fd4ae6b1ce886838233038e66e0e7b44.jpg" alt="fd4ae6b1ce886838233038e66e0e7b44.jpg" /></a>
+</p>
+</div>
+
+
+<p>
+最开始默认会给一个笔记本，里面包含了几乎所有的 org 语法在 Orgzly 上用法，自己看过一遍就懂了。
 </p>
 
 <p>
-<a target="_blank" href="https://www.orgzly.com/">https://www.orgzly.com/</a>
+新建项目，里面都有很详细的交互选项。
+</p>
+
+
+<div id="org4855112" class="figure">
+<p><a href="/../assets/1655d826fd85775fd8db59d413e7a9af.jpg" target="_blank">
+<img src="/../assets/1655d826fd85775fd8db59d413e7a9af.jpg" alt="1655d826fd85775fd8db59d413e7a9af.jpg" /></a>
+</p>
+</div>
+
+<p>
+TODO 的关键字可以在设置里的“笔记 &amp; 笔记本”里面找到。
+</p>
+</div>
+</div>
+
+<div id="outline-container-小组件" class="outline-3">
+<h3 id="小组件"><a href="#小组件">小组件</a></h3>
+<div class="outline-text-3" id="text-orgaca9870">
+<p>
+搭配小组件，就可以在主屏幕上快速操作：
+</p>
+<ul class="org-ul">
+<li>顶栏第一个四条横线 logo, 会打开 Orgzly 的主界面：</li>
+<li>顶栏第二个可以快速切换视图</li>
+<li>顶栏第三个是与 WebDav 同步</li>
+<li>顶栏第四个可以快速新建项目</li>
+<li>内容里的项目可以快速打钩</li>
+</ul>
+
+<p>
+整个组件简约，但是主要内容都有，设计得真的很好。
+</p>
+
+
+<div id="org09f2d08" class="figure">
+<p><a href="/../assets/efd0c9634ff14cd24dbde579875b9ff7.jpg" target="_blank">
+<img src="/../assets/efd0c9634ff14cd24dbde579875b9ff7.jpg" alt="efd0c9634ff14cd24dbde579875b9ff7.jpg" /></a>
 </p>
 </div>
 </div>
 </div>
+
+<div id="outline-container-不足" class="outline-3">
+<h3 id="不足"><a href="#不足">不足</a></h3>
+<div class="outline-text-3" id="text-orgf697bfe">
+<p>
+目前用下来不足的地方有两个。
+</p>
+
+<p>
+第一个是小组件没办法现实 Checkboxs, 需要打开主界面点开笔记去打钩。
+</p>
+
+<p>
+第二个是 TODO 状态下不同的关键词（如 todo, doing, wait）都用了同一个颜色。这个功能在 Issues 里，17 年就开始提了，目前还没有动静……连接：<a target="_blank" href="https://github.com/orgzly/orgzly-android/issues/139">STATE coloring · Issue #139 · orgzly/orgzly-android · GitHub</a>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-PC 上的 Emacs" class="outline-2">
+<h2 id="PC 上的 Emacs"><a href="#PC 上的 Emacs">PC 上的 Emacs</a></h2>
+<div class="outline-text-2" id="text-org8c12a93">
+<p>
+没有操作，正常 Org Mode 操作即可。
+</p>
+</div>
+</div>
+
+<div id="outline-container-同步" class="outline-2">
+<h2 id="同步"><a href="#同步">同步</a></h2>
+<div class="outline-text-2" id="text-org42fb6d4">
+<p>
+目前我用的 Sftpgo 来搭建 WebDav, 开放一个用户 <code>orgzly</code>, 给一个密码，设定它的根目录为 <code>/root/orgzly</code>. 服务器以地址 <code>127.0.0.1</code> 、用户 <code>root</code> 为例。我的云上用了密钥的，省去密码输入的部分，比方说密钥是 <code>~/key.pem</code>.
+</p>
+</div>
+
+<div id="outline-container-手机端" class="outline-3">
+<h3 id="手机端"><a href="#手机端">手机端</a></h3>
+<div class="outline-text-3" id="text-orgd475338">
+<p>
+在 Orgzly 的设置中打开“同步”，点击存储库就可以添加 WebDav 的地址了。可以设定自动同步，它会在某些特定的场合——比如新建笔记，进入或离开 App 的主界面——自动同步。我没有使用，每次需要在 PC 端操作时两端手动同步一下即可。
+</p>
+</div>
+</div>
+
+<div id="outline-container-电脑端" class="outline-3">
+<h3 id="电脑端"><a href="#电脑端">电脑端</a></h3>
+<div class="outline-text-3" id="text-org136c4e9">
+<p>
+通过 rsync 去同步。命令模板<sup class="fsup"><a id="fnr.1.1" class="footref" href="#fn.1" role="doc-backlink">[1]</a></sup>：
+</p>
+
+<div class="org-src-container">
+<pre>
+<code class="language-bash">rsync -avzP --delete -e 'ssh -p 22 -i ~/key.pem' src dst</code>
+</pre>
+
+</div>
+<p>
+为了自动话，定义两个 Elisp 函数，方便操作：
+</p>
+
+<div class="org-src-container">
+<pre>
+<code class="language-elisp">(setq
+ ;; 设定服务器中 orgzly 文件夹所在的根目录
+ dust/orgzly-remote-dir "root@127.0.0.1:/root/"
+ ;; 设定本地 orgzly 文件夹所在的根目录
+ dust/orgzly-local-dir (expand-file-name "~")
+ ;; Rsync 同步命令，如果不想用 orgzly 这个名字，
+ ;; 自行修改即可
+ dust/orgzly-sync-form "rsync -avzP --delete -e 'ssh -p 22 -i ~/key.pem' '%sorgzly' '%s'")
+(defun dust/orgzly-pull ()
+  "Pulling items from WebDav"
+  (interactive)
+  (shell-command (format dust/orgzly-sync-form
+                         dust/orgzly-remote-dir
+                         dust/orgzly-local-dir)))
+(defun dust/orgzly-push ()
+  "PUshing items to Webdav"
+  (interactive)
+  (shell-command (format dust/orgzly-sync-form
+                         dust/orgzly-local-dir
+                         dust/orgzly-remote-dir)))</code>
+</pre>
+
+</div>
+
+<p>
+每次电脑操作前先 <code>dust/orgzly-pull</code> 一下，操作完成后 <code>dust/orgzly-push</code> 就好了。
+</p>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div id="fn.1" class="footdef"><span class="footnum"> (1) </span><a class="foot2ref" href="#fnr.1.1" role="doc-backlink"> ⇑ </a>
+ <div class="footpara" role="doc-footnote"><p class="footpara">
+<a target="_blank" href="https://www.cnblogs.com/surplus/p/14238778.html">rsync推送和拉取 - 剩余价值 - 博客园</a>
+</p></div></div>
+
+
+</div>
+</div></div>
 </div>
 <div id="postamble" class="status">
 <center>
@@ -76,5 +314,6 @@ Powered by <a href="https://orgmode.org">Org Mode</a>.
 </center>
 </div>
 <script src="/static/script.js"></script>
+<script src="/static/prism/script.js"></script>
 </body>
 </html>
