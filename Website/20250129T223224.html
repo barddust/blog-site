@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title> 云服务器项目部署 - Ward of Bardust </title>
+<meta name="author" content="Bardust">
+<link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/static/Spectral/style.css">
+<link rel="stylesheet" href="/static/LXGWWenKai/style.css">
+<link rel="stylesheet" href="/static/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/static/FantasqueSansMono/style.css"/>
+<link rel="stylesheet" href="/static/prism/style.css">
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header">
+<div class="title">
+<a href="/">Ward of Bardust</a>
+</div>
+<div class="navigation">
+<a class="item" href="/archive.html">Archives</a>
+<a class="item" href="/taxonomy.html">Taxonomy</a>
+<a class="item" href="/about.html">About</a></div>
+</div>
+</div>
+<div id="content" class="content">
+<div class="post">
+<h1 class="title">云服务器项目部署</h1>
+<div class="metadata">
+<div class="date"><span>2025-01-29</span></div>
+<div class="tags">
+<a class="tag" href="/tag/post.html">#post</a> <a class="tag" href="/tag/server.html">#server</a> <a class="tag" href="/tag/webdav.html">#webdav</a></div>
+<div class="category">
+<a href="/category/Website.html">$Website</a>
+</div>
+</div>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#前言">前言</a></li>
+<li><a href="#Docker 部署项目">Docker 部署项目</a></li>
+<li><a href="#Memos">Memos</a></li>
+<li><a href="#Sftpgo">Sftpgo</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-前言" class="outline-2">
+<h2 id="前言"><a href="#前言">前言</a></h2>
+<div class="outline-text-2" id="text-orgeac2086">
+<p>
+之前买了个一年的阿里云服务器马上到期了，当时活动入手，不贵（具体是多少忘记了），现在续费要三百多一年。
+</p>
+
+<p>
+看到京东云有优惠，三年也是三百多，果断出手买下。
+</p>
+
+<p>
+配置：
+</p>
+<ul class="org-ul">
+<li>CPU：2核</li>
+<li>内存：2G</li>
+<li>带宽：3Mbp</li>
+<li>硬盘：40G</li>
+</ul>
+
+<p>
+本来就不跑什么项目，也不存什么大的东西，这点配置差不多。
+</p>
+</div>
+</div>
+
+<div id="outline-container-Docker 部署项目" class="outline-2">
+<h2 id="Docker 部署项目"><a href="#Docker 部署项目">Docker 部署项目</a></h2>
+<div class="outline-text-2" id="text-org8b208ad">
+<p>
+创建 <code>docker-composem.yml</code>:
+</p>
+
+<div class="org-src-container">
+<pre>
+<code class="language-yaml">services:
+  memos:
+    image: neosmemo/memos:stable
+    container_name: memos
+    volumes:
+      - ~/.memos/:/var/opt/memos
+    ports:
+      - 5230:5230
+
+  sftpgo:
+    image: drakkan/sftpgo:latest
+    container_name: sftpgo
+    ports:
+      - 8080:8080
+      - 13608:13608
+    volumes:
+      - /root/.sftpgo/data:/srv/sftpgo/data
+      - /root/.sftpgo/backups:/srv/sftpgo/backups
+      - /root/.sftpgo/home:/var/lib/sftpgo
+    environment:
+      TZ: Asia/Shanghai
+      SFTPGO_WEBDAVD__BINDINGS__0__PORT: 13608</code>
+</pre>
+
+</div>
+</div>
+</div>
+<div id="outline-container-Memos" class="outline-2">
+<h2 id="Memos"><a href="#Memos">Memos</a></h2>
+<div class="outline-text-2" id="text-org2b2352d">
+<p>
+一个自托管的笔记库，用于记录快速的、简单的想法，如摘抄。
+</p>
+
+<p>
+地址：<a target="_blank" href="https://github.com/usememos/memos">GitHub - usememos/memos: An open-source, lightweight note-taking solution. The pain-less way to create your meaningful notes. Your Notes, Your Way.</a>.
+</p>
+
+<p>
+手机上使用 <a target="_blank" href="https://github.com/mudkipme/MoeMemos">MoeMemos</a>, 它是 memos 的一个客户端。
+</p>
+</div>
+</div>
+
+<div id="outline-container-Sftpgo" class="outline-2">
+<h2 id="Sftpgo"><a href="#Sftpgo">Sftpgo</a></h2>
+<div class="outline-text-2" id="text-orga0f449b">
+<ul class="org-ul">
+<li><code>ports</code> 表明 sftpgo 要打开的端口，比如要用 13608 作为 webdav 的端口，那么就保留 8080 作为交互和 13608 即可</li>
+<li><code>enviroment</code> 可以配置 sftpgo.json 里面的内容</li>
+<li><code>volumes</code> 指定了持久化的数据目录。用户的数据存放在 <code>data</code> 下。</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<center>
+Powered by <a href="https://orgmode.org">Org Mode</a>.
+</center>
+</div>
+<script src="/static/script.js"></script>
+<script src="/static/prism/script.js"></script>
+</body>
+</html>
